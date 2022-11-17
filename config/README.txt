@@ -1,0 +1,1 @@
+devtypes directory contains configuration for each specific device type

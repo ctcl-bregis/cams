@@ -1,0 +1,5 @@
+{% include "cams_main_header.html" %}
+        <div class="btn-group-rlmenu">{% for btn in menu %}
+            <a href = {{ btn["link"] }}><button style="background-color: {{ btn["bgclr"] }}; color: {{ btn["fgclr"] }}">{{ btn["title"] }}</button></a>{% endfor %}
+        </div>
+{% include "cams_main_footer.html" %}
