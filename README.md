@@ -1,8 +1,9 @@
 # Introduction
 Codenamed: "Rainbow Trout" 
+
 CAMS means Computer Asset Management System, it was created in the need of a specialized asset/inventory management system software. 
-CAMS is heavily inspired by the fully custom-made inventory management software, commonly referred to as just "IMS", used by the small computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly.
-The IMS used by 2nd Life Inc. was written using the Ruby on Rails framework. CAMS is written in Python. 
+
+CAMS is heavily inspired by the fully custom-made inventory management software, commonly referred to as just "IMS", used by the small computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly. The IMS used by 2nd Life Inc. was written using the Ruby on Rails framework.
 
 This project is what originally introduced me to Python and programming in general. I am still realitively a beginner to Python and programming.
 
