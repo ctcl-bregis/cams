@@ -1,0 +1,23 @@
+name,col,cipn
+ID,inid,False
+Memory Generation,mgen,True
+Module Capacity in MBytes,mcap,True
+Total data bit width,ddbw,True
+Total ECC bit width,ddew,True
+Die count per package,dpkg,True
+Die capacity in Mbit,dcap,True
+Rated Speed (XMP) in MT/s,rspd,True
+Rated Voltage (XMP) in volts,rvlt,True
+Rated CAS Latency in clock cycles,tcal,True
+,,
+Memory IC brand,dbnd,True
+Memory IC die vendor,dvnd,True
+Memory IC part number,dmpn,False
+Memory IC revision,drev,True
+Register IC 1 vendor,riv1,False
+Register IC 1 part number,rip1,False
+Register IC 2 vendor,riv2,False
+Register IC 2 part number,rip2,False
+PMIC vendor,pmiv,False
+PMIC part number,pmip,False
+Notes,note,False

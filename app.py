@@ -14,6 +14,7 @@ from sqlalchemy.sql import func
 # Libraries within cams directory
 import flask_login
 from dbinit import init_db
+from forms import appsearch
 
 # Hard-coded user "database", this data should be stored in the DB later on
 users = {'ctcl': {'password': 'test123'}}
