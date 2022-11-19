@@ -26,12 +26,6 @@ Required Dependencies:
 - Flask-SQLAlchemy
 - Jinja2
 
-These libraries are integrated into CAMS itself to help simplify the installation process:
-
-- ReportLab
-- flask-login
-- qrcode
-
 #### Operating System
 CAMS was written mainly for use on FreeBSD and Linux-based operating systems. 
 
