@@ -54,9 +54,9 @@ hr {
 }
 
 .btn-group-rlmenu button {
-    background-color: #FF0000; /* this is used unless overridden by in-line styling */
+    background-color: #FFFFFF; /* this is used unless overridden by in-line styling */
     border: 1px solid #000000;
-    color: #FFFFFF;
+    color: #000000;
     padding: 10px 24px;
     cursor: pointer; 
     width: 100%; 

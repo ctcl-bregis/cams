@@ -7,6 +7,8 @@ CAMS is heavily inspired by the fully custom-made inventory management software,
 
 This project is what originally introduced me to Python and programming in general. I am still realitively a beginner to Python and programming.
 
+Intended Use: CAMS is fully custom to what I need out of an asset management system and may not be suitable for most applications. 
+
 ## Requirements
 CAMS is server-side software, no software is required to be installed on client systems other than just a browser. See below for browser requirements.
 

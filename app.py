@@ -14,7 +14,7 @@ from sqlalchemy.sql import func
 # Libraries within cams directory
 import flask_login
 from dbinit import init_db
-from forms import appsearch
+from forms import *
 
 # Hard-coded user "database", this data should be stored in the DB later on
 users = {'ctcl': {'password': 'test123'}}
@@ -136,11 +136,11 @@ def main_search():
 def main_new():
     currentuser = flask_login.current_user.id
     
-    with open("config/types/index.csv") as f:
+    with open("config/devtypes/devtypes.csv") as f:
         menulist = list(csv.DictReader(f))
     
     
-    return render_template("cams_new.html", title = "New Entry", user = currentuser, menu = menulist)
+    return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
 @cams.route("/main/id/<id>")
@@ -152,6 +152,15 @@ def main_id():
 @flask_login.login_required
 def main_mktag():
     return "Not Implemented", 404
+
+@cams.route("/main/new/memd", methods=["GET", "POST"])
+@flask_login.login_required
+def main_new_memd():
+    form = entry_memd()
+    if form.validate_on_submit():
+        return redirect("/main")
+    return render_template("cams_new_entry.html", form = form)
+
 
 
 @cams.route('/initdb')

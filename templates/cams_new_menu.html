@@ -1,0 +1,6 @@
+{% include "cams_main_header.html" %}
+    <h2>New Entry</h2>
+    <div class="btn-group-rlmenu">{% for btn in menu %}
+        <a href = "/main/new/{{ btn["table"] }}"><button>{{ btn["name"] }}</button></a>{% endfor %}
+    </div>
+{% include "cams_main_footer.html" %}
