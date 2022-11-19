@@ -9,7 +9,6 @@ Die capacity in Mbit,dcap,True
 Rated Speed (XMP) in MT/s,rspd,True
 Rated Voltage (XMP) in volts,rvlt,True
 Rated CAS Latency in clock cycles,tcal,True
-,,
 Memory IC brand,dbnd,True
 Memory IC die vendor,dvnd,True
 Memory IC part number,dmpn,False
