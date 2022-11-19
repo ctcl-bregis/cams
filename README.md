@@ -15,7 +15,7 @@ CAMS is server-side software, no software is required to be installed on client 
 ### Client (browser) requirements
 - HTML5
 - Cookies
-- ***Other details TBD***
+- **Other details TBD**
 
 ### Software (server-side)
 

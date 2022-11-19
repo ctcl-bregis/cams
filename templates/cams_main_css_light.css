@@ -1,78 +1,42 @@
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
+    color: #000000;
 }
 body {
     background-color: #FFFFFF;
     font-family: "arial";
 }
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #FF0000;
-}
-
-.navbar li {
-    float: left;
-}
-
-.navbar li a {
-    background-color: #FF0000;
-    border: none;
-    color: #FFFFFF;
-    padding: 10px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10pt;
-    cursor: pointer;
-}
-
-.navbar .active {
-    background-color: #FFFFFF;
-    color: #FF0000;
-}
-
 a {
     color: #0000FF;
     text-decoration: underline;
 }
-
-p {
+p, label {
     font-size: 12pt;
+    color: #000000;
 }
-
 hr {
     border-color: #FF0000;
 }
-
-
 .btn-group-rlmenu a:first-child button {
     border-top: solid 1px;
 }
-
 .btn-group-rlmenu button {
     background-color: #FFFFFF; /* this is used unless overridden by in-line styling */
     border: 1px solid #000000;
-    color: #000000;
+    color: #FFFFFF;
     padding: 10px 24px;
     cursor: pointer; 
     width: 100%; 
     display: block;
     border-top: none;
 }
-
 .btn-group-rlmenu a {
     text-decoration: none;
 }
-
 table {
     border-collapse: collapse;
     table-layout: fixed;
 }
-
 th, td {
     padding: 4px;
     text-align: left;
@@ -80,11 +44,9 @@ th, td {
     font-size: 8pt;
     word-wrap: break-word;
 }
-
 tr:nth-child(even) {
     background-color: #CCCCCC;
 }
-
 .red {
     color: #FF0000;
 }

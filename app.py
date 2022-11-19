@@ -14,7 +14,7 @@ from sqlalchemy.sql import func
 # Libraries within cams directory
 import flask_login
 from dbinit import init_db
-from forms import *
+import forms
 
 # Hard-coded user "database", this data should be stored in the DB later on
 users = {'ctcl': {'password': 'test123'}}
@@ -145,7 +145,7 @@ def main_new():
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
 @cams.route("/main/id/<id>")
 @flask_login.login_required
-def main_id():
+def main_id(id):
     return "Not Implemented", 404
         
 @cams.route("/main/mktag")
@@ -153,13 +153,28 @@ def main_id():
 def main_mktag():
     return "Not Implemented", 404
 
-@cams.route("/main/new/memd", methods=["GET", "POST"])
+@cams.route("/main/new/<devtype>", methods=["GET", "POST"])
 @flask_login.login_required
-def main_new_memd():
-    form = entry_memd()
+def main_new_entry(devtype):
+    with open("config/devtypes/devtypes.csv") as tables:
+        tables = csv.DictReader(tables)
+        tables = list(tables)
+        tables = [i['table'] for i in tables]
+        
+        if not devtype in tables:
+            return "Not Found", 404
+    
+    # Get class from forms module
+    form = getattr(forms, devtype)()
     if form.validate_on_submit():
         return redirect("/main")
-    return render_template("cams_new_entry.html", form = form)
+
+    with open(f"config/devtypes/{devtype}/cols.csv", "r") as tables:
+        tables = csv.DictReader(tables)
+        tables = list(tables)
+        fields = [i['col'] for i in tables]
+
+    return render_template("cams_new_entry.html", form = form, fields = fields)
 
 
 

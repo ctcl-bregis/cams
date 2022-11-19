@@ -3,7 +3,9 @@
     {% from "formhelpers.html" import render_field %}
     <form method="post">
         <dl>{% for i in form %}
-            {{ render_field(i) }}
+            {% if i.short_name in fields %}
+                {{ render_field(i) }}
+            {% endif %}
         {% endfor %}</dl>
         <p><input type="submit" value="Submit"></p>
     </form>
