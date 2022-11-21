@@ -164,17 +164,9 @@ def main_new_entry(devtype):
         if not devtype in tables:
             return "Not Found", 404
     
-    # Get class from forms module
-    form = getattr(forms, devtype)()
-    if form.validate_on_submit():
-        return redirect("/main")
+    form = forms.memd()
 
-    with open(f"config/devtypes/{devtype}/cols.csv", "r") as tables:
-        tables = csv.DictReader(tables)
-        tables = list(tables)
-        fields = [i['col'] for i in tables]
-
-    return render_template("cams_new_entry.html", form = form, fields = fields)
+    return render_template("cams_new_entry.html", form = form)
 
 
 
