@@ -148,11 +148,13 @@ def main_new():
 def main_id(id):
     return "Not Implemented", 404
         
+# Printable ID tag generation, coming later in development
 @cams.route("/main/mktag")
 @flask_login.login_required
 def main_mktag():
     return "Not Implemented", 404
 
+# New device entry
 @cams.route("/main/new/<devtype>", methods=["GET", "POST"])
 @flask_login.login_required
 def main_new_entry(devtype):
@@ -164,7 +166,12 @@ def main_new_entry(devtype):
         if not devtype in tables:
             return "Not Found", 404
     
-    form = forms.memd()
+    #form = forms.memd()
+    with open(f"config/devtypes/{devtype}/cols.csv") as f:
+            cols = list(csv.DictReader(f))
+    
+    form_factory()
+    
 
     return render_template("cams_new_entry.html", form = form)
 

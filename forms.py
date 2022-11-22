@@ -21,10 +21,18 @@ def getdropdown(col, path):
     choices = [(i,i) for i in choices]
     return choices
 
+# Form printer go brrrr
+def form_factory(fields):
+    class NewForm(Form):
+        pass
+
+    for f in fields:
+        pass
+
 class appsearch(Form):
     pass
 
-
+# This may not be needed anymore?
 class memd(Form):
 
     def __init__(self, *args, **kwargs):
@@ -39,6 +47,7 @@ class memd(Form):
                 choices = getdropdown(i['col'], "config/devtypes/memd/")
             
                 field = SelectField(i['name'], validators=[DataRequired()], choices = choices).bind(self, i['col'])
+                field.data = None
                 self._fields[i['col']] = field
             
             elif i['datatype'] == "disabled": 
