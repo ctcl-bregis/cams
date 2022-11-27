@@ -13,6 +13,28 @@ db_session = scoped_session(sessionmaker(autocommit = False, autoflush = False, 
 Base = declarative_base()
 Base.query = db_session.query_property()
 
-def init_db():
+def initdb():
     import models
     Base.metadata.create_all(bind = engine)
+
+def checkdb(db):
+    if not os.path.isfile(db): 
+        return False
+    
+    size = os.path.getsize(db)
+
+    # file is empty, give benefit of the doubt that its sqlite
+    # New sqlite3 files created in recent libraries are empty!
+    if size == 0: 
+        return True
+
+    # SQLite database file header is 100 bytes
+    if size < 100: 
+        return False
+    
+    # Validate file header
+    with open(db, 'rb') as fd: 
+        header = fd.read(100)    
+
+    return (header[:16] == b'SQLite format 3\x00')
+

@@ -8,30 +8,33 @@ from os.path import exists
 import csv
 import json
 import os
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
+from flask_sqlalchemy import SQLAlchemy
 
 # Libraries within cams directory
 import flask_login
-from dbinit import init_db
+from dbinit import initdb, checkdb
 import forms
 
 # Hard-coded user "database", this data should be stored in the DB later on
 users = {'ctcl': {'password': 'test123'}}
 
-cams = Flask(__name__)
+class User(flask_login.UserMixin):
+    pass
 
+cams = Flask(__name__)
+    
 # Location of the database file
 dbfile = "data/data.db"
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 cams.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, dbfile)
 cams.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+    
 db = SQLAlchemy(cams)
+db.init_app(cams)
 
-# Load key
-with open("key.txt") as f:
+with open("key.txt", "r") as f:
     key = f.readlines()[0]
     cams.secret_key = key
     del key
@@ -40,8 +43,6 @@ with open("key.txt") as f:
 login_manager = flask_login.LoginManager()
 login_manager.init_app(cams)
 
-class User(flask_login.UserMixin):
-    pass
 
 # Callback for login failure. May have this redirect to the login instead.
 @login_manager.unauthorized_handler
@@ -73,7 +74,16 @@ def logout():
     flask_login.logout_user()
     return 'Logged out'
 
-# 
+# Run every time
+@cams.before_request
+def before_request():
+    # Check if the DB is ready
+    if checkdb(dbfile):
+        pass
+    else:
+        redirect("/setup")
+        
+# Login page
 @cams.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -93,7 +103,7 @@ def login():
 def root():
     # Get the login cookie, if it exists or not
     login_cookie = request.cookies.get('session')
-
+    
     # NoneType if the cookie was not set
     if login_cookie == None:
         return redirect("/login")
@@ -116,11 +126,11 @@ def main_about_docs_main():
 def main():
     currentuser = flask_login.current_user.id
 
+    
+
     with open("config/menu.csv") as f:
         menulist = list(csv.DictReader(f))
         
-        
-
     return render_template("cams_main.html", title = "Main Menu", user = currentuser, menu = menulist)
 
 @cams.route("/main/search")
@@ -138,6 +148,9 @@ def main_new():
     
     with open("config/devtypes/devtypes.csv") as f:
         menulist = list(csv.DictReader(f))
+    
+    # TODO: Forms should be not initialized every time this page is loaded
+    
     
     
     return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
@@ -161,23 +174,26 @@ def main_new_entry(devtype):
     with open("config/devtypes/devtypes.csv") as tables:
         tables = csv.DictReader(tables)
         tables = list(tables)
-        tables = [i['table'] for i in tables]
+        table_keys = [i['table'] for i in tables]
+        print(tables)
         
-        if not devtype in tables:
+        if not devtype in table_keys:
             return "Not Found", 404
-    
+        else:
+            devtype_name = next((item for item in tables if item["table"] == devtype), None)
+            devtype_name = devtype_name["name"]
+        
+        
     #form = forms.memd()
     with open(f"config/devtypes/{devtype}/cols.csv") as f:
             cols = list(csv.DictReader(f))
     
-    form_factory()
+    form = forms.form_printer(cols, f"config/devtypes/{devtype}/")()
     
 
-    return render_template("cams_new_entry.html", form = form)
+    return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name)
+        
 
-
-
-@cams.route('/initdb')
-def initdb():
-    init_db()
-    return "db initialized"
+if __name__ == "__main__":
+    
+    create_app 

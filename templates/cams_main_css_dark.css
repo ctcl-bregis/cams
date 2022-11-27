@@ -20,22 +20,22 @@ code {
 hr {
     border-color: #FF0000;
 }
-.btn-group-rlmenu a:first-child button {
-    border-top: solid 1px;
-}
-.btn-group-rlmenu button {
-    background-color: #000000; /* this is used unless overridden by in-line styling */
+
+button.btn, input.btn {
+    background-color: #FFFFFF;
     border: 1px solid #FFFFFF;
-    color: #FFFFFF;
+    color: #000000;
     padding: 10px 24px;
     cursor: pointer; 
     width: 100%; 
     display: block;
-    border-top: none;
+    margin: 1px;
 }
-.btn-group-rlmenu a {
+
+a.btn {
     text-decoration: none;
 }
+
 table {
     border-collapse: collapse;
     table-layout: fixed;
@@ -52,4 +52,10 @@ tr:nth-child(even) {
 }
 .red {
     color: #FF0000;
+}
+textarea {
+    width: 100%;
+    max-width: 100%;
+    rows: 20;
+    resize: vertical;
 }

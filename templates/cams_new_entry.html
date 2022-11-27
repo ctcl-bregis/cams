@@ -2,10 +2,8 @@
     <h2>New Entry - {{ devtype }}</h2>
     {% from "formhelpers.html" import render_field %}
     <form method="post">
-        <dl>{% for i in form._fields %}
-            {{ render_field(form[i]) }}
-        {% endfor %}</dl>
-        <p><input type="submit" value="Submit"></p>
+        <dl>{% for i in form._fields %}{{ render_field(form[i]) }}{% endfor %}</dl>
+        <p><strong><input class="btn" type="submit" value="Submit"></strong></p>
     </form>
 </doctype>
 {% include "cams_main_footer.html" %}
