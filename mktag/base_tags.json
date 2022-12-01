@@ -5,6 +5,7 @@
             "docheight": 11,
             "docwidth": 8.5,
             "tagcount": 30,
+            "basetag": "tag_2x0_75.svg"
             "positions": {
                 "pos1": {"xpos": 0.618, "ypos": 0.618},
                 "pos2": {"xpos": 0.618, "ypos": 1.618},
