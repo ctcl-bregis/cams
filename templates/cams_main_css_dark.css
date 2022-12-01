@@ -10,17 +10,20 @@ a {
     color: #0000FF;
     text-decoration: underline;
 }
-p, label {
+p, code, label {
     font-size: 12pt;
-    color: #FFFFFF;
-}
-code {
     color: #FFFFFF;
 }
 hr {
     border-color: #FF0000;
 }
-
+input, textarea, button, select {
+    font-size: 12pt;
+    padding: 6pt;
+    width: 100%; 
+    max-width: 100%;
+    margin: 6pt;
+}
 button.btn, input.btn {
     background-color: #FFFFFF;
     border: 1px solid #FFFFFF;
@@ -32,11 +35,9 @@ button.btn, input.btn {
     margin: 2px;
     text-decoration: none;
 }
-
 a.btn {
     text-decoration: none;
 }
-
 table {
     border-collapse: collapse;
     table-layout: fixed;
@@ -57,6 +58,9 @@ tr:nth-child(even) {
 textarea {
     width: 100%;
     max-width: 100%;
-    rows: 20;
     resize: vertical;
+}
+dd {
+    margin: 0pt;
+    margin-inline-start: 0pt;
 }
