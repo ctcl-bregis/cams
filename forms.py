@@ -30,9 +30,15 @@ def form_printer(fields, ddpath):
         if f["datatype"] == "autointeger":
             pass
         elif f["datatype"] == "integer":
-            setattr(NewForm, f["col"], IntegerField(f["name"], validators = [NumberRange(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s}".format(f["min"],f["max"])), DataRequired()]))
+            if f["required"] == "True":
+                setattr(NewForm, f["col"], IntegerField(f["name"], validators = [NumberRange(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s}".format(f["min"],f["max"])), DataRequired()]))
+            else: 
+                setattr(NewForm, f["col"], IntegerField(f["name"], validators = [NumberRange(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s}".format(f["min"],f["max"]))]))
         elif f["datatype"] == "text":
-            setattr(NewForm, f["col"], StringField(f["name"], validators = [Length(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s} characters".format(f["min"],f["max"])), DataRequired()]))
+            if f["required"] == "True":
+                setattr(NewForm, f["col"], StringField(f["name"], validators = [Length(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s} characters".format(f["min"],f["max"])), DataRequired()]))
+            else:
+                setattr(NewForm, f["col"], StringField(f["name"], validators = [Length(min = f["min"], max = f["max"], message = "Value should be between {0!s} and {1!s} characters".format(f["min"],f["max"]))]))
         elif f["datatype"] == "textarea":
             setattr(NewForm, f["col"], TextAreaField(render_kw = {"rows": "20"}))
         elif f["datatype"] == "dropdown":
