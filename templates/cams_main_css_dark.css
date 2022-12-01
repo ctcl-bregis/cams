@@ -29,7 +29,8 @@ button.btn, input.btn {
     cursor: pointer; 
     width: 100%; 
     display: block;
-    margin: 1px;
+    margin: 2px;
+    text-decoration: none;
 }
 
 a.btn {

@@ -47,7 +47,7 @@ login_manager.init_app(cams)
 # Callback for login failure. May have this redirect to the login instead.
 @login_manager.unauthorized_handler
 def unauthorized_handler():
-    return 'Unauthorized', 401
+    return redirect("/login")
 
 @login_manager.user_loader
 def user_loader(username):
@@ -156,16 +156,12 @@ def main_new():
     return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
+# Planned actions: delete, mktag (make id tag), edit
 @cams.route("/main/id/<id>")
 @flask_login.login_required
 def main_id(id):
     return "Not Implemented", 404
-        
-# Printable ID tag generation, coming later in development
-@cams.route("/main/mktag")
-@flask_login.login_required
-def main_mktag():
-    return "Not Implemented", 404
+
 
 # New device entry
 @cams.route("/main/new/<devtype>", methods=["GET", "POST"])
@@ -175,8 +171,7 @@ def main_new_entry(devtype):
         tables = csv.DictReader(tables)
         tables = list(tables)
         table_keys = [i['table'] for i in tables]
-        print(tables)
-        
+
         if not devtype in table_keys:
             return "Not Found", 404
         else:
@@ -192,8 +187,3 @@ def main_new_entry(devtype):
     
 
     return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name)
-        
-
-if __name__ == "__main__":
-    
-    create_app 

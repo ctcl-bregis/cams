@@ -1,5 +1,5 @@
 {% include "cams_main_header.html" %}
-        <div class="btn-group-rlmenu">{% for btn in menu %}
-            <a href = {{ btn["link"] }}><button>{{ btn["title"] }}</button></a>{% endfor %}
-        </div>
+        <h2>{{ title }}</h2>
+        {% for btn in menu %}
+            <a href = {{ btn["link"] }} class = "btn"><button class="btn">{{ btn["title"] }}</button></a>{% endfor %}
 {% include "cams_main_footer.html" %}
