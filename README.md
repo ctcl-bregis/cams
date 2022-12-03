@@ -34,6 +34,10 @@ CAMS is mainly tested and written on systems using the x86-64 CPU architecture. 
 
 So far, CAMS is single-threaded and therefore does not make use of more than one processor core/thread.
 
+### Printing
+CAMS can make identification tags for parts and devices.
+
+For the best results, printing at 200, 400, 600, 800, 1000 or 1200 DPI is recommended.
 
 
 
