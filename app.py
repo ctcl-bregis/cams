@@ -147,10 +147,6 @@ def main_new():
     with open("config/devtypes/devtypes.csv") as f:
         menulist = list(csv.DictReader(f))
     
-    # TODO: Forms should be not initialized every time this page is loaded
-    
-    
-    
     return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
@@ -160,13 +156,11 @@ def main_new():
 def main_id(cid, action):
     return "Not Implemented", 404
     
-    
-
-
 # New device entry
 @cams.route("/main/new/<devtype>", methods=["GET", "POST"])
 @flask_login.login_required
 def main_new_entry(devtype):
+    
     currentuser = flask_login.current_user.id
 
     with open("config/devtypes/devtypes.csv") as tables:
@@ -183,9 +177,14 @@ def main_new_entry(devtype):
         
     #form = forms.memd()
     with open(f"config/devtypes/{devtype}/cols.csv") as f:
-            cols = list(csv.DictReader(f))
-    
+        cols = list(csv.DictReader(f))
+    # TODO: Forms should be not initialized every time a page is loaded that uses them
     form = forms.form_printer(cols)()
     
+    if form.validate_on_submit():
+        return redirect("/")
+    else:
+        return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
+        
 
-    return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
+

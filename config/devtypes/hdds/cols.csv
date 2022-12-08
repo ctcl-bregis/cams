@@ -1,0 +1,23 @@
+name,col,cipn,datatype,ddfile,min,max,required
+ID,inid,False,autointeger,,,,
+Memory Generation,mgen,True,dropdown,mgen.csv,,,
+Module Capacity,mcap,True,dropdown,mcap.csv,,,
+Total data bit width,ddbw,True,integer,,0,999,
+Total ECC bit width,ddew,True,integer,,0,99,
+Die count per package,dpkg,True,integer,,0,99,
+Die capacity,dcap,True,dropdown,dcap.csv,,,
+Rated Speed (XMP) in MT/s,rspd,True,integer,,0,999999,
+Rated Voltage (XMP) in volts,rvlt,True,numerical,,0,9.9,
+Rated CAS Latency in clock cycles,tcal,True,integer,,0,999,False
+Module Brand,mbnd,True,dropdown,mbnd.csv,,,
+Memory IC brand,dbnd,True,dropdown,dbnd.csv,,,
+Memory IC die vendor,dvnd,True,dropdown,dvnd.csv,,,
+Memory IC part number,dmpn,False,text,,0,64,False
+Memory IC revision,drev,True,dropdown,drev.csv,,,
+Register IC 1 vendor,riv1,False,dropdown,rvnd.csv,,,
+Register IC 1 part number,rip1,False,text,,0,64,False
+Register IC 2 vendor,riv2,False,dropdown,rvnd.csv,,,
+Register IC 2 part number,rip2,False,text,,0,64,False
+PMIC vendor,pmiv,False,dropdown,pmiv.csv,,,
+PMIC part number,pmip,False,text,,0,64,False
+Notes,note,False,textarea,,,,

@@ -9,7 +9,7 @@ Die capacity,dcap,True,dropdown,config/devtypes/memd/dcap.csv,,,
 Rated Speed (XMP) in MT/s,rspd,True,integer,,0,999999,
 Rated Voltage (XMP) in volts,rvlt,True,numerical,,0,9.9,
 Rated CAS Latency in clock cycles,tcal,True,integer,,0,999,False
-Module Brand,mbnd,True,dropdown,config/devtypes/memd/mbnd.csv,,,
+Module Brand,mbnd,True,dropdownjs,config/devtypes/memd/mbnd.csv,,,
 Memory IC brand,dbnd,True,dropdown,config/devtypes/memd/dbnd.csv,,,
 Memory IC die vendor,dvnd,True,dropdown,config/devtypes/memd/dvnd.csv,,,
 Memory IC part number,dmpn,False,text,,0,64,False
