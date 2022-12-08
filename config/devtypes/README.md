@@ -4,6 +4,15 @@ Each internal name, not the name displayed to the end user, is a four-letter acr
 
 The complexity of each device type varies greatly, some types such as servers and desktops are expected to contain over 30 fields.
 
+## Directories within this one
+
+### four-letter device type: memd, dtpc, etc.
+These directories contain configuration files for the device type
+
+### common
+This directory contains files that are used by multiple device types
+
+
 ## devtypes.csv
 
 ### Column: name

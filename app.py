@@ -185,7 +185,7 @@ def main_new_entry(devtype):
     with open(f"config/devtypes/{devtype}/cols.csv") as f:
             cols = list(csv.DictReader(f))
     
-    form = forms.form_printer(cols, f"config/devtypes/{devtype}/")()
+    form = forms.form_printer(cols)()
     
 
     return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)

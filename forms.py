@@ -42,7 +42,7 @@ def form_printer(fields, ddpath):
         elif f["datatype"] == "textarea":
             setattr(NewForm, f["col"], TextAreaField(render_kw = {"rows": "20"}))
         elif f["datatype"] == "dropdown":
-            with open(ddpath + f["ddfile"]) as ddfile:
+            with open(f["ddfile"]) as ddfile:
                 ddfile = list(csv.DictReader(ddfile))
                 ddfile = [i["name"] for i in ddfile]
             setattr(NewForm, f["col"], SelectField(f["name"], choices = ddfile))
