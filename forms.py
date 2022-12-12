@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm as Form
-from extlibs.wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField, Select2Field
-from extlibs.wtforms.validators import DataRequired, Length, NumberRange, Optional
+from wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField
+from wtforms.validators import DataRequired, Length, NumberRange, Optional
 import csv
 
 def getdropdown(col, path):
@@ -51,7 +51,7 @@ def form_printer(fields):
             with open(f["ddfile"]) as ddfile:
                 ddfile = list(csv.DictReader(ddfile))
                 ddfile = [i["name"] for i in ddfile]
-            setattr(NewForm, f["col"], Select2Field(f["name"], choices = ddfile))
+            setattr(NewForm, f["col"], SelectField(f["name"], choices = ddfile))
         
         # todo, not immediately needed
         # elif f["datatype"] == "multiple"
