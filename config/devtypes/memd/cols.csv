@@ -1,23 +1,23 @@
-name,col,cipn,datatype,ddfile,min,max,required
-ID,inid,False,autointeger,,,,
-Memory Generation,mgen,True,dropdown,config/devtypes/common/mgen.csv,,,
-Module Capacity,mcap,True,dropdown,config/devtypes/memd/mcap.csv,,,
-Total data bit width,ddbw,True,integer,,0,999,
-Total ECC bit width,ddew,True,integer,,0,99,
-Die count per package,dpkg,True,integer,,0,99,
-Die capacity,dcap,True,dropdown,config/devtypes/memd/dcap.csv,,,
-Rated Speed (XMP) in MT/s,rspd,True,integer,,0,999999,
-Rated Voltage (XMP) in volts,rvlt,True,numerical,,0,9.9,
-Rated CAS Latency in clock cycles,tcal,True,integer,,0,999,False
-Module Brand,mbnd,True,dropdownjs,config/devtypes/memd/mbnd.csv,,,
-Memory IC brand,dbnd,True,dropdown,config/devtypes/memd/dbnd.csv,,,
-Memory IC die vendor,dvnd,True,dropdown,config/devtypes/memd/dvnd.csv,,,
-Memory IC part number,dmpn,False,text,,0,64,False
-Memory IC revision,drev,True,dropdown,config/devtypes/memd/drev.csv,,,
-Register IC 1 vendor,riv1,False,dropdown,config/devtypes/memd/rvnd.csv,,,
-Register IC 1 part number,rip1,False,text,,0,64,False
-Register IC 2 vendor,riv2,False,dropdown,config/devtypes/memd/rvnd.csv,,,
-Register IC 2 part number,rip2,False,text,,0,64,False
-PMIC vendor,pmiv,False,dropdown,config/devtypes/memd/pmiv.csv,,,
-PMIC part number,pmip,False,text,,0,64,False
-Notes,note,False,textarea,,,,
+name,col,cipn,datatype,ddfile,min,max,step,required
+ID,inid,False,autointeger,,,,,
+Memory Generation,mgen,True,select,config/devtypes/common/mgen.csv,,,,
+Module Capacity,mcap,True,select,config/devtypes/memd/mcap.csv,,,,
+Total data bit width,ddbw,True,integer,,0,999,,
+Total ECC bit width,ddew,True,integer,,0,99,,
+Die count per package,dpkg,True,integer,,0,99,,
+Die capacity,dcap,True,select,config/devtypes/memd/dcap.csv,,,,
+Rated Speed (XMP) in MT/s,rspd,True,integer,,0,999999,1,
+Rated Voltage (XMP) in volts,rvlt,True,decimal,,0,9.9,0.05,
+Rated CAS Latency in clock cycles,tcal,True,integer,,0,999,1,False
+Module Brand,mbnd,True,select2,config/devtypes/memd/mbnd.csv,,,,
+Memory IC brand,dbnd,True,select,config/devtypes/memd/dbnd.csv,,,,
+Memory IC die vendor,dvnd,True,select,config/devtypes/memd/dvnd.csv,,,,
+Memory IC part number,dmpn,False,text,,0,64,,False
+Memory IC revision,drev,True,select,config/devtypes/memd/drev.csv,,,,
+Register IC 1 vendor,riv1,False,select,config/devtypes/memd/rvnd.csv,,,,
+Register IC 1 part number,rip1,False,text,,0,64,,False
+Register IC 2 vendor,riv2,False,select,config/devtypes/memd/rvnd.csv,,,,
+Register IC 2 part number,rip2,False,text,,0,64,,False
+PMIC vendor,pmiv,False,select,config/devtypes/memd/pmiv.csv,,,,
+PMIC part number,pmip,False,text,,0,64,,False
+Notes,note,False,textarea,,,,,

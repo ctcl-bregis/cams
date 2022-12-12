@@ -1,3 +1,0 @@
-name,col,cipn,datatype,ddfile,min,max,required
-ID,inid,False,autointeger,,,,
-Total capacity,tcap,True,dropdown,config/common/tcap.csv,,,
