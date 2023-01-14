@@ -1,5 +1,4 @@
 # CAMS by CrazyblocksTechnologies Computer Laboratories
-# Created - Last Updated: October 19, 2022 - November 3, 2022
 # Purpose: Main application code
 
 # External libraries
@@ -10,14 +9,15 @@ import json
 import os
 from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
+import flask_login
 
 # Libraries within cams directory
-import flask_login
 from dbinit import initdb, checkdb
 import forms
+import mktag
 
 # Hard-coded user "database", this data should be stored in the DB later on
-users = {'ctcl': {'password': 'test123'}}
+users = {'user': {'password': 'test123'}}
 
 class User(flask_login.UserMixin):
     pass
@@ -126,8 +126,6 @@ def main_about_docs_main():
 def main():
     currentuser = flask_login.current_user.id
 
-    
-
     with open("config/menu.csv") as f:
         menulist = list(csv.DictReader(f))
         
@@ -149,24 +147,22 @@ def main_new():
     with open("config/devtypes/devtypes.csv") as f:
         menulist = list(csv.DictReader(f))
     
-    # TODO: Forms should be not initialized every time this page is loaded
-    
-    
-    
     return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
 # Planned actions: delete, mktag (make id tag), edit
-@cams.route("/main/id/<id>")
+@cams.route("/main/id/<cid>/<action>")
 @flask_login.login_required
-def main_id(id):
+def main_id(cid, action):
     return "Not Implemented", 404
-
-
+    
 # New device entry
 @cams.route("/main/new/<devtype>", methods=["GET", "POST"])
 @flask_login.login_required
 def main_new_entry(devtype):
+    
+    currentuser = flask_login.current_user.id
+
     with open("config/devtypes/devtypes.csv") as tables:
         tables = csv.DictReader(tables)
         tables = list(tables)
@@ -181,9 +177,14 @@ def main_new_entry(devtype):
         
     #form = forms.memd()
     with open(f"config/devtypes/{devtype}/cols.csv") as f:
-            cols = list(csv.DictReader(f))
+        cols = list(csv.DictReader(f))
+    # TODO: Forms should be not initialized every time a page is loaded that uses them
+    form = forms.form_printer(cols)()
     
-    form = forms.form_printer(cols, f"config/devtypes/{devtype}/")()
-    
+    if form.validate_on_submit():
+        return redirect("/")
+    else:
+        return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
+        
 
-    return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name)
+

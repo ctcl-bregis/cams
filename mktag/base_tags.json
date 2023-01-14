@@ -1,51 +1,15 @@
 {
     "base_tags": {
-        "avery_94273": {
-            "name": "Avery 3/4\" x 2\" Blank Rectangle Labels sheet",
-            "description": ""
-            "docheight": 11,
-            "docwidth": 8.5,
-            "tagcount": 30,
-            "basetag": "tag_2x0_75.svg"
-            "positions": {
-                "pos1": {"xpos": 0.618, "ypos": 0.618},
-                "pos2": {"xpos": 0.618, "ypos": 1.618},
-                "pos3": {"xpos": 0.618, "ypos": 2.618},
-                "pos4": {"xpos": 0.618, "ypos": 3.618},
-                "pos5": {"xpos": 0.618, "ypos": 4.618},
-                "pos6": {"xpos": 0.618, "ypos": 5.618},
-                "pos7": {"xpos": 0.618, "ypos": 6.618},
-                "pos8": {"xpos": 0.618, "ypos": 7.618},
-                "pos9": {"xpos": 0.618, "ypos": 8.618},
-                "pos10": {"xpos": 0.618, "ypos": 9.618},
-                "pos11": {"xpos": 3.243, "ypos": 0.618},
-                "pos12": {"xpos": 3.243, "ypos": 1.618},
-                "pos13": {"xpos": 3.243, "ypos": 2.618},
-                "pos14": {"xpos": 3.243, "ypos": 3.618},
-                "pos15": {"xpos": 3.243, "ypos": 4.618},
-                "pos16": {"xpos": 3.243, "ypos": 5.618},
-                "pos17": {"xpos": 3.243, "ypos": 6.618},
-                "pos18": {"xpos": 3.243, "ypos": 7.618},
-                "pos19": {"xpos": 3.243, "ypos": 8.618},
-                "pos20": {"xpos": 3.243, "ypos": 9.618},
-                "pos21": {"xpos": 5.868, "ypos": 0.618},
-                "pos22": {"xpos": 5.868, "ypos": 1.618},
-                "pos23": {"xpos": 5.868, "ypos": 2.618},
-                "pos24": {"xpos": 5.868, "ypos": 3.618},
-                "pos25": {"xpos": 5.868, "ypos": 4.618},
-                "pos26": {"xpos": 5.868, "ypos": 5.618},
-                "pos27": {"xpos": 5.868, "ypos": 6.618},
-                "pos28": {"xpos": 5.868, "ypos": 7.618},
-                "pos29": {"xpos": 5.868, "ypos": 8.618},
-                "pos30": {"xpos": 5.868, "ypos": 9.618}
-            }
-        }
         "avery_5160": {
             "name": "Avery 5160 1\" x 2-5/8\"",
             "description": "Supports Avery 15660, 15700, 15960, 16460, 16790, 18160, 18260, 18660, 22837, 28660, 32660, 38260, 45160, 48160, 48260, 48360, 48460, 48860, 48960, 5136, 5260, 55160, 5520, 55360, 5620, 5630, 5660, 58160, 58660, 5960, 6240, 6521, 6525, 6526, 6585, 80509, 8160, 8215, 8250, 8460, 85560, 8620, 8660, 88560, 8860, 8920, 95520, 95915, Presta 94200",
+            "tagheight": 1,
+            "tagwidth": 2.625,
             "docheight": 11,
             "docwidth": 8.5,
             "tagcount": 30,
+            "qrversion": 5,
+            "qrecc": "H",
             "basetag": "tag_1x2_625.svg",
             "positions": {
                 "pos1": {"xpos": 0.187, "ypos": 0.5},

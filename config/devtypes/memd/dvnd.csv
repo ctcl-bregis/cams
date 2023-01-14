@@ -1,22 +1,23 @@
 name,cipn
 AMD,am
 ChangXin Memory Technologies (CXMT),cx
-Cypress Semiconductor,cy
+Cypress Semiconductor/Infineon Technologies,cy
 Elpida,el
-Hynix/SK hynix,sh
-Infineon Technologies,it
+Hyundai/Hynix/SK hynix,hy
+Intel,in
 LG Semiconductor,lg
 Micron Technology,mt
 Mitsubishi,mi
-Mosel,vm
+Mosel,ms
+Mosel Vitelic,mv
 Motorola,mo
 Nanya Technology,nt
 Powerchip (PSC),pc
 ProMOS Technologies,pm
-Qimonda,qi
+Qimonda/Infineon Technologies/Siemens,qi
 Samsung Electronics,se
 Texas Instruments,ti
 Toshiba,ts
 Vanguard International Semiconductor,vs
 Vitelic,vt
-Winbond Electronics,WB
+Winbond Electronics,wb
