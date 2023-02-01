@@ -1,5 +1,8 @@
-# CAMS by CrazyblocksTechnologies Computer Laboratories
+# CAMS Software
 # Purpose: Main application code
+# Date: ???, 2022 - Febuary 1, 2023
+# CrazyblocksTechnologies Computer Laboratories 2022-2023
+
 
 # External libraries
 from flask import Flask, render_template, request, redirect, url_for
@@ -15,8 +18,9 @@ import flask_login
 from dbinit import initdb, checkdb
 import forms
 import mktag
+from lib import csv2list
 
-# Hard-coded user "database", this data should be stored in the DB later on
+# Hard-coded user "database", this data should be stored in the DB later on and created during app setup
 users = {'user': {'password': 'test123'}}
 
 class User(flask_login.UserMixin):
@@ -111,14 +115,16 @@ def root():
         return redirect("/main")
     
 # About
-# Does not require logim
+# Does not require login
 @cams.route("/about")
 def main_about():
     return render_template("cams_about.html", title = "About")
 
 @cams.route("/about/docs_main")
 def main_about_docs_main():
-    return render_template("docs/docs_main.html", title = "Documentation")
+    dirs = csv2list("docs/docs_dir_index.csv")
+    
+    return render_template("docs_main.html", title = "Documentation", dirs = dirs)
 
 # Main, "dashboard" page
 @cams.route("/main")
@@ -126,8 +132,7 @@ def main_about_docs_main():
 def main():
     currentuser = flask_login.current_user.id
 
-    with open("config/menu.csv") as f:
-        menulist = list(csv.DictReader(f))
+    menulist = csv2list("config/menu.csv")
         
     return render_template("cams_main.html", title = "Main Menu", user = currentuser, menu = menulist)
 
@@ -144,8 +149,7 @@ def main_search():
 def main_new():
     currentuser = flask_login.current_user.id
     
-    with open("config/devtypes/devtypes.csv") as f:
-        menulist = list(csv.DictReader(f))
+    menulist = csv2list("config/devtypes/devtypes.csv")
     
     return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
@@ -175,9 +179,7 @@ def main_new_entry(devtype):
             devtype_name = devtype_name["name"]
         
         
-    #form = forms.memd()
-    with open(f"config/devtypes/{devtype}/cols.csv") as f:
-        cols = list(csv.DictReader(f))
+    cols = csv2list(f"config/devtypes/{devtype}/cols.csv")
     # TODO: Forms should be not initialized every time a page is loaded that uses them
     form = forms.form_printer(cols)()
     

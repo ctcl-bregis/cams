@@ -1,0 +1,6 @@
+{% include "header_main_nologin.html" %}
+    <h1>Documentation</h1>
+    <ul>{% for i in dirs %}
+        <li><p><a href={{ i["path"] }}>{{ i["dirname"] }}</a></p></li>
+    {% endfor %}</ul>
+{% include "footer_main.html" %}

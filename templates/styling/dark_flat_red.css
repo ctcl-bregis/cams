@@ -23,7 +23,8 @@ input, textarea, button, select {
     width: 100%; 
     max-width: 100%;
     margin: 6pt;
-    border-radius: 5pt;
+    border-radius: 0;
+    border: 0;
 }
 button.btn, input.btn {
     background-color: #FFFFFF;
@@ -64,6 +65,10 @@ dd {
     margin: 0pt;
     margin-inline-start: 0pt;
 }
-.formhalf {
-    
+.halfform p {
+    margin: 2pt;
+    width: 50%;
+}
+li {
+    color: #FFFFFF;
 }
