@@ -7,12 +7,10 @@
 # External libraries
 from flask import Flask, render_template, request, redirect, url_for
 from os.path import exists
-import csv
-import json
-import os
+import csv, json, os, stat, flask_login
+from markdown2 import Markdown
 from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
-import flask_login
 
 # Libraries within cams directory
 from dbinit import initdb, checkdb
@@ -37,6 +35,9 @@ cams.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
 db = SQLAlchemy(cams)
 db.init_app(cams)
+
+# Path for documentation
+docs = "./docs"
 
 with open("key.txt", "r") as f:
     key = f.readlines()[0]
@@ -120,11 +121,42 @@ def root():
 def main_about():
     return render_template("cams_about.html", title = "About")
 
-@cams.route("/about/docs_main")
-def main_about_docs_main():
-    dirs = csv2list("docs/docs_dir_index.csv")
+
+@cams.route('/about/docs/')
+def main_about_doc_root():
+    listdir = os.listdir(docs)
     
-    return render_template("docs_main.html", title = "Documentation", dirs = dirs)
+    filelist = []
+    for i in listdir:
+        tempdict = {"disp": i, "link": f"{i}"}
+        filelist.append(tempdict)
+    
+    return render_template('docs_dir.html', title = "Documentation", filelist = filelist)
+
+@cams.route("/about/docs/<path:path>")
+def main_about_docs(path):
+    docs_path = f"{docs}/{path}"
+    
+    if os.path.isdir(docs_path):
+        listdir = os.listdir(docs_path)
+        
+        filelist = []
+        for i in listdir:
+            tempdict = {"disp": "..", "link": ".."}
+            filelist.append(tempdict)
+            tempdict = {"disp": i, "link": f"/about/{docs}/{i}"}
+            filelist.append(tempdict)
+            
+        return render_template("docs_dir.html", title = f"Documentation - {path}", filelist = filelist)
+    elif os.path.isfile(docs_path):
+        with open(docs_path) as mdfile: 
+            mdfile = mdfile.read()
+        
+        mdconverter = Markdown()
+        return render_template("docs_file.html", title = f"Documentation - {path}", content = mdconverter.convert(mdfile), path = docs)
+    else:
+        return f"Not found: {path}"
+    
 
 # Main, "dashboard" page
 @cams.route("/main")
