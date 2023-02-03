@@ -19,22 +19,23 @@ hr {
 }
 input, textarea, button, select {
     font-size: 12pt;
-    padding: 6pt;
+    padding: 6pt 0;
     width: 100%; 
     max-width: 100%;
     margin: 6pt;
-    border-radius: 0;
     border: 0;
 }
 button.btn, input.btn {
     background-color: #FFFFFF;
-    border: 1px solid #FFFFFF;
     color: #000000;
-    padding: 10px 24px;
-    cursor: pointer; 
+    border: 0;
+    padding: 6pt;
+    margin: 6pt 0;
     width: 100%; 
+    max-width: 100%;
     display: block;
     text-decoration: none;
+    cursor: pointer; 
 }
 a.btn {
     text-decoration: none;
@@ -65,7 +66,7 @@ dd {
     margin: 0pt;
     margin-inline-start: 0pt;
 }
-.halfform p {
+.halfform {
     margin: 2pt;
     width: 50%;
 }

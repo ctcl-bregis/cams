@@ -1,8 +1,7 @@
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 1, 2023
+# Date: ???, 2022 - Febuary 3, 2023
 # CrazyblocksTechnologies Computer Laboratories 2022-2023
-
 
 # External libraries
 from flask import Flask, render_template, request, redirect, url_for
@@ -52,7 +51,7 @@ login_manager.init_app(cams)
 # Callback for login failure. May have this redirect to the login instead.
 @login_manager.unauthorized_handler
 def unauthorized_handler():
-    return redirect("/login")
+    return redirect("/login/")
 
 @login_manager.user_loader
 def user_loader(username):
@@ -86,10 +85,10 @@ def before_request():
     if checkdb(dbfile):
         pass
     else:
-        redirect("/setup")
+        redirect("/setup/")
         
 # Login page
-@cams.route("/login", methods=['GET', 'POST'])
+@cams.route("/login/", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template("cams_login.html", title = "Login")
@@ -111,55 +110,62 @@ def root():
     
     # NoneType if the cookie was not set
     if login_cookie == None:
-        return redirect("/login")
+        return redirect("/login/")
     else:
-        return redirect("/main")
+        return redirect("/main/")
     
 # About
 # Does not require login
-@cams.route("/about")
+@cams.route("/about/")
 def main_about():
     return render_template("cams_about.html", title = "About")
 
 
 @cams.route('/about/docs/')
 def main_about_doc_root():
-    listdir = os.listdir(docs)
-    
     filelist = []
-    for i in listdir:
-        tempdict = {"disp": i, "link": f"{i}"}
+    for i in os.listdir(docs):
+        if os.path.isdir(f"{i}/"):
+            tempdict = {"disp": f"{i}/", "link": f"{i}/"}
+        else:
+            tempdict = {"disp": f"{i}", "link": f"{i}"}
         filelist.append(tempdict)
     
     return render_template('docs_dir.html', title = "Documentation", filelist = filelist)
 
+
+# Documentation pages are basically a file browser
 @cams.route("/about/docs/<path:path>")
 def main_about_docs(path):
     docs_path = f"{docs}/{path}"
     
     if os.path.isdir(docs_path):
-        listdir = os.listdir(docs_path)
-        
         filelist = []
-        for i in listdir:
-            tempdict = {"disp": "..", "link": ".."}
-            filelist.append(tempdict)
-            tempdict = {"disp": i, "link": f"/about/{docs}/{i}"}
-            filelist.append(tempdict)
-            
-        return render_template("docs_dir.html", title = f"Documentation - {path}", filelist = filelist)
-    elif os.path.isfile(docs_path):
-        with open(docs_path) as mdfile: 
-            mdfile = mdfile.read()
         
-        mdconverter = Markdown()
-        return render_template("docs_file.html", title = f"Documentation - {path}", content = mdconverter.convert(mdfile), path = docs)
+        for i in os.listdir(docs_path):
+            if os.path.isdir(f"{docs_path}/{i}/"):
+                tempdict = {"disp": f"{i}/", "link": f"/about/{docs_path}/{i}"}
+            else:
+                tempdict = {"disp": f"{i}", "link": f"/about/{docs_path}/{i}"}
+            filelist.append(tempdict)
+    
+        return render_template("docs_dir.html", title = f"Documentation - {docs_path}", filelist = filelist)
+        
+    elif os.path.isfile(docs_path):
+        md_converter = Markdown()
+        
+        with open(docs_path, "r") as f:
+            content = md_converter.convert(f.read())
+        
+        #return docs_path + " is file"
+        return render_template("docs_file.html", title = f"Documentation - {docs_path}", content = content)
     else:
-        return f"Not found: {path}"
+        return docs_path + " not found", 404
+    
     
 
 # Main, "dashboard" page
-@cams.route("/main")
+@cams.route("/main/")
 @flask_login.login_required
 def main():
     currentuser = flask_login.current_user.id
