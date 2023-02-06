@@ -17,6 +17,8 @@ CAMS is server-side software, no software is required to be installed on client 
 - Cookies
 - **Other details TBD**
 
+Some features use JavaScript but it is not required to use the software.
+
 ### Software (server-side)
 
 Required Dependencies:
@@ -27,7 +29,7 @@ See requirements.txt for Python library requirements
 #### Operating System
 CAMS was written mainly for use on FreeBSD and Linux-based operating systems. 
 
-CAMS may *not* run on Microsoft Windows without code modification, specifically with how file paths are written. 
+CAMS *may not* run on Microsoft Windows without code modification, specifically with how file paths are written. 
 
 ### Hardware (server-side)
 CAMS is mainly tested and written on systems using the x86-64 CPU architecture. While mainly untested, it may run on other CPU architectures such as ARM (Raspberry Pi, Banana Pi, Ampere Altra), MIPS (Loongson, Ingenic) and 32-bit x86, as long as the required software are available for such platforms.

@@ -1,10 +1,14 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField
+from wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField, SelectFieldBase
 from wtforms.fields.numeric import LocaleAwareNumberField
 from wtforms.widgets import NumberInput
+from wtforms.widgets.core import html_params
 from wtforms.validators import DataRequired, Length, NumberRange, Optional
 from wtforms.utils import unset_value
 import csv
+from markupsafe import escape
+from markupsafe import Markup
+
 
 # DecimalField but with custom step values
 class DecimalFieldStep(LocaleAwareNumberField):
@@ -60,6 +64,128 @@ class DecimalFieldStep(LocaleAwareNumberField):
             self.data = None
             raise ValueError(self.gettext("Not a valid decimal value.")) from exc
 
+class Select2:
+
+    validation_attrs = ["required"]
+
+    def __init__(self, multiple=False):
+        self.multiple = multiple
+
+    def __call__(self, field, **kwargs):
+        kwargs.setdefault("id", field.id)
+        if self.multiple:
+            kwargs["multiple"] = True
+        flags = getattr(field, "flags", {})
+        for k in dir(flags):
+            if k in self.validation_attrs and k not in kwargs:
+                kwargs[k] = getattr(flags, k)
+        html = ["<select class=\"js-example-basic-single\">"]
+        if field.has_groups():
+            for group, choices in field.iter_groups():
+                html.append("<optgroup %s>" % html_params(label=group))
+                for val, label, selected in choices:
+                    html.append(self.render_option(val, label, selected))
+                html.append("</optgroup>")
+        else:
+            for val, label, selected in field.iter_choices():
+                html.append(self.render_option(val, label, selected))
+        html.append("</select>")
+        return Markup("".join(html))
+
+    @classmethod
+    def render_option(cls, value, label, selected, **kwargs):
+        if value is True:
+            # Handle the special case of a 'True' value.
+            value = str(value)
+
+        options = dict(kwargs, value=value)
+        if selected:
+            options["selected"] = True
+        return Markup(
+            "<option {}>{}</option>".format(html_params(**options), escape(label))
+        )
+
+class Select2Field(SelectFieldBase):
+    widget = Select2()
+
+    def __init__(
+        self,
+        label=None,
+        validators=None,
+        coerce=str,
+        choices=None,
+        validate_choice=True,
+        **kwargs,
+    ):
+        super().__init__(label, validators, **kwargs)
+        self.coerce = coerce
+        if callable(choices):
+            choices = choices()
+        if choices is not None:
+            self.choices = choices if isinstance(choices, dict) else list(choices)
+        else:
+            self.choices = None
+        self.validate_choice = validate_choice
+
+    def iter_choices(self):
+        if not self.choices:
+            choices = []
+        elif isinstance(self.choices, dict):
+            choices = list(itertools.chain.from_iterable(self.choices.values()))
+        else:
+            choices = self.choices
+
+        return self._choices_generator(choices)
+
+    def has_groups(self):
+        return isinstance(self.choices, dict)
+
+    def iter_groups(self):
+        if isinstance(self.choices, dict):
+            for label, choices in self.choices.items():
+                yield (label, self._choices_generator(choices))
+
+    def _choices_generator(self, choices):
+        if not choices:
+            _choices = []
+
+        elif isinstance(choices[0], (list, tuple)):
+            _choices = choices
+
+        else:
+            _choices = zip(choices, choices)
+
+        for value, label in _choices:
+            yield (value, label, self.coerce(value) == self.data)
+
+    def process_data(self, value):
+        try:
+            # If value is None, don't coerce to a value
+            self.data = self.coerce(value) if value is not None else None
+        except (ValueError, TypeError):
+            self.data = None
+
+    def process_formdata(self, valuelist):
+        if not valuelist:
+            return
+
+        try:
+            self.data = self.coerce(valuelist[0])
+        except ValueError as exc:
+            raise ValueError(self.gettext("Invalid Choice: could not coerce.")) from exc
+
+    def pre_validate(self, form):
+        if self.choices is None:
+            raise TypeError(self.gettext("Choices cannot be None."))
+
+        if not self.validate_choice:
+            return
+
+        for _, _, match in self.iter_choices():
+            if match:
+                break
+        else:
+            raise ValidationError(self.gettext("Not a valid choice."))
 
 def getdropdown(col, path):
     # Get device type file, path provided by path

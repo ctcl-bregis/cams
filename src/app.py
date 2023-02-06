@@ -1,10 +1,10 @@
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 3, 2023
+# Date: ???, 2022 - Febuary 5, 2023
 # CrazyblocksTechnologies Computer Laboratories 2022-2023
 
 # External libraries
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from os.path import exists
 import csv, json, os, stat, flask_login
 from markdown2 import Markdown
@@ -23,7 +23,7 @@ users = {'user': {'password': 'test123'}}
 class User(flask_login.UserMixin):
     pass
 
-cams = Flask(__name__)
+cams = Flask(__name__, template_folder = "../templates/", static_folder = "../static/")
     
 # Location of the database file
 dbfile = "data/data.db"
@@ -47,8 +47,7 @@ with open("key.txt", "r") as f:
 login_manager = flask_login.LoginManager()
 login_manager.init_app(cams)
 
-
-# Callback for login failure. May have this redirect to the login instead.
+# Callback for login failure.
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return redirect("/login/")
@@ -73,10 +72,10 @@ def request_loader(request):
     return user
 
 # Log out the user; clear the session cookie
-@cams.route('/logout')
+@cams.route('/logout/')
 def logout():
     flask_login.logout_user()
-    return 'Logged out'
+    return render_template("logout.html", title = "Logged out")
 
 # Run every time
 @cams.before_request
@@ -91,7 +90,7 @@ def before_request():
 @cams.route("/login/", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template("cams_login.html", title = "Login")
+        return render_template("login.html", title = "Login")
     
     email = request.form['username']
     if email in users and request.form['password'] == users[email]['password']:
@@ -100,7 +99,7 @@ def login():
         flask_login.login_user(user)
         return redirect(url_for('main'))
 
-    return render_template("cams_login.html", title = "Login Error")
+    return render_template("login.html", title = "Login Error")
 
 # Root page
 @cams.route("/")
@@ -113,29 +112,24 @@ def root():
         return redirect("/login/")
     else:
         return redirect("/main/")
-    
-# About
-# Does not require login
-@cams.route("/about/")
-def main_about():
-    return render_template("cams_about.html", title = "About")
 
-
-@cams.route('/about/docs/')
+@cams.route('/about/')
 def main_about_doc_root():
     filelist = []
     for i in os.listdir(docs):
-        if os.path.isdir(f"{i}/"):
-            tempdict = {"disp": f"{i}/", "link": f"{i}/"}
-        else:
-            tempdict = {"disp": f"{i}", "link": f"{i}"}
-        filelist.append(tempdict)
+        print(i)
+        if os.path.isdir(f"{docs}/{i}/"):
+            tempdict = {"disp": f"{i}/", "link": f"/about/{i}"}
+            filelist.append(tempdict)
+        elif i.endswith(".md"):
+            tempdict = {"disp": f"{i}", "link": f"/about/{i}"}
+            filelist.append(tempdict)
     
     return render_template('docs_dir.html', title = "Documentation", filelist = filelist)
 
 
 # Documentation pages are basically a file browser
-@cams.route("/about/docs/<path:path>")
+@cams.route("/about/<path:path>")
 def main_about_docs(path):
     docs_path = f"{docs}/{path}"
     
@@ -143,13 +137,14 @@ def main_about_docs(path):
         filelist = []
         
         for i in os.listdir(docs_path):
-            if os.path.isdir(f"{docs_path}/{i}/"):
-                tempdict = {"disp": f"{i}/", "link": f"/about/{docs_path}/{i}"}
-            else:
-                tempdict = {"disp": f"{i}", "link": f"/about/{docs_path}/{i}"}
-            filelist.append(tempdict)
+            if os.path.isdir(f"{docs_path}/{i}"):
+                tempdict = {"disp": f"{i}/", "link": f"/about/{path}/{i}/"}
+                filelist.append(tempdict)
+            elif i.endswith(".md"):
+                tempdict = {"disp": f"{i}", "link": f"/about/{path}/{i}"}
+                filelist.append(tempdict)
     
-        return render_template("docs_dir.html", title = f"Documentation - {docs_path}", filelist = filelist)
+        return render_template("docs_dir.html", title = f"Documentation - {path}", filelist = filelist)
         
     elif os.path.isfile(docs_path):
         md_converter = Markdown()
@@ -157,8 +152,7 @@ def main_about_docs(path):
         with open(docs_path, "r") as f:
             content = md_converter.convert(f.read())
         
-        #return docs_path + " is file"
-        return render_template("docs_file.html", title = f"Documentation - {docs_path}", content = content)
+        return render_template("docs_file.html", title = f"Documentation - {path}", content = content)
     else:
         return docs_path + " not found", 404
     
@@ -172,14 +166,14 @@ def main():
 
     menulist = csv2list("config/menu.csv")
         
-    return render_template("cams_main.html", title = "Main Menu", user = currentuser, menu = menulist)
+    return render_template("main.html", title = "Main Menu", user = currentuser, menu = menulist)
 
 @cams.route("/main/search")
 @flask_login.login_required
 def main_search():
     currentuser = flask_login.current_user.id
     
-    return render_template("cams_search.html", title = "Search", user = currentuser)
+    return render_template("search.html", title = "Search", user = currentuser)
 
 # New Item
 @cams.route("/main/new")
@@ -189,7 +183,7 @@ def main_new():
     
     menulist = csv2list("config/devtypes/devtypes.csv")
     
-    return render_template("cams_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
+    return render_template("item_new_menu.html", title = "New Entry", user = currentuser, menu = menulist)
     
 # Interactions with entries fall under this URL and actions are passed as parameters (e.g. /main/id/12345678?action=delete)
 # Planned actions: delete, mktag (make id tag), edit
@@ -224,7 +218,4 @@ def main_new_entry(devtype):
     if form.validate_on_submit():
         return redirect("/")
     else:
-        return render_template("cams_new_entry.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
-        
-
-
+        return render_template("item_new.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)

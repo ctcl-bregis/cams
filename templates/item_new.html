@@ -1,9 +1,8 @@
-{% include "cams_main_header.html" %}
+{% include "header_main_sel2.html" %}
     <h2>New Entry - {{ devtype }}</h2>
     {% from "formhelpers.html" import render_field %}
     <form method="post">
         <dl>{% for i in form._fields %}{{ render_field(form[i]) }}{% endfor %}</dl>
-        <p><strong><input class="btn" type="submit" value="Submit"></strong></p>
+        <p><input class="btn" type="submit" value="Submit"></p>
     </form>
-</doctype>
-{% include "cams_main_footer.html" %}
+{% include "footer_main.html" %}

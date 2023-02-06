@@ -1,5 +1,7 @@
 {% include "header_main.html" %}
         <h2>{{ title }}</h2>
+        <section>
         {% for btn in menu %}
             <a href = {{ btn["link"] }} class = "btn"><button class="btn">{{ btn["title"] }}</button></a>{% endfor %}
+        </section>
 {% include "footer_main.html" %}

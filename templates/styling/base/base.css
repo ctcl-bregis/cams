@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+a.btn {
+    text-decoration: none;
+}
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+}
+dd {
+    margin: 0pt;
+    margin-inline-start: 0pt;
+}
+.halfform {
+    width: 50%;
+}
+form {
+    margin: 4pt;
+}
+section {
+    margin: 4pt;
+}
