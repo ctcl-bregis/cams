@@ -21,9 +21,6 @@ Name that is displayed to the user
 ### Column: table
 Name used internally, also the name of the directory within this one to use
 
-### Column: cipn
-Either "True" or "False", indicating support for Component Internal Part Number generation.
-
 ## Device Type Directory Contents
 
 ### cols.csv

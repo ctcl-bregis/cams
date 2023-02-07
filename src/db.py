@@ -4,19 +4,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
-# Location of the database file
-dbfile = "data/data.db"
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-engine = create_engine('sqlite:///' + os.path.join(basedir, dbfile), convert_unicode=True)
-db_session = scoped_session(sessionmaker(autocommit = False, autoflush = False, bind = engine))
-Base = declarative_base()
-Base.query = db_session.query_property()
-
-def initdb():
-    import models
-    Base.metadata.create_all(bind = engine)
-
+# May or may not be needed soon 
 def checkdb(db):
     if not os.path.isfile(db): 
         return False
@@ -37,4 +25,24 @@ def checkdb(db):
         header = fd.read(100)    
 
     return (header[:16] == b'SQLite format 3\x00')
+
+class data:
+    def __init__(self, dbfile):
+        basedir = os.path.abspath(os.path.dirname(__file__))
+
+        db_session = scoped_session(sessionmaker(autocommit = False, autoflush = False, bind = engine))
+        Base = declarative_base()
+        Base.query = db_session.query_property()
+        engine = create_engine('sqlite:///' + os.path.join(basedir, dbfile), convert_unicode=True)
+
+    def initdb():
+        
+        # Open models for writing
+        with open("models.py", "w") as f:
+            
+            
+            
+        
+        
+        Base.metadata.create_all(bind = engine)
 

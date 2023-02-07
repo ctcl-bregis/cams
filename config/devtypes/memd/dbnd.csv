@@ -1,7 +1,7 @@
-name,cipn
--- Same as module brand --,SMV
--- Same as die/chip vendor --,SDV
-Aeneon (Qimonda),AQI
-elixir (Nanya Technology),ENT
-GoldKey,GDK
-Patriot,PAM
+name
+-- Same as module brand --
+-- Same as die/chip vendor --
+Aeneon (Qimonda)
+elixir (Nanya Technology)
+GoldKey
+Patriot

@@ -1,5 +1,5 @@
 # Introduction
-Codenamed: "Rainbow Trout" 
+Codename: Rainbow Trout
 
 CAMS means Computer Asset Management System, it was created in the need of a specialized asset/inventory management system software. 
 
@@ -17,7 +17,7 @@ CAMS is server-side software, no software is required to be installed on client 
 - Cookies
 - **Other details TBD**
 
-Some features use JavaScript but it is not required to use the software.
+Some features use JavaScript but it is not required to use all of the features of the web interface.
 
 ### Software (server-side)
 
@@ -40,7 +40,6 @@ So far, CAMS is single-threaded and therefore does not make use of more than one
 CAMS can make identification tags for parts and devices.
 
 For the best results, printing at 200, 400, 600, 800, 1000 or 1200 DPI is recommended.
-
 
 
 

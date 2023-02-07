@@ -12,7 +12,7 @@ from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
 
 # Libraries within cams directory
-from dbinit import initdb, checkdb
+from db import data
 import forms
 import mktag
 from lib import csv2list
@@ -77,15 +77,7 @@ def logout():
     flask_login.logout_user()
     return render_template("logout.html", title = "Logged out")
 
-# Run every time
-@cams.before_request
-def before_request():
-    # Check if the DB is ready
-    if checkdb(dbfile):
-        pass
-    else:
-        redirect("/setup/")
-        
+
 # Login page
 @cams.route("/login/", methods=['GET', 'POST'])
 def login():
