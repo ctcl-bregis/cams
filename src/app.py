@@ -1,6 +1,6 @@
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 7, 2023
+# Date: ???, 2022 - Febuary 8, 2023
 # CrazyblocksTechnologies Computer Laboratories 2022-2023
 
 # External libraries
@@ -37,6 +37,7 @@ with open("key.txt", "r") as f:
     del key
 
 dbisinit = checkdb(dbfile)
+#dbisinit = True
 
 # flask-login
 login_manager = flask_login.LoginManager()
@@ -206,12 +207,24 @@ def main_new_entry(devtype):
     else:
         return render_template("item_new.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
         
+
+@cams.route("/setup/")
+def setup_initdb():    
+    return render_template("setup/main_setup.html", title = "Setup")
+
+@cams.route("/setup/initdb/")
+def setup_main():
+    
+    
+    return render_template("setup/initdb_pass.html", title = "Database set up")
+
 @cams.before_request 
 def before_every_request():
     rqpath = request.path
     if dbisinit == False and not rqpath.startswith("/setup"):
         return render_template("setup/not_setup.html", title = "Not set up")
-    elif rqpath.startswith("/setup/"):
+        
+    if dbisinit and rqpath.startswith("/setup"):
         return redirect("/")
 
 if __name__ == "__main__":    

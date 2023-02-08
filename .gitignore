@@ -161,3 +161,9 @@ cython_debug/
 
 # LibreOffice lock file
 *.~lock*
+
+# Automatically generated CAMS database-related files
+data/data.db
+src/models.py
+
+
