@@ -1,5 +1,8 @@
 The following is the list of features to be added to the software
 
+Optimization during development is avoided when possible and should be done when the time comes. 
+
+
 ## Priority
 
 ### 0 - Done

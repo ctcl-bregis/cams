@@ -1,6 +1,6 @@
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 5, 2023
+# Date: ???, 2022 - Febuary 7, 2023
 # CrazyblocksTechnologies Computer Laboratories 2022-2023
 
 # External libraries
@@ -12,7 +12,7 @@ from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
 
 # Libraries within cams directory
-from db import data
+from db import checkdb
 import forms
 import mktag
 from lib import csv2list
@@ -28,13 +28,6 @@ cams = Flask(__name__, template_folder = "../templates/", static_folder = "../st
 # Location of the database file
 dbfile = "data/data.db"
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-cams.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, dbfile)
-cams.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
-db = SQLAlchemy(cams)
-db.init_app(cams)
-
 # Path for documentation
 docs = "./docs"
 
@@ -42,6 +35,8 @@ with open("key.txt", "r") as f:
     key = f.readlines()[0]
     cams.secret_key = key
     del key
+
+dbisinit = checkdb(dbfile)
 
 # flask-login
 login_manager = flask_login.LoginManager()
@@ -202,12 +197,23 @@ def main_new_entry(devtype):
             devtype_name = next((item for item in tables if item["table"] == devtype), None)
             devtype_name = devtype_name["name"]
         
-        
     cols = csv2list(f"config/devtypes/{devtype}/cols.csv")
-    # TODO: Forms should be not initialized every time a page is loaded that uses them
+    # TODO - Optimization: Forms should be not initialized every time a page is loaded that uses them
     form = forms.form_printer(cols)()
     
     if form.validate_on_submit():
         return redirect("/")
     else:
         return render_template("item_new.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
+        
+@cams.before_request 
+def before_every_request():
+    rqpath = request.path
+    if dbisinit == False and not rqpath.startswith("/setup"):
+        return render_template("setup/not_setup.html", title = "Not set up")
+    elif rqpath.startswith("/setup/"):
+        return redirect("/")
+
+if __name__ == "__main__":    
+    app.run()
+    
