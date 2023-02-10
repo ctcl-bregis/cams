@@ -12,7 +12,7 @@ from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
 
 # Libraries within cams directory
-from db import checkdb
+from db import checkdb, initdb
 import forms
 import mktag
 from lib import csv2list
@@ -26,6 +26,7 @@ class User(flask_login.UserMixin):
 cams = Flask(__name__, template_folder = "../templates/", static_folder = "../static/")
     
 # Location of the database file
+# If this path is changed, make sure to modify the entry in .gitignore accordingly
 dbfile = "data/data.db"
 
 # Path for documentation
@@ -38,6 +39,9 @@ with open("key.txt", "r") as f:
 
 dbisinit = checkdb(dbfile)
 #dbisinit = True
+
+if dbisinit:
+    import models
 
 # flask-login
 login_manager = flask_login.LoginManager()
@@ -214,14 +218,18 @@ def setup_initdb():
 
 @cams.route("/setup/initdb/")
 def setup_main():
+    res = initdb(dbfile)
     
-    
-    return render_template("setup/initdb_pass.html", title = "Database set up")
+    if res == True:
+        return render_template("setup/initdb_pass.html", title = "Database set up")
+    else:
+        return render_template("setup/initdb_fail.html", title = "Database setup failed", error = res)
 
 @cams.before_request 
 def before_every_request():
     rqpath = request.path
-    if dbisinit == False and not rqpath.startswith("/setup"):
+    # Still let the user access the built-in documentation even if the app is not set up yet
+    if dbisinit == False and not (rqpath.startswith("/setup") or rqpath.startswith("/about")):
         return render_template("setup/not_setup.html", title = "Not set up")
         
     if dbisinit and rqpath.startswith("/setup"):

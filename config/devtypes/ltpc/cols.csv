@@ -1,25 +1,25 @@
-name,col,datatype,ddfile,min,max
-ID,inid,autointeger,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-,,,,,
-Slot 1 type,smt1,dropdown,mslt.csv,,
-Installed Memory Module 1 CAMS ID or chip part number,imc1,text,,0,32
-Slot 2 type,smt2,dropdown,mslt.csv,,
-Installed Memory Module 2 CAMS ID or chip part number,imc2,text,,0,32
-Slot 3 type,smt3,dropdown,mslt.csv,,
-Installed Memory Module 3 CAMS ID or chip part number,imc3,text,,0,32
-Slot 4 type,smt4,dropdown,mslt.csv,,
-Installed Memory Module 4 CAMS ID or chip part number,imc4,text,,0,32
-Slot 5 type,smt5,dropdown,mslt.csv,,
-Installed Memory Module 5 CAMS ID or chip part number,imc5,text,,0,32
-Slot 6 type,smt6,dropdown,mslt.csv,,
-Installed Memory Module 6 CAMS ID or chip part number,imc6,text,,0,32
-Slot 7 type,smt7,dropdown,mslt.csv,,
-Installed Memory Module 7 CAMS ID or chip part number,imc7,text,,0,32
-Slot 8 type,smt8,dropdown,mslt.csv,,
-Installed Memory Module 8 CAMS ID or chip part number,imc8,text,,0,32
+"name","col","datatype","ddfile","min","max","step","required"
+"ID","inid","autointeger",,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+"Slot 1 type","smt1","dropdown","mslt.csv",,,,
+"Installed Memory Module 1 CAMS ID or chip part number","imc1","text",,0,32,,
+"Slot 2 type","smt2","dropdown","mslt.csv",,,,
+"Installed Memory Module 2 CAMS ID or chip part number","imc2","text",,0,32,,
+"Slot 3 type","smt3","dropdown","mslt.csv",,,,
+"Installed Memory Module 3 CAMS ID or chip part number","imc3","text",,0,32,,
+"Slot 4 type","smt4","dropdown","mslt.csv",,,,
+"Installed Memory Module 4 CAMS ID or chip part number","imc4","text",,0,32,,
+"Slot 5 type","smt5","dropdown","mslt.csv",,,,
+"Installed Memory Module 5 CAMS ID or chip part number","imc5","text",,0,32,,
+"Slot 6 type","smt6","dropdown","mslt.csv",,,,
+"Installed Memory Module 6 CAMS ID or chip part number","imc6","text",,0,32,,
+"Slot 7 type","smt7","dropdown","mslt.csv",,,,
+"Installed Memory Module 7 CAMS ID or chip part number","imc7","text",,0,32,,
+"Slot 8 type","smt8","dropdown","mslt.csv",,,,
+"Installed Memory Module 8 CAMS ID or chip part number","imc8","text",,0,32,,
