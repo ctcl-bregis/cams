@@ -1,6 +1,7 @@
 
 
 ## Files that manipulate database table generation
+- Anything under "config/" including dropdown
 
-- Any "cols.csv" file within a device type directory, e.g. "<project root>/config/devtypes/memd/cols.csv"
-- User configuratin file located at "<project root>/config/user/cols.csv"
+### Dropdown files
+CSV files that store dropdown choices are their own table, with the name being in the format of: "<devtype>_<dropdown file>"
