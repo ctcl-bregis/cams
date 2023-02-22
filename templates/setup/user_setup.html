@@ -1,0 +1,13 @@
+{% include "header_main_nologin.html" %}
+        <h2>CAMS - First Time Setup - {{ title }}</h2>
+        {% if error %}<p>{{ error }}</p>{% endif %}
+        <form action = "/setup/user/" method = "POST" class = "halfform">
+            <p>Username</p>
+            <input type = "text" name = "username"></br>
+            <p>Password</p>
+            <input type = "password" name = "password" id = "password" placeholder = "password"/></br>
+            <p>Repeat password</p>
+            <input type = "password" name = "repeatpassword" id = "repeatpassword" placeholder = "password"/></br>
+            <input type = "submit" value = "Login"/></br>
+        </form>
+{% include "footer_main.html" %}

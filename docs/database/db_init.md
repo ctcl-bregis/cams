@@ -1,4 +1,5 @@
-
+## User table
+The user table is hard-coded in db.py
 
 ## Files that manipulate database table generation
 - Anything under "config/" including dropdown

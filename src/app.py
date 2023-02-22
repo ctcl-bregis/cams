@@ -1,21 +1,28 @@
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 8, 2023
+# Date: ???, 2022 - Febuary 21, 2023
 # CrazyblocksTechnologies Computer Laboratories 2022-2023
 
 # External libraries
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from os.path import exists
-import csv, json, os, stat, flask_login
+import csv, json, os, stat, flask_login, hashlib
 from markdown2 import Markdown
 from sqlalchemy.sql import func
+from sqlalchemy.orm import Session
+from sqlalchemy import insert, update, create_engine
 from flask_sqlalchemy import SQLAlchemy
+
+
 
 # Libraries within cams directory
 from db import checkdb, initdb
 import forms
 import mktag
 from lib import csv2list
+
+# Set working directory to "src" 
+
 
 # Hard-coded user "database", this data should be stored in the DB later on and created during app setup
 users = {'user': {'password': 'test123'}}
@@ -41,7 +48,9 @@ dbisinit = checkdb(dbfile)
 #dbisinit = True
 
 if dbisinit:
-    import models
+    engine = create_engine(f"sqlite:///{dbfile}")
+    dbsession = Session(engine)
+    
 
 # flask-login
 login_manager = flask_login.LoginManager()
@@ -84,10 +93,10 @@ def login():
     if request.method == 'GET':
         return render_template("login.html", title = "Login")
     
-    email = request.form['username']
-    if email in users and request.form['password'] == users[email]['password']:
+    username = request.form['username']
+    if username in users and request.form['password'] == users[username]['password']:
         user = User()
-        user.id = email
+        user.id = username
         flask_login.login_user(user)
         return redirect(url_for('main'))
 
@@ -212,18 +221,39 @@ def main_new_entry(devtype):
         return render_template("item_new.html", form = form, title = "New Entry", devtype = devtype_name, user = currentuser)
         
 
+# -- START SETUP-RELATED ROUTES --
+
 @cams.route("/setup/")
 def setup_initdb():    
     return render_template("setup/main_setup.html", title = "Setup")
 
 @cams.route("/setup/initdb/")
 def setup_main():
+    # TODO: Allow user to select the database type and URL
+    
     res = initdb(dbfile)
     
     if res == True:
         return render_template("setup/initdb_pass.html", title = "Database set up")
+        engine = create_engine(f"sqlite:///{dbfile}")
+        global dbsession
+        dbsession = Session(engine)
     else:
         return render_template("setup/initdb_fail.html", title = "Database setup failed", error = res)
+
+@cams.route("/setup/user/", methods=["GET", "POST"])
+def setup_user():
+    if request.method == 'GET':
+        return render_template("setup/user_setup.html", title = "Admin User Setup")
+    else:
+        if request.form['password'] != request.form['repeatpassword']:
+            return render_template("setup/user_setup.html", title = "Admin User Setup", error = "Passwords do not match")
+        import models
+       
+        h = hashlib.new("sha512")
+        h.update(request.form['password'].encode('utf-8'))
+        models.User(id = 1, name = request.form['username'], password = h.hexdigest())
+    
 
 @cams.before_request 
 def before_every_request():
@@ -232,9 +262,14 @@ def before_every_request():
     if dbisinit == False and not (rqpath.startswith("/setup") or rqpath.startswith("/about")):
         return render_template("setup/not_setup.html", title = "Not set up")
         
+    # If setup is already done, redirect any setup page to root
     if dbisinit and rqpath.startswith("/setup"):
         return redirect("/")
 
+# -- END SETUP-RELATED ROUTES --
+
+# This seems to do nothing?
 if __name__ == "__main__":    
-    app.run()
+    print("test")
+    app.run(use_reloader=False)
     

@@ -29,9 +29,10 @@ Each device type contains a file named "cols.csv" which such information, other 
 #### Column: datatype
 
 - autointeger: Integer data type, is not included in forms or is editable by the end user, used as the CAMS device ID
+- decimal: Number with decimal values, minimum and maximum values are defined by the "min" and "max" columns respectively
+- dropdown: String value that has predefined values, ddfile column links the file with dropdown - decimal: Number with decimal values, minimum and maximum values are defined by the "min" and "max" columns respectively
 - integer: Whole number, minimum and maximum values are defined by the "min" and "max" columns respectively
 - text: String value
-- dropdown: String value that has predefined values, ddfile column links the file with dropdown choices
 
 Currently not implemented but planned to be added soon:
 

@@ -1,6 +1,9 @@
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
+.nocenter h1, .nocenter h2, .nocenter h3, .nocenter h4, .nocenter h5, .nocenter h6 {
+    text-align: left;
+}
 a.btn {
     text-decoration: none;
 }
@@ -22,6 +25,11 @@ dd {
 }
 form {
     margin: 4pt;
+}
+form p {
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+    margin-left: 4pt;
 }
 section {
     margin: 4pt;
