@@ -235,9 +235,6 @@ def setup_main():
     
     if res == True:
         return render_template("setup/initdb_pass.html", title = "Database set up")
-        engine = create_engine(f"sqlite:///{dbfile}")
-        global dbsession
-        dbsession = Session(engine)
     else:
         return render_template("setup/initdb_fail.html", title = "Database setup failed", error = res)
 
@@ -252,7 +249,11 @@ def setup_user():
        
         h = hashlib.new("sha512")
         h.update(request.form['password'].encode('utf-8'))
-        models.User(id = 1, name = request.form['username'], password = h.hexdigest())
+        
+        engine = create_engine(f"sqlite:///{dbfile}")
+        dbsession = Session(engine)
+        
+        dbsession.execute(models.User.insert().values(id = 1, name = request.form['username'], password = h.hexdigest()))
     
 
 @cams.before_request 
