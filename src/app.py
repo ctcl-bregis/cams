@@ -9,7 +9,7 @@ from os.path import exists
 import csv, json, os, stat, flask_login, hashlib
 from markdown2 import Markdown
 from sqlalchemy.sql import func
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy import insert, update, create_engine
 from flask_sqlalchemy import SQLAlchemy
 
@@ -20,12 +20,6 @@ from db import checkdb, initdb
 import forms
 import mktag
 from lib import csv2list
-
-# Set working directory to "src" 
-
-
-# Hard-coded user "database", this data should be stored in the DB later on and created during app setup
-users = {'user': {'password': 'test123'}}
 
 class User(flask_login.UserMixin):
     pass
@@ -50,7 +44,9 @@ dbisinit = checkdb(dbfile)
 if dbisinit:
     engine = create_engine(f"sqlite:///{dbfile}")
     dbsession = Session(engine)
-    
+    import models
+else:
+    dbsession = None    
 
 # flask-login
 login_manager = flask_login.LoginManager()
@@ -73,12 +69,15 @@ def user_loader(username):
 @login_manager.request_loader
 def request_loader(request):
     email = request.form.get('email')
-    if email not in users:
-        return
+    if dbisinit: 
+        users = dbsession.query(models.User.name).all()
+    
+        if email not in users:
+            return
 
-    user = User()
-    user.id = email
-    return user
+        user = User()
+        user.id = email
+        return user
 
 # Log out the user; clear the session cookie
 @cams.route('/logout/')
@@ -93,14 +92,15 @@ def login():
     if request.method == 'GET':
         return render_template("login.html", title = "Login")
     
-    username = request.form['username']
-    if username in users and request.form['password'] == users[username]['password']:
-        user = User()
-        user.id = username
-        flask_login.login_user(user)
-        return redirect(url_for('main'))
+    users = dbsession.query(models.User.name).all()
+    # TODO: add "Remember Me" functionality
+    
+    h = hashlib.new("sha512")
+    h.update(request.form['password'].encode('utf-8'))
+    
+   
 
-    return render_template("login.html", title = "Login Error")
+    return render_template("login.html", title = "Login Error", err = "Unknown Error")
 
 # Root page
 @cams.route("/")
@@ -253,8 +253,10 @@ def setup_user():
         engine = create_engine(f"sqlite:///{dbfile}")
         dbsession = Session(engine)
         
-        dbsession.execute(models.User.insert().values(id = 1, name = request.form['username'], password = h.hexdigest()))
-    
+        dbsession.add(models.User(id = 1, name = request.form['username'], password = h.hexdigest()))
+        dbsession.commit()
+        
+        return render_template("setup/done_setup.html", title = "Setup Complete")
 
 @cams.before_request 
 def before_every_request():
@@ -272,5 +274,4 @@ def before_every_request():
 # This seems to do nothing?
 if __name__ == "__main__":    
     print("test")
-    app.run(use_reloader=False)
-    
+

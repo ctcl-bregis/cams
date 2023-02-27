@@ -3,7 +3,7 @@
 # ---
 # CAMS Software
 # Purpose: Python class representation of database tables
-# Generated: February 22, 2023
+# Generated: February 27, 2023
 
 from sqlalchemy import Column, ForeignKey, Integer, String, Text, create_engine
 from sqlalchemy.orm import declarative_base

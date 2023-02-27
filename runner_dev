@@ -7,7 +7,6 @@ export PYTHONDONTWRITEBYTECODE=1
 # in case there is a .env for some reason
 export FLASK_SKIP_DOTENV=1
 echo "Database is kept in memory (/dev/shm/) and is not written to disk in development mode."
-rm -r /dev/shm/camsdb
 mkdir /dev/shm/camsdb
 ln -s /dev/shm/camsdb/ data
 python3 -B -m flask --app="src/app.py" run --exclude-patterns="*models.py"
