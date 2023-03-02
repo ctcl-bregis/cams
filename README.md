@@ -22,7 +22,7 @@ Some features use JavaScript but it is not required to use all of the features o
 ### Software (server-side)
 
 Required Dependencies:
-- Python 3.x (specific minimum version unknown for now, tested with 3.9 and later)
+- Python 3.7 or later
 
 See requirements.txt for Python library requirements
 

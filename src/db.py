@@ -1,7 +1,7 @@
 # CAMS Software
 # Purpose: Database interface code
-# Date: Febuary 7, 2023 - February 22, 2023
-# CrazyblocksTechnologies Computer Laboratories 2023
+# Date: Febuary 7, 2023 - March 1, 2023
+# CTCL 2023
 
 import os
 import csv
@@ -65,7 +65,6 @@ def initdb(dbfile):
     
     args = {
     "date": currentdate,
-    "dbfile": dbfile,
     }
     
     # File header
@@ -76,28 +75,53 @@ def initdb(dbfile):
 # Purpose: Python class representation of database tables
 # Generated: {date}
 
-from sqlalchemy import Column, ForeignKey, Integer, String, Text, create_engine
-from sqlalchemy.orm import declarative_base
-import hashlib
+from . import db
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
-engine = create_engine("sqlite:///{dbfile}")
+# Hard-coded user db class
+class User(UserMixin, db.Model):
+    __tablename__ = 'flasklogin-users'
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+    name = db.Column(
+        db.String(32),
+        nullable=False,
+        unique=False
+    )
+    password = db.Column(
+        db.String(64),
+        primary_key=False,
+        unique=False,
+        nullable=False
+	)
+    created_on = db.Column(
+        db.DateTime,
+        index=False,
+        unique=False,
+        nullable=True
+    )
+    last_login = db.Column(
+        db.DateTime,
+        index=False,
+        unique=False,
+        nullable=True
+    )
 
-Base = declarative_base()
+    def set_password(self, password):
+        self.password = generate_password_hash(
+            password,
+            method='sha256'
+        )
 
-# Hard-coded user class
-class User(Base):
-    __tablename__ = 'user'
-    id = Column(Integer, primary_key=True)
-    name = Column(Text)
-    password = Column(Text)
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
-    def verify_password(self, password):
-        h = hashlib.sha512()
-        h.update(password)
-        pwhash = hexdigest
-        return self.password == pwhash
+    def __repr__(self):
+        return '<User {}>'.format(self.username)
 
-Base.metadata.create_all(engine)
 """.format(**args)
     
     

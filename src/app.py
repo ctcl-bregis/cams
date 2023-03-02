@@ -1,7 +1,9 @@
+# THIS FILE IS TO BE REMOVED SOON
+
 # CAMS Software
 # Purpose: Main application code
-# Date: ???, 2022 - Febuary 21, 2023
-# CrazyblocksTechnologies Computer Laboratories 2022-2023
+# Date: ???, 2022 - March 1, 2023
+# CTCL 2022-2023
 
 # External libraries
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
@@ -39,7 +41,6 @@ with open("key.txt", "r") as f:
     del key
 
 dbisinit = checkdb(dbfile)
-#dbisinit = True
 
 if dbisinit:
     engine = create_engine(f"sqlite:///{dbfile}")
@@ -57,35 +58,6 @@ login_manager.init_app(cams)
 def unauthorized_handler():
     return redirect("/login/")
 
-@login_manager.user_loader
-def user_loader(username):
-    if username not in users:
-        return
-
-    user = User()
-    user.id = username
-    return user
-
-@login_manager.request_loader
-def request_loader(request):
-    email = request.form.get('email')
-    if dbisinit: 
-        users = dbsession.query(models.User.name).all()
-    
-        if email not in users:
-            return
-
-        user = User()
-        user.id = email
-        return user
-
-# Log out the user; clear the session cookie
-@cams.route('/logout/')
-def logout():
-    flask_login.logout_user()
-    return render_template("logout.html", title = "Logged out")
-
-
 # Login page
 @cams.route("/login/", methods=['GET', 'POST'])
 def login():
@@ -101,6 +73,14 @@ def login():
    
 
     return render_template("login.html", title = "Login Error", err = "Unknown Error")
+
+
+# Log out the user; clear the session cookie
+@cams.route('/logout/')
+def logout():
+    flask_login.logout_user()
+    return render_template("logout.html", title = "Logged out")
+
 
 # Root page
 @cams.route("/")
@@ -253,7 +233,7 @@ def setup_user():
         engine = create_engine(f"sqlite:///{dbfile}")
         dbsession = Session(engine)
         
-        dbsession.add(models.User(id = 1, name = request.form['username'], password = h.hexdigest()))
+        dbsession.add(models.User(name = request.form['username'], password = h.hexdigest()))
         dbsession.commit()
         
         return render_template("setup/done_setup.html", title = "Setup Complete")

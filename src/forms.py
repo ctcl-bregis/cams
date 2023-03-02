@@ -1,5 +1,10 @@
+# CAMS Software
+# Purpose: Flask forms
+# Date: ???, 2022 - March 1, 2023
+# CTCL 2022-2023
+
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField, SelectFieldBase
+from wtforms import StringField, SubmitField, SelectField, DecimalField, DateField, DateTimeField, IntegerRangeField, IntegerField, TextAreaField, SelectFieldBase, PasswordField
 from wtforms.fields.numeric import LocaleAwareNumberField
 from wtforms.widgets import NumberInput
 from wtforms.widgets.core import html_params
@@ -9,10 +14,9 @@ import csv
 from markupsafe import escape
 from markupsafe import Markup
 
-
 # DecimalField but with custom step values
+# Adapted from flask-wtf, see flask-wtf docs/source for more information
 class DecimalFieldStep(LocaleAwareNumberField):
-    
     def __init__(self, label = None, validators = None, places = 2, rounding = unset_value, step = 1, **kwargs):
         self.widget = NumberInput(step = step)        
         super().__init__(label, validators, **kwargs)
@@ -54,7 +58,6 @@ class DecimalFieldStep(LocaleAwareNumberField):
     def process_formdata(self, valuelist):
         if not valuelist:
             return
-
         try:
             if self.use_locale:
                 self.data = self._parse_decimal(valuelist[0])
@@ -64,8 +67,8 @@ class DecimalFieldStep(LocaleAwareNumberField):
             self.data = None
             raise ValueError(self.gettext("Not a valid decimal value.")) from exc
 
+# Adapted from flask-wtf, see flask-wtf docs/source for more information
 class Select2:
-
     validation_attrs = ["required"]
 
     def __init__(self, multiple=False):
@@ -105,6 +108,7 @@ class Select2:
             "<option {}>{}</option>".format(html_params(**options), escape(label))
         )
 
+# Adapted from flask-wtf, see flask-wtf docs/source for more information
 class Select2Field(SelectFieldBase):
     widget = Select2()
 
@@ -270,3 +274,38 @@ def form_printer(fields):
 
 class appsearch(Form):
     pass
+
+# Hard-coded signup form
+class signup(Form):
+    name = StringField(
+        "Name",
+        validators=[DataRequired()]
+    )
+    password = PasswordField(
+        "Password",
+        validators=[
+            DataRequired(),
+            Length(min=8, message="Password must be at least eight (8) characters.")
+        ]
+    )
+    repeat = PasswordField(
+        "Repeat password to confirm",
+        validators=[
+            DataRequired(),
+            EqualTo("Password", message="Passwords must match")
+        ]
+    )
+    submit = SubmitField('Register')
+
+# Hard-coded login form
+class LoginForm(Form):
+    name = StringField(
+        "Username",
+        validators=[
+            DataRequired(),
+            Email(message="Username")
+        ]
+    )
+    password = PasswordField("Password", validators=[DataRequired()])
+    submit = SubmitField("Log In")
+
