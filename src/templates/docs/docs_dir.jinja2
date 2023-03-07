@@ -1,0 +1,7 @@
+{% include "header_main_nologin.html" %}
+    <h1>{{ title }}</h1>
+    <section><p><a href="/main/">Back to menu</a></p></section>
+    {% for i in filelist %}
+    <hr><section><a href="{{ i["link"] }}">{{ i["disp"] }}</a></section>
+    {% endfor %}
+{% include "footer_main.html" %}

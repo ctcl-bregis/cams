@@ -1,4 +1,5 @@
-Due to the complexity of CAMS and inventory management in general, development would be split up into phases. A similar plan with phases was done with the NetKart automotive project.
+Due to the complexity of CAMS and inventory management in general, development would be split up into phases. 
+A similar plan with phases was done with the NetKart automotive project.
 
 - Phase 1:
   - Read and write basic entry information to the database in a web interface 
