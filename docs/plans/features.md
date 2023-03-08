@@ -19,6 +19,7 @@ Optimization during development is avoided when possible and should be done when
 
 - Item photos
 - Testing on Microsoft Windows platforms
+- Multi-user
 
 ### 3 - Idea only, probably will not be added any time soon
 

@@ -18,15 +18,16 @@ def mkapp():
     app = Flask(__name__)
     app.config.from_object("config.Config")
     
-    db.init_app(app)
     login_manager.init_app(app)
     
     with app.app_context():
-        from . import routes, setup
+        from . import routes, setup, docs, login
         
         app.register_blueprint(routes.main_bp)
         app.register_blueprint(setup.setup_bp)
-
+        app.register_blueprint(docs.docs_bp)
+        app.register_blueprint(login.login_bp)
+        
         return app
 
 def checkdb(app):
