@@ -1,5 +1,5 @@
 # Introduction
-Codename: Rainbow Trout
+*Codename: Rainbow Trout*
 
 CAMS means Computer Asset Management System, it was created in the need of a specialized asset/inventory management system software. 
 

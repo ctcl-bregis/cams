@@ -1,14 +1,24 @@
 # CAMS Software
 # Purpose: User Login Blueprint
-# Date: March 7, 2023 - March 7, 2023
+# Date: March 7, 2023 - March 8, 2023
 # CTCL 2023
 
+import os
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_user
 from . import login_manager
 from .forms import LoginForm, SignupForm
-from .models import User, db
 
+try:
+    if os.environ["CAMSDBISINIT"] == "1":
+        from .models import User, db
+    else:
+        pass
+except KeyError:
+    pass
+    
+login_bp = Blueprint("login_bp", __name__, template_folder="templates", static_folder="static")
+    
 @login_manager.user_loader
 def load_user(user_id):
     if user is not None:

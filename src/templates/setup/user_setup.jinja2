@@ -1,4 +1,4 @@
-{% include "header_main_nologin.html" %}
+{% include "header_main_nologin.jinja2" %}
         <h2>CAMS - First Time Setup - {{ title }}</h2>
         {% if error %}<p>{{ error }}</p>{% endif %}
         <form action = "/setup/user/" method = "POST" class = "halfform">
@@ -10,4 +10,4 @@
             <input type = "password" name = "repeatpassword" id = "repeatpassword" placeholder = "password"/></br>
             <input type = "submit" value = "Login"/></br>
         </form>
-{% include "footer_main.html" %}
+{% include "footer_main.jinja2" %}
