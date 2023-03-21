@@ -1,6 +1,0 @@
-{% include "header_main.jinja2" %}
-        <h2>New Entry</h2>
-        <section>{% for btn in menu %}
-            <a href = "/main/new/{{ btn["table"] }}" class = "btn"><button class = "btn">{{ btn["name"] }}</button></a>{% endfor %}
-        </section>
-{% include "footer_main.jinja2" %}

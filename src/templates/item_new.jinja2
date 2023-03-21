@@ -1,9 +1,0 @@
-{% include "header_main_sel2.jinja2" %}
-    <h2>New Entry - {{ devtype }}</h2>
-    <p><a href="/main/">Return to menu</a></p>
-    {% from "formhelpers.jinja2" import render_field %}
-    <form method="post">
-        <dl>{% for i in form._fields %}{{ render_field(form[i]) }}{% endfor %}</dl>
-        <p><input class="btn" type="submit" value="Submit"></p>
-    </form>
-{% include "footer_main.jinja2" %}

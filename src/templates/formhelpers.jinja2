@@ -1,8 +1,0 @@
-{% macro render_field(field) %}
-    {% if field.label.text != "CSRF Token" %}{{ field.label }}{% endif %}
-    {{ field(**kwargs)|safe }}{% if field.errors %}
-        <ul class=errors>
-        {% for error in field.errors %}
-            <li>{{ error }}</li>{% endfor %}
-        </ul>{% endif %}
-{% endmacro %}
