@@ -13,7 +13,7 @@ basedir = path.abspath(path.dirname(__file__))
 defaultconfig = {
     "FLASK_APP": "wsgi.py",
     "FLASK_ENV": "",
-    "SECRET_KEY": "",
+    "SECRET_KEY": "tempkey",
     "STATIC_DIR": "static",
     "TEMPLATES_DIR": "templates",
     "SQLALCHEMY_DATABASE_URI": "",
@@ -37,5 +37,5 @@ else:
 class Config:
     # Bad idea?
     for i in configdata:
-        globals()[i] = configdata[i]
+        locals()[i] = configdata[i]
         
