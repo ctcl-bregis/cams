@@ -2,6 +2,9 @@
 
 find . -name "__pycache__" -exec rm -r "{}" \;
 echo "Database is kept in memory (/dev/shm/) and is not written to disk in development mode."
+rm -r /dev/shm/camsdb
+rm data
 mkdir /dev/shm/camsdb
 ln -s /dev/shm/camsdb/ data
+export CAMS_DBINIT=False
 python3 -B -m flask run

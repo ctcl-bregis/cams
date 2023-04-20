@@ -1,3 +1,8 @@
+# CAMS Software
+# CTCL 2021-2023
+# ???, 2022 - March 27, 2023
+# Purpose: App initialization
+
 import qrcode
 import json
 from reportlab.graphics import renderPDF, renderPM
