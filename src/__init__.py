@@ -1,6 +1,5 @@
-# CAMS Software
-# CTCL 2021-2023
-# March 27, 2023 - March 27, 2023
+# CAMS Software - CTCL 2021-2023
+# March 27, 2023 - April 25, 2023
 # Purpose: App initialization
 
 from flask import Flask
@@ -12,14 +11,31 @@ import os
 flm = LoginManager()
 
 def mkapp():
-    app = Flask(__name__)
     
-    # Check environment variable
-    # If the environment variable is not set to "True", assume the database is not initialized but clear it anyway.
-    if os.environ["CAMS_DBINIT"] != "True":
-        with open("test.txt", "w") as f:
-            f.write("test")
+    
+    app = Flask(__name__, instance_relative_config=False)
+    #app.url_map.strict_slashes = False
+    
+    # If this environment variable is set to True by supposedly ./runner_dev, run in "Development" mode
+    if os.environ["CAMS_DEVMODE"] == "True":
+        # Default to the "in-memory" db location in /dev/shm/
+        os.environ["CAMSDB_URL"] = dburl = "./data/data.db"
         
+        app.config.from_mapping(
+            SECRET_KEY='dev',
+            DATABASE=os.path.join(dburl),
+        )
+    else:
+        # For now, CAMS is "Development" only until it is ready to be used by CTCL
+        raise NotImplementedError
+    
+    from src.docs import docs_bp
         
+    #app.register_blueprint(auth.bp)
+    app.register_blueprint(docs_bp, url_prefix = "/docs")
+    #app.register_blueprint(main.bp)
+    #app.register_blueprint(mktg.bp)
+    
+    
     return app
     

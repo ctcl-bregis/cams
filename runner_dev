@@ -7,4 +7,5 @@ rm data
 mkdir /dev/shm/camsdb
 ln -s /dev/shm/camsdb/ data
 export CAMS_DBINIT=False
+export CAMS_DEVMODE=True
 python3 -B -m flask run

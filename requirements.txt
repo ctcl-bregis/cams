@@ -1,5 +1,8 @@
 Flask==2.2.3
+Flask-Login==0.6.2
 Flask-MDEditor==0.1.4
+Flask-SQLAlchemy==3.0.3
 qrcode==7.4.2
 reportlab==3.6.12
 svglib==1.5.1
+WTForms==3.0.1
