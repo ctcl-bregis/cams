@@ -1,4 +1,4 @@
-Flask==2.2.3
+Flask==2.3.1
 Flask-Login==0.6.2
 Flask-MDEditor==0.1.4
 Flask-SQLAlchemy==3.0.3

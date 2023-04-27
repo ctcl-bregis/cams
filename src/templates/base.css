@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: right;
+    list-style-type: none;
+}
+
+.navbar li a {
+    border: 2pt solid;
+    padding: 8pt 8pt;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12pt;
+    cursor: pointer;
+}

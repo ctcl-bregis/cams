@@ -20,11 +20,16 @@ def mkapp():
     if os.environ["CAMS_DEVMODE"] == "True":
         # Default to the "in-memory" db location in /dev/shm/
         os.environ["CAMSDB_URL"] = dburl = "./data/data.db"
+        os.environ["CAMSDB_INIT"] = "False"
+        dbinit = bool(os.environ["CAMSDB_INIT"])
         
         app.config.from_mapping(
             SECRET_KEY='dev',
             DATABASE=os.path.join(dburl),
         )
+        
+        
+        
     else:
         # For now, CAMS is "Development" only until it is ready to be used by CTCL
         raise NotImplementedError

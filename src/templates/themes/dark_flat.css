@@ -1,0 +1,27 @@
+body {
+    background-color: #000000;
+}
+
+h1, h2, h3, h4, h5, p {
+    color: #FFFFFF;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.navbar ul {
+    background-color: #FFFFFF;
+}
+
+.navbar li a {
+    background-color: #FFFFFF;
+    border: 2pt solid;
+    border-color: #FFFFFF;
+    color: #000000;
+}
+
+.navbar .active {
+    background-color: #000000;
+    color: #FFFFFF;
+}

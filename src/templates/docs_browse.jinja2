@@ -1,0 +1,6 @@
+{% include "docs_header.jinja2" %}
+        <table>{% for entry in contents %}
+            <tr>{% for item in entry %}
+                <td>{{ item }}</td>{% endfor %}
+        {% endfor %}</table>
+{% include "docs_footer.jinja2" %}

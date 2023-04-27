@@ -1,7 +1,7 @@
 # Introduction
 *Codename: Rainbow Trout*
 
-CAMS means Computer Asset Management System, it was created in the need of a specialized asset/inventory management system software. 
+CAMS means CAMS Asset Management System, it was created in the need of a specialized asset/inventory management system software. Formerly CAMS was Computer Asset Management System but was changed to CAMS Asset Managment System as it can be used for more than just computers. 
 
 CAMS is heavily inspired by the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I am employed from time to time. The IMS used by 2nd Life Inc. was written using the Ruby on Rails framework.
 

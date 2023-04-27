@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <style>
+            {% include "base.css" %}
+            {% include "{}".format(theme) %}
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <ul>
+                <li><a href="/search/">Search</a></li>
+                <li><a class="active" href="/docs/">Docs</a></li>
+                {% if user == "" %}
+                <li><a href="/login/">Sign In</a></li>
+                {% else %}
+                <li><a href="/logout/">Sign Out</a></li>
+                {% endif %}
+           </ul>
+        </div>
+        <h2>{{ title }}</h2>
