@@ -1,6 +1,16 @@
 {% include "docs_header.jinja2" %}
-        <table>{% for entry in contents %}
-            <tr>{% for item in entry %}
-                <td>{{ item }}</td>{% endfor %}
+        <table>
+            <tr>
+                <th width="70%">File</th>
+                <th width="5%">Type</th>
+                <th width="15%">Modified</th>
+                <th width="10%">Size</th>
+            </tr>
+        {% for item in contents %}<tr>
+                <td><a href={{ item["file"] }}><p>{{ item["file"] }}</p></a></td>
+                <td><p>{{ item["type"] }}</p></td>
+                <td><p>{{ item["mod"] }}</p></td>
+                <td><p>{{ item["size"] }}</p></td>
+            </tr>
         {% endfor %}</table>
 {% include "docs_footer.jinja2" %}

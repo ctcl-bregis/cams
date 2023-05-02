@@ -6,19 +6,35 @@ h1, h2, h3, h4, h5, p {
     color: #FFFFFF;
 }
 
+table {
+    color: #FFFFFF;
+    padding: 4pt;
+    margin: 0;
+}
+
 .navbar {
     margin: 0;
 }
 
 .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     background-color: #FFFFFF;
 }
 
-.navbar li a {
+.navbar li {
     background-color: #FFFFFF;
-    border: 2pt solid;
-    border-color: #FFFFFF;
+    float: right;
+}
+
+.navbar li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
     color: #000000;
+    font-size: 16px;
+    border-color: #FFFFFF;
 }
 
 .navbar .active {
