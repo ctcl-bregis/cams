@@ -1,5 +1,5 @@
 {% include "docs_header.jinja2" %}
-        <table>
+        <table width="100%">
             <tr>
                 <th width="70%">File</th>
                 <th width="5%">Type</th>
@@ -8,9 +8,9 @@
             </tr>
         {% for item in contents %}<tr>
                 <td><a href={{ item["file"] }}><p>{{ item["file"] }}</p></a></td>
-                <td><p>{{ item["type"] }}</p></td>
-                <td><p>{{ item["mod"] }}</p></td>
-                <td><p>{{ item["size"] }}</p></td>
+                <td><p style="text-align: center">{{ item["type"] }}</p></td>
+                <td><p style="text-align: center">{{ item["mod"] }}</p></td>
+                <td><p style="text-align: center">{{ item["size"] }}</p></td>
             </tr>
         {% endfor %}</table>
 {% include "docs_footer.jinja2" %}

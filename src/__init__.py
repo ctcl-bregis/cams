@@ -1,5 +1,5 @@
 # CAMS Software - CTCL 2021-2023
-# March 27, 2023 - April 25, 2023
+# March 27, 2023 - May 4, 2023
 # Purpose: App initialization
 
 from flask import Flask
@@ -27,8 +27,6 @@ def mkapp():
             SECRET_KEY='dev',
             DATABASE=os.path.join(dburl),
         )
-        
-        
         
     else:
         # For now, CAMS is "Development" only until it is ready to be used by CTCL

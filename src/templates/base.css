@@ -6,28 +6,54 @@ h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
+.content {
+    margin: 4pt;
+}
+
 .navbar {
+    overflow: hidden;
     margin: 0;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.navbar a {
+    float: right;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: right;
     overflow: hidden;
 }
 
-.navbar li {
-    float: right;
-    list-style-type: none;
+.dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
 }
 
-.navbar li a {
-    border: 2pt solid;
-    padding: 8pt 8pt;
-    text-align: center;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 40pt;
+    
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
-    display: inline-block;
-    font-size: 12pt;
-    cursor: pointer;
+    display: block;
+    text-align: left;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
 }

@@ -12,32 +12,40 @@ table {
     margin: 0;
 }
 
-.navbar {
-    margin: 0;
+td {
+    border-top: 1pt;
+    border-top-color: #FFFFFF;
+    border-top-style: solid;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+td p {
+    margin: 0pt;
+    padding: 2pt;
+}
+
+.navbar, .navbar a {
     background-color: #FFFFFF;
-}
-
-.navbar li {
-    background-color: #FFFFFF;
-    float: right;
-}
-
-.navbar li a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
     color: #000000;
-    font-size: 16px;
-    border-color: #FFFFFF;
 }
 
 .navbar .active {
     background-color: #000000;
     color: #FFFFFF;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #999999;
+    color: #000000;
+}
+
+.dropdown-content a:hover {
+    background-color: #999999;
+}
+
+.dropdown .dropbtn {
+    color: #000000;
+}
+
+.dropdown-content {
+    background-color: #FFFFFF;
 }

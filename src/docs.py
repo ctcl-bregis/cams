@@ -1,13 +1,13 @@
 # CAMS Software - CTCL 2021-2023
-# March 23, 2023 - May 1    , 2023
+# March 23, 2023 - May 4, 2023
 # Purpose: Flask Blueprint for the integrated documentation feature
 
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request
 from flask_mdeditor import MDEditor
 from os import listdir, stat
 from os.path import isfile, join, isdir
-from datetime import datetime
 from markdown import markdown
+from src.lib import ts2fmt, hsize, navbar
 
 docs_bp = Blueprint("docs", __name__, template_folder = "templates")
 
@@ -16,18 +16,17 @@ docs_bp = Blueprint("docs", __name__, template_folder = "templates")
 # If a file extension is not defined in this dictionary, ".<extension> file" is shown instead for "Type"
 filetypes = {"md": "Markdown", "txt": "Text"}
 
-
 @docs_bp.route("/", defaults = {"path": ""})
 @docs_bp.route("/<path:path>")
 def index(path):
-    basepath = "docs/"
-    docspath = basepath + path
+    basepath = path
+    docspath = "docs/" + basepath 
     
     # TODO: Have this read from user preferences in DB
     theme = "themes/dark_flat.css"
     
     # Is the path the browser is requesting a file?
-    if isfile(basepath + path):
+    if isfile(docspath):
         
         title = f"Documentation - /{path} - View"
         
@@ -45,7 +44,8 @@ def index(path):
             # Show this instead of having binary data shown in the browser
             content = "File cannot be read"
         
-        return render_template("docs_view.jinja2", content = content, title = title, theme = theme)
+        
+        return render_template("docs_view.jinja2", content = content, title = title, theme = theme, navbar = navbar("docs"))
         
     else:
         title = f"Documentation - /{path}"
@@ -53,7 +53,7 @@ def index(path):
     contents = []
     for i in listdir(docspath):
         if isfile(f"{docspath}/{i}"):
-            mod = datetime.fromtimestamp(stat(docspath).st_mtime).strftime("%X, %b %m, %Y")
+            mod = ts2fmt(stat(docspath).st_mtime)
         
             # Split by "."
             # This would have, for example, ".tar.gz" show as ".gz file"
@@ -65,10 +65,16 @@ def index(path):
             except KeyError:
                 ftype = f".{ftype} file"
         
-            fsize = stat(f"{docspath}/{i}").st_size
-            contents.append({"file": i, "type": ftype, "mod": mod, "size": fsize})
+            fsize = hsize(stat(f"{docspath}/{i}").st_size)
+            
+            if basepath == "":
+                ffile = i
+            else:
+                ffile = f"{basepath}/{i}"
+            
+            contents.append({"file": ffile, "type": ftype, "mod": mod, "size": fsize})
         elif isdir(f"{docspath}/{i}"):
-            mod = datetime.fromtimestamp(stat(docspath).st_mtime).strftime("%X, %b %m, %Y")
+            mod = ts2fmt(stat(docspath).st_mtime)
             contents.append({"file": i, "type": "Directory", "mod": mod, "size": ""})
     
-    return render_template("docs_browse.jinja2", contents = contents, title = title, theme = theme)
+    return render_template("docs_browse.jinja2", contents = contents, title = title, theme = theme, navbar = navbar("docs"))

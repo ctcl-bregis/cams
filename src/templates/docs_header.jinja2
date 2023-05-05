@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>{{ title }}</title>
@@ -7,15 +8,16 @@
         </style>
     </head>
     <body>
-        <div class="navbar">
-            <ul>
-                <li><a href="/search/">Search</a></li>
-                <li><a class="active" href="/docs/">Docs</a></li>
-                {% if user == "" %}
-                <li><a href="/login/">Sign In</a></li>
-                {% else %}
-                <li><a href="/logout/">Sign Out</a></li>
-                {% endif %}
-           </ul>
-        </div>
+        <div class="navbar">{% for i in navbar["navbar"] %}
+            
+            {% if i["dropdown"] == "True" %}
+            <div class="dropdown">
+                <button class="dropbtn">{{ i["text"] }}</button>
+                <div class="dropdown-content">{% for o in i["options"] %}
+                    <a href="{{ o["link"] }}">{{ o["text"] }}</a>{% endfor %}
+                </div>
+            </div>{% else %}
+            <a href="{{ i["link"] }}">{{ i["text"] }}</a>{% endif %}
+        {% endfor %}</div>
+        
         <h2>{{ title }}</h2>

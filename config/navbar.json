@@ -1,0 +1,30 @@
+{
+    "navbar": [
+        {
+            "name": "login",
+            "onlyloggedin": "False",
+            "text": "Profile",
+            "link": "/user",
+            "dropdown": "False"
+        },
+        {
+            "name": "docs",
+            "onlyloggedin": "False",
+            "text": "Docs",
+            "link": "/docs",
+            "dropdown": "False"
+        },
+        {
+            "name": "search",
+            "onlyloggedin": "True",
+            "text": "Search",
+            "link": "/search",
+            "dropdown": "True",
+            "options": [
+                {"text": "Items", "link": "/search/items"},
+                {"text": "Sources", "link": "/search/sources"},
+                {"text": "Quotes", "link": "/search/quotes"}
+            ]
+        }
+    ]
+}
