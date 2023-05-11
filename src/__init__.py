@@ -14,7 +14,7 @@ def mkapp():
     
     
     app = Flask(__name__, instance_relative_config=False)
-    #app.url_map.strict_slashes = False
+    app.url_map.strict_slashes = True
     
     # If this environment variable is set to True by supposedly ./runner_dev, run in "Development" mode
     if os.environ["CAMS_DEVMODE"] == "True":

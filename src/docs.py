@@ -2,10 +2,10 @@
 # March 23, 2023 - May 4, 2023
 # Purpose: Flask Blueprint for the integrated documentation feature
 
-from flask import Blueprint, render_template, abort, request
+from flask import Blueprint, render_template, abort, request, redirect
 from flask_mdeditor import MDEditor
 from os import listdir, stat
-from os.path import isfile, join, isdir
+from os.path import isfile, join, isdir, exists
 from markdown import markdown
 from src.lib import ts2fmt, hsize, navbar
 
@@ -17,32 +17,40 @@ docs_bp = Blueprint("docs", __name__, template_folder = "templates")
 filetypes = {"md": "Markdown", "txt": "Text"}
 
 @docs_bp.route("/", defaults = {"path": ""})
-@docs_bp.route("/<path:path>")
+@docs_bp.route("/<path:path>/")
 def index(path):
     basepath = path
     docspath = "docs/" + basepath 
     
+    if not exists(docspath):
+        abort(404)
+    
     # TODO: Have this read from user preferences in DB
     theme = "themes/dark_flat.css"
-    
     # Is the path the browser is requesting a file?
     if isfile(docspath):
-        
         title = f"Documentation - /{path} - View"
         
+
         with open(docspath) as f:
-            content = f.read() 
+            content = f.read()
         
         if path.split(".")[-1] == "md":
             content = markdown(content)
         elif path.split(".")[-1] == "txt":
+            # Replace "<" and ">"
+            content = content.replace("<", "&#60;")
+            content = content.replace(">", "&#62;")
+            # Wrap content in <p>
             content = f"<p>{content}</p>"
         elif len(content) > 1000000:
             # Prevent sending too much data to the browser
             content = "File too long"
         else:
             # Show this instead of having binary data shown in the browser
-            content = "File cannot be read"
+            content = "File type unknown"
+        
+        
         
         
         return render_template("docs_view.jinja2", content = content, title = title, theme = theme, navbar = navbar("docs"))

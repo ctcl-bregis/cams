@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5 {
     float: right;
     font-size: 16px;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 14px;
     text-decoration: none;
 }
 
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5 {
     font-size: 16px;  
     border: none;
     outline: none;
-    padding: 14px 16px;
+    padding: 12px 14px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
@@ -42,14 +42,13 @@ h1, h2, h3, h4, h5 {
     display: none;
     position: absolute;
     min-width: 40pt;
-    
     z-index: 1;
 }
 
 .dropdown-content a {
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 12px 14px;
     text-decoration: none;
     display: block;
     text-align: left;
