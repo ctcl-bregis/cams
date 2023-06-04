@@ -10,49 +10,47 @@ h1, h2, h3, h4, h5 {
     margin: 4pt;
 }
 
-.navbar {
-    overflow: hidden;
+.navbar ul {
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    height: 48px;
+    overflow: hidden;
 }
 
-.navbar a {
-    float: right;
-    font-size: 16px;
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: grid;
     text-align: center;
-    padding: 12px 14px;
+    height: 48px;
     text-decoration: none;
+    align-content: center;
+    padding: 0px 12px;
 }
 
-.dropdown {
-    float: right;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    padding: 12px 14px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+.navbar li.dropdown {
+    display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    min-width: 40pt;
     z-index: 1;
 }
 
 .dropdown-content a {
-    float: none;
     color: black;
-    padding: 12px 14px;
     text-decoration: none;
     display: block;
+    padding: inherit;
     text-align: left;
 }
+
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
+
+

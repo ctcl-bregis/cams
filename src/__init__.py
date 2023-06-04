@@ -1,5 +1,5 @@
 # CAMS Software - CTCL 2021-2023
-# March 27, 2023 - May 4, 2023
+# March 27, 2023 - May 24, 2023
 # Purpose: App initialization
 
 from flask import Flask
@@ -11,8 +11,6 @@ import os
 flm = LoginManager()
 
 def mkapp():
-    
-    
     app = Flask(__name__, instance_relative_config=False)
     app.url_map.strict_slashes = True
     
@@ -33,12 +31,12 @@ def mkapp():
         raise NotImplementedError
     
     from src.docs import docs_bp
-        
+    from src.auth import auth_bp
+
     #app.register_blueprint(auth.bp)
     app.register_blueprint(docs_bp, url_prefix = "/docs")
     #app.register_blueprint(main.bp)
     #app.register_blueprint(mktg.bp)
-    
     
     return app
     

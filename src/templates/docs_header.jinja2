@@ -4,20 +4,23 @@
         <title>{{ title }}</title>
         <style>
             {% include "base.css" %}
-            {% include "{}".format(theme) %}
+            {{ theme["themecss"]|safe }}
         </style>
     </head>
     <body>
-        <div class="navbar">{% for i in navbar["navbar"] %}
-            
-            {% if i["dropdown"] == "True" %}
-            <div class="dropdown">
-                <button class="dropbtn">{{ i["text"] }}</button>
-                <div class="dropdown-content">{% for o in i["options"] %}
-                    <a href="{{ o["link"] }}">{{ o["text"] }}</a>{% endfor %}
-                </div>
-            </div>{% else %}
-            <a href="{{ i["link"] }}">{{ i["text"] }}</a>{% endif %}
-        {% endfor %}</div>
-        
+        <div class="navbar">
+            <ul>{% for item in navbar["content"] %}
+                {% if item["type"] == "dropdown" %}
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">{{ item["text"] }}</a>
+                    <div class="dropdown-content">{% for option in item["options"] %}
+                        <a href="{{ option["link"] }}">{{ option["text"] }}</a>
+                    {% endfor %}</div>
+                </li>
+                {% elif item["type"] == "link" %}
+                <li><a href={{ item["link"] }}>{{ item["text"] }}</a></li>
+                {% elif item["type"] == "logo" %}
+                <li><img src={{ theme["logo"] }} width="48" height="48"></li>
+        {% endif %}{% endfor %}</ul>
+        </div>
         <h2>{{ title }}</h2>

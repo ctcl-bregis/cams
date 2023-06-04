@@ -1,0 +1,60 @@
+body {
+    background-color: #000000;
+    font-family: arial;
+    color: #FFFFFF;
+}
+
+p a {
+    color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, p, p a {
+    padding: 4pt;
+    margin: 2pt;
+}
+
+.docs_browse table {
+    color: #FFFFFF;
+    padding: 4pt;
+    margin: 0;
+}
+
+.docs_browse_link a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.docs_browse_link:hover {
+    background-color: #222222;
+}
+
+td {
+    border-top: 1pt;
+    border-top-color: #FFFFFF;
+    border-top-style: solid;
+}
+
+td p {
+    margin: 0pt;
+    padding: 2pt;
+}
+
+.navbar ul {
+    background-color: #FFFFFF;
+}
+
+.navbar li a, .dropbtn {
+    color: #000000;
+}
+
+.navbar li a:hover, .dropdown:hover .dropbtn {
+    background-color: #DDDDDD;
+}
+
+.dropdown-content {
+    background-color: #FFFFFF;
+}
+
+.dropdown-content a:hover {
+    background-color: #DDDDDD;
+}

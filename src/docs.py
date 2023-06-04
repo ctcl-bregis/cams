@@ -1,5 +1,5 @@
-# CAMS Software - CTCL 2021-2023
-# March 23, 2023 - May 4, 2023
+# CAMS Asset Management System - CTCL 2021-2023
+# March 23, 2023 - May 24, 2023
 # Purpose: Flask Blueprint for the integrated documentation feature
 
 from flask import Blueprint, render_template, abort, request, redirect
@@ -7,7 +7,7 @@ from flask_mdeditor import MDEditor
 from os import listdir, stat
 from os.path import isfile, join, isdir, exists
 from markdown import markdown
-from src.lib import ts2fmt, hsize, navbar
+from src.lib import ts2fmt, hsize, navbar, theme
 
 docs_bp = Blueprint("docs", __name__, template_folder = "templates")
 
@@ -23,10 +23,9 @@ def index(path):
     docspath = "docs/" + basepath 
     
     if not exists(docspath):
+        raise Exception
         abort(404)
     
-    # TODO: Have this read from user preferences in DB
-    theme = "themes/dark_flat.css"
     # Is the path the browser is requesting a file?
     if isfile(docspath):
         title = f"Documentation - /{path} - View"
@@ -53,12 +52,15 @@ def index(path):
         
         
         
-        return render_template("docs_view.jinja2", content = content, title = title, theme = theme, navbar = navbar("docs"))
+        return render_template("docs_view.jinja2", content = content, title = title, theme = theme("default"), navbar = navbar("docs"))
         
     else:
         title = f"Documentation - /{path}"
     
     contents = []
+    if path != "":
+        contents.append({"file": "..", "type": "Directory", "mod": "", "size": ""})
+    
     for i in listdir(docspath):
         if isfile(f"{docspath}/{i}"):
             mod = ts2fmt(stat(docspath).st_mtime)
@@ -78,11 +80,11 @@ def index(path):
             if basepath == "":
                 ffile = i
             else:
-                ffile = f"{basepath}/{i}"
+                ffile = i
             
             contents.append({"file": ffile, "type": ftype, "mod": mod, "size": fsize})
         elif isdir(f"{docspath}/{i}"):
             mod = ts2fmt(stat(docspath).st_mtime)
             contents.append({"file": i, "type": "Directory", "mod": mod, "size": ""})
     
-    return render_template("docs_browse.jinja2", contents = contents, title = title, theme = theme, navbar = navbar("docs"))
+    return render_template("docs_browse.jinja2", contents = contents, title = title, theme = theme("default"), navbar = navbar("docs"), logo_primary = "#FFFFFF", logo_secondary = "#000000")
