@@ -1,5 +1,4 @@
-# Introduction
-*Codename: Rainbow Trout*
+# CAMS "Rainbow Trout"
 
 CAMS means CAMS Asset Management System, it was created in the need of a specialized asset/inventory management system software. Formerly CAMS was Computer Asset Management System but was changed to CAMS Asset Managment System as it can be used for more than just computers. 
 
@@ -10,31 +9,35 @@ This project is what originally introduced me to Python and programming in gener
 Intended Use: CAMS is fully custom to what I need out of an asset management system and may not be suitable for most other applications. 
 
 ## Requirements
-CAMS is server-side software, no software is required to be installed on client systems other than just a browser. See below for browser requirements.
 
-### Client (browser) requirements
-- HTML5
-- Cookies
-- **Other details TBD**
+### Hardware (server)
+CAMS may run on any platform that Python 3.8 and later supports, including but not limited to x86, x86-64, mips32, mips64, armv7l (32-bit, e.g. Raspberry Pi 2 and earlier, Banana Pi F2P/F2S) and armv8 (64-bit, e.g. Raspberry Pi 3 and 4). A minimum of **512MB of system memory (RAM) is recommended**. Depending on the environment, it may run on systems with less memory.
 
-Some features use JavaScript but it is not required to use all of the features of the web interface.
+### Software (server)
+CAMS is developed entirely on Debian GNU/Linux and Linux Mint. Functionality on Windows platforms is not guaranteed.
 
-### Software (server-side)
+As Django 4.2 is currently the only dependency in "requirements.txt", the minimum Python version required is **3.8** as stated in the [Django documentation](https://docs.djangoproject.com/en/4.2/faq/install/).
 
-Required Dependencies:
-- Python 3.7 or later
+### Software (client)
+Due to the lack of login system and user settings at the moment, support for cookies is not required. Also, JavaScript is not required to use the features of the web application. HTML5 support is recommended.
 
-See requirements.txt for Python library requirements
+## Setup
+*Section To-Do*
 
-#### Operating System
-CAMS was written mainly for use on FreeBSD and Linux-based operating systems. 
+## Configuration
+The configuration file in config/database/entry.csv defines the form fields and database models used by the application. The included file is rather basic but can be modified to add more fields.
 
-CAMS *may not* run on Microsoft Windows without code modification, specifically with how file paths are written. 
+### When to use --build
+./runner_dev can accept one command-line flag, --build
 
-### Hardware (server-side)
-CAMS is mainly tested and written on systems using the x86-64 CPU architecture. While mainly untested, it may run on other CPU architectures such as ARM (Raspberry Pi, Banana Pi, Ampere Altra), MIPS (Loongson, Ingenic) and 32-bit x86, as long as the required software are available for such platforms.
+When --build is used, the script removes all of the built Python files, rebuilds such files and does any migrations. This may lead to data loss so it is recommended to back up the database before doing this.
 
-So far, CAMS is single-threaded and therefore does not make use of more than one processor core/thread.
+When to use --build:
+
+- After adding, removing or editing themes under config/themes/
+- (Until dynamic models are implemented) After editing anything in config.json
+
+*Rest of Section To-Do*
 
 ### Printing
 CAMS can make identification tags for parts and devices.

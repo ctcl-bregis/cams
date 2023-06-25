@@ -165,3 +165,4 @@ cython_debug/
 # Automatically generated CAMS database-related files
 data
 data/
+*.sqlite3
