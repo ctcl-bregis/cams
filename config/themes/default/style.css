@@ -1,0 +1,87 @@
+body {
+    background-color: #000000;
+    font-family: arial;
+    color: #FFFFFF;
+}
+
+a {
+    color: #FFFFFF;
+}
+
+.docs_browse table {
+    color: #FFFFFF;
+    padding: 4pt;
+    margin: 0;
+}
+
+.docs_browse_link a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.docs_browse_link:hover {
+    background-color: #222222;
+}
+
+.navbar ul {
+    background-color: #FFFFFF;
+}
+
+.navbar li a, .dropbtn {
+    color: #000000;
+}
+
+.navbar li a:hover, .dropdown:hover .dropbtn {
+    background-color: #DDDDDD;
+}
+
+.dropdown-content {
+    background-color: #FFFFFF;
+}
+
+.dropdown-content a:hover {
+    background-color: #DDDDDD;
+}
+
+.btn-group-rlmenu button {
+    background-color: #FFFFFF;
+    border: 0.5pt solid #000000;
+    color: #000000;
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.btn-group-rlmenu button a {
+    color: #000000;
+}
+
+.btn-group-rlmenu button:hover {
+    background-color: #DDDDDD;
+}
+
+.btn-group-rlmenu a {
+    text-decoration: none;
+}
+
+.actbutton a button {
+    border: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 100%;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #FFFFFF;
+    border: 0.5pt solid #000000;
+    color: #000000;
+    padding: 10px 24px;
+}
+
+input[type="submit"]:hover {
+    background-color: #DDDDDD;
+}
+
+.sort-options i {
+    color: #FFFFFF;
+}

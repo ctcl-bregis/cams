@@ -162,7 +162,16 @@ cython_debug/
 # LibreOffice lock file
 *.~lock*
 
+# Django DB migration data
+cams/migrations/0*
+
 # Automatically generated CAMS database-related files
-data
-data/
 *.sqlite3
+
+# Automatically generated files
+choices.py
+fields.py
+models.py
+themecfg.json
+
+

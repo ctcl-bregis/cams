@@ -1,0 +1,11 @@
+{% include "header.html" %}
+        <h2>Search</h2>
+        <hr>
+        <form action="/search/" method="post">
+            {% csrf_token %}
+            <table class="form">
+            {{ form }}
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+{% include "footer.html" %}

@@ -1,0 +1,10 @@
+{% include "header.html" %}
+        <h2>View Contact</h2>
+        <hr>
+        <table class="view">{% for key, values in data.items %}
+            <tr>
+                <td>{{headers|get_item:key}}</td>
+                <td>{{values}}</td>
+            </tr>
+        {% endfor %}</table>
+{% include "footer.html" %}

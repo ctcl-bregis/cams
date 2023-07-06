@@ -1,14 +1,11 @@
 #!/bin/bash
 find . -name "__pycache__" -exec rm -r "{}" 2> /dev/null \;
 
-export CAMS_DBINIT=False
-export CAMS_DEVMODE=True
-
 if [[ $* == *--build* ]]
 then
-    rm contactlist/models.py 2> /dev/null
-    rm contactlist/fields.py 2> /dev/null
-    rm contactlist/choices.py 2> /dev/null
+    rm cams/models.py 2> /dev/null
+    rm cams/fields.py 2> /dev/null
+    rm cams/choices.py 2> /dev/null
     python3 -B manage.py genmodels
     python3 -B manage.py makemigrations
     python3 -B manage.py migrate

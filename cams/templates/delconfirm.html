@@ -1,0 +1,12 @@
+{% include "header.html" %}
+        <h2>Confirmation</h2>
+        <hr>
+        <h3>Delete Item?</h3>
+        <div class="btn-group-rlmenu">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button name="confirm" value="">Yes</button>
+            </form>
+            <a href="/"><button>No</button></a>
+        </div>
+{% include "footer.html" %}

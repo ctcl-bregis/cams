@@ -1,0 +1,7 @@
+{"theme": {
+    "disp_name": "Flat Light",
+    "int_name": "default-light",
+    "css": "config/themes/default-light/style.css",
+    "logo": "",
+    "tstheme": {"file": "/static/tablesorter/css/theme.default.min.css", "name": "default"}
+}}

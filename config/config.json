@@ -1,0 +1,348 @@
+{"config": {
+    "tablecats": {
+        "personal": "Personal Information",
+        "relation": "Relation",
+        "contact": "Contact Information",
+        "other": "Other Information"
+    },
+    "table": {
+        "personal": [
+        {
+            "col": "name",
+            "datatype": "string",
+            "min": "",
+            "max": "128",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "irln",
+            "datatype": "string",
+            "min": "",
+            "max": "128",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "nick",
+            "datatype": "string",
+            "min": "",
+            "max": "128",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "prns",
+            "datatype": "string",
+            "min": "",
+            "max": "32",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "birt",
+            "datatype": "string",
+            "min": "",
+            "max": "32",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "loca",
+            "datatype": "text",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "appe",
+            "datatype": "text",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": ""
+        }],
+        "relation": [
+        {
+            "col": "dtmt",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "mtth",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "seen",
+            "datatype": "string",
+            "min": "",
+            "max": "32",
+            "step": "",
+            "ddfile": ""
+        }],
+        "contact": [
+        {
+            "col": "smp1",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu1",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "smp2",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu2",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "smp3",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu3",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "smp4",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu4",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "smp5",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu5",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "smp6",
+            "datatype": "select",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": "socials"
+        },
+        {
+            "col": "smu6",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "ema1",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "ema2",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "ema3",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "ema4",
+            "datatype": "string",
+            "min": "",
+            "max": "64",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "nphn",
+            "datatype": "string",
+            "min": "",
+            "max": "32",
+            "step": "",
+            "ddfile": ""
+        }],
+        "other": [
+        {
+            "col": "empl",
+            "datatype": "text",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": ""
+        },
+        {
+            "col": "note",
+            "datatype": "text",
+            "min": "",
+            "max": "",
+            "step": "",
+            "ddfile": ""
+        }
+        ]
+    },
+    "headers": {
+        "name": "Name",
+        "irln": "Full Real Name",
+        "nick": "Nicknames",
+        "prns": "Pronouns",
+        "birt": "Birthday",
+        "loca": "Location",
+        "dtmt": "Date Met",
+        "mtth": "Met Through",
+        "seen": "Seen in real life?",
+        "appe": "Appearance",
+        "smp1": "Social Media Platform 1",
+        "smu1": "Social Media Username 1",
+        "smp2": "Social Media Platform 2",
+        "smu2": "Social Media Username 2",
+        "smp3": "Social Media Platform 3",
+        "smu3": "Social Media Username 3",
+        "smp4": "Social Media Platform 4",
+        "smu4": "Social Media Username 4",
+        "smp5": "Social Media Platform 5",
+        "smu5": "Social Media Username 5",
+        "smp6": "Social Media Platform 6",
+        "smu6": "Social Media Username 6",
+        "ema1": "Email 1",
+        "ema2": "Email 2",
+        "ema3": "Email 3",
+        "ema4": "Email 4",
+        "nphn": "Phone Number",
+        "empl": "Employment Information",
+        "note": "Notes",
+        "tcrd": "Created",
+        "tmod": "Modified"
+    },
+    "htmltable": [
+        {"type": "info", "col": "name", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "irln", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tmod", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tcrd", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "button", "col": "", "width": "5", "link": "/view", "icon": "fa-solid fa-bars", "text": "View"},
+        {"type": "button", "col": "", "width": "5", "link": "/edit", "icon": "fa-solid fa-pen-to-square", "text": "Edit"},
+        {"type": "button", "col": "", "width": "5", "link": "/delete", "icon": "fa-solid fa-xmark", "text": "Delete"},
+        {"type": "button", "col": "", "width": "5", "link": "", "icon": "", "text": ""}
+    ],
+    "dropdown": {
+        "socials": {
+            "disc": "Discord",
+            "ebay": "eBay",
+            "epic": "Epic Games",
+            "face": "Facebook",
+            "gith": "GitHub",
+            "link": "LinkedIn",
+            "payp": "PayPal",
+            "inst": "Instagram",
+            "redd": "Reddit",
+            "snap": "Snapchat",
+            "stea": "Steam",
+            "twit": "Twitter",
+            "webs": "Personal Website"
+        }
+    },
+    "navbar": [
+        {
+            "name": "main",
+            "onlyloggedin": "False",
+            "text": "Main",
+            "link": "/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "new",
+            "onlyloggedin": "False",
+            "text": "Add Contact",
+            "link": "/new/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "search",
+            "onlyloggedin": "False",
+            "text": "Search",
+            "link": "/search/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "settings",
+            "onlyloggedin": "False",
+            "text": "Settings",
+            "link": "/settings/",
+            "float": "right",
+            "type": "link"
+        }
+    ],
+    "misc": {
+        "strftime": "%b %-d, %Y, %H:%M %Z",
+        "basecss": "config/common/base.css",
+        "jquery": "/static/jquery/jquery-3.7.0.min.js",
+        "tablesorter": "/static/tablesorter/js/jquery.tablesorter.min.js",
+        "tablesorterwidget": "/static/tablesorter/js/jquery.tablesorter.widgets.min.js"
+    }
+}}
