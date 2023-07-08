@@ -18,7 +18,9 @@ import csv, io
 def get_item(dictionary, key):
     return dictionary.get(key)
 
-# Main page that 
-def dir(request):
+# "root" page
+def docs(request):
+    
+    
     
     return render()

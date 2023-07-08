@@ -1,11 +1,11 @@
 # CAMS - CTCL 2017-2023
-# Date: May 4, 2023 - July 6, 2023
+# Date: May 4, 2023 - July 7, 2023
 # Purpose: Commonly used functions, similar to lib.rs in Rust
 
 from datetime import datetime, timezone
-import json, base64
-from os import listdir
-from os.path import isdir, join, exists
+import json, base64, pathlib
+from os import listdir, walk
+from os.path import isdir, join, exists, getsize
 from . import __version__
 
 # printe statement that does not raise an exception if the code is running headless
@@ -93,3 +93,22 @@ def theme(tname):
         printe(f"lib.py WARNING: Theme \"{tname}\" not found, using default")
         return themes["default"]
         
+# Get file/directory listing of a directory
+def getdir(directory, showhidden = False):
+    listing = []
+    filetypes = getconfig("filetypes")
+    
+    for root, dirs, files in walk(directory, topdown = False):
+        for name in files:
+            # Files that start with "." are hidden on UNIX-like platforms
+            if name.startswith("."):
+                if showhidden:
+                    listing.append({"type": "Plain Text", "size": getsize(name))
+            else:
+                ext = pathlib.Path(name).suffix
+
+                if ext in getconfig("filetypes"):
+                    listing.append({"type": filetypes[ext], "size": getsize(name))
+    
+    
+
