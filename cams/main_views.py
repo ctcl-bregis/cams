@@ -1,4 +1,4 @@
-# CAMS - CTCL 2017-2023
+# CAMS Asset Management System - CTCL 2017-2023
 # Date: June 9, 2023 (Reused from ContactList) - July 4, 2023
 # Purpose: Main application views
 

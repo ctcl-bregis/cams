@@ -338,6 +338,11 @@
             "type": "link"
         }
     ],
+    "filetypes": {
+        "txt": "Plain Text",
+        "md": "Markdown",
+        "py": "Python"
+    }
     "misc": {
         "strftime": "%b %-d, %Y, %H:%M %Z",
         "basecss": "config/common/base.css",

@@ -1,9 +1,9 @@
-# CAMS - CTCL 2017-2023
+# CAMS Asset Management System - CTCL 2017-2023
 # Date: June 9, 2023 (Reused from ContactList) - July 6, 2023
 # Purpose: Main application URLs
 
 from django.urls import path
-from . import views
+from . import docs_views
 
 urlpatterns = [
 #    path("", views.index),
@@ -14,6 +14,6 @@ urlpatterns = [
 #    path("settings/", views.settings),
 #    path("settings/exportcsv/", views.exportcsv),
 #    path("search/", views.search),
-    path("docs/", views.docs),
-    path("docs/<str:page>/", views.docs_page)
+    path("docs/", docs_views.docs),
+    path("docs/<str:page>/", docs_views.docs_page)
 ]
