@@ -103,12 +103,13 @@ def getdir(directory, showhidden = False):
             # Files that start with "." are hidden on UNIX-like platforms
             if name.startswith("."):
                 if showhidden:
-                    listing.append({"type": "Plain Text", "size": getsize(name))
+                    listing.append({"type": "Plain Text", "size": getsize(name)})
             else:
                 ext = pathlib.Path(name).suffix
 
                 if ext in getconfig("filetypes"):
-                    listing.append({"type": filetypes[ext], "size": getsize(name))
+                    listing.append({"type": filetypes[ext], "size": getsize(name)})
     
     
+
 

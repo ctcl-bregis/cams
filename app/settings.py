@@ -1,5 +1,5 @@
 # CAMS Asset Management System - CTCL 2017-2023
-# Date: June 6, 2023 - July 7, 2023
+# Date: June 6, 2023 - July 24, 2023
 # Purpose: Django App Settings
 
 from pathlib import Path
@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cams_idoc',
+    #'cams_mktag',
     'cams'
 ]
 
