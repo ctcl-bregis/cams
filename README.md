@@ -1,10 +1,12 @@
 # CAMS "Rainbow Trout"
 
-CAMS means CAMS Asset Management System, it was created in the need of a specialized asset/inventory management system software. Formerly CAMS was Computer Asset Management System but was changed to CAMS Asset Managment System as it can be used for more than just computers. 
+CAMS Asset Management System, or just CAMS, is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. 
 
-CAMS is heavily inspired by the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I am employed from time to time. The IMS used by 2nd Life Inc. was written using the Ruby on Rails framework.
+CAMS is based off the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly. Unlike CAMS, 2nd Life IMS was written using Ruby on Rails. CAMS is also inspired by the inventory software [PartKeepr](https://github.com/partkeepr/PartKeepr).
 
-This project is what originally introduced me to Python and programming in general. I am still realitively a beginner to Python and programming in general.
+Formerly CAMS meant Computer Asset Management System but now CAMS referrs to CAMS Asset Managment System since the software can be used to manage other types of assets if configured so.
+
+While writing this software, I am still new to Python and programming in general, there may be unoptimized code, security vulnerabilities or errors in the code. I would appreciate any ideas for improvements, this can be done with the "Issues" tab of the GitHub repository. 
 
 Intended Use: CAMS is fully custom to what I need out of an asset management system and may not be suitable for most other applications. 
 

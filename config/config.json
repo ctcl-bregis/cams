@@ -1,0 +1,56 @@
+{"config": {
+    "table": {
+        
+    },
+    "htmltable": [
+        {"type": "info", "col": "name", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "irln", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tmod", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tcrd", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "button", "col": "", "width": "5", "link": "/view", "icon": "fa-solid fa-bars", "text": "View"},
+        {"type": "button", "col": "", "width": "5", "link": "/edit", "icon": "fa-solid fa-pen-to-square", "text": "Edit"},
+        {"type": "button", "col": "", "width": "5", "link": "/delete", "icon": "fa-solid fa-xmark", "text": "Delete"},
+        {"type": "button", "col": "", "width": "5", "link": "", "icon": "", "text": ""}
+    ],
+    "navbar": [
+        {
+            "name": "main",
+            "onlyloggedin": "False",
+            "text": "Main",
+            "link": "/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "new",
+            "onlyloggedin": "False",
+            "text": "Add Contact",
+            "link": "/new/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "search",
+            "onlyloggedin": "False",
+            "text": "Search",
+            "link": "/search/",
+            "float": "left",
+            "type": "link"
+        },
+        {
+            "name": "settings",
+            "onlyloggedin": "False",
+            "text": "Settings",
+            "link": "/settings/",
+            "float": "right",
+            "type": "link"
+        }
+    ],
+    "misc": {
+        "strftime": "%b %-d, %Y, %H:%M %Z",
+        "basecss": "config/common/base.css",
+        "jquery": "/static/jquery/jquery-3.7.0.min.js",
+        "tablesorter": "/static/tablesorter/js/jquery.tablesorter.min.js",
+        "tablesorterwidget": "/static/tablesorter/js/jquery.tablesorter.widgets.min.js"
+    }
+}}

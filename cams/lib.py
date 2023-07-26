@@ -1,11 +1,13 @@
-# CAMS - CTCL 2017-2023
-# Date: May 4, 2023 - July 7, 2023
-# Purpose: Commonly used functions, similar to lib.rs in Rust
+# CAMS Asset Management System - CTCL 2017-2023
+# File: lib.py
+# Purpose: Commonly used functions
+# Created: May 4, 2023
+# Modified: July 26, 2023
 
 from datetime import datetime, timezone
-import json, base64, pathlib
-from os import listdir, walk
-from os.path import isdir, join, exists, getsize
+import json, base64
+from os import listdir
+from os.path import isdir, join, exists
 from . import __version__
 
 # printe statement that does not raise an exception if the code is running headless
@@ -14,13 +16,6 @@ def printe(text):
         print(text)
     except OSError:
         pass
-
-# Load the config on startup instead of every time a function needs it
-try:
-    with open("config/config.json") as f:
-        jsondata = json.loads(f.read())["config"]
-except (json.JSONDecodeError, json.decoder.JSONDecodeError) as e:
-    printe(f"lib.py ERROR: Exception \"{e}\" raised by JSON library")
 
 # Get a specific part/key of the config
 def getconfig(part):
@@ -93,23 +88,3 @@ def theme(tname):
         printe(f"lib.py WARNING: Theme \"{tname}\" not found, using default")
         return themes["default"]
         
-# Get file/directory listing of a directory
-def getdir(directory, showhidden = False):
-    listing = []
-    filetypes = getconfig("filetypes")
-    
-    for root, dirs, files in walk(directory, topdown = False):
-        for name in files:
-            # Files that start with "." are hidden on UNIX-like platforms
-            if name.startswith("."):
-                if showhidden:
-                    listing.append({"type": "Plain Text", "size": getsize(name)})
-            else:
-                ext = pathlib.Path(name).suffix
-
-                if ext in getconfig("filetypes"):
-                    listing.append({"type": filetypes[ext], "size": getsize(name)})
-    
-    
-
-

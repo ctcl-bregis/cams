@@ -41,6 +41,22 @@ form table tr td {
     width: 50%;
 }
 
+form table tr td input, form table tr td select, form table tr td textarea {
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    margin-top: 4pt;
+}
+
+input {
+    max-width: 100%;
+    box-sizing: border-box;
+} 
+
 .content {
     margin: 4pt;
 }
@@ -118,15 +134,3 @@ form table tr td {
     text-decoration: none;
     margin: 0;
 }
-
-input[type="submit"] {
-    width: 100%;
-    cursor: pointer;
-    display: block;
-    margin-top: 4pt;
-}
-
-input {
-    max-width: 100%;
-    box-sizing: border-box;
-} 

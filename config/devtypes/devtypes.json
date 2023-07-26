@@ -1,9 +1,4 @@
 {"tables": {
-    "system": {
-        "ltpc": {},
-        "memd": {}
-    },
-    "component": {
-
-    }
+    "ltpc": "config/devtypes/ltpc/ltpc.json",
+    "memd": "config/devtypes/memd/memd.json",
 }}

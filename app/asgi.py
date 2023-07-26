@@ -1,10 +1,12 @@
-# CAMS - CTCL 2017-2023
-# Date: June 6, 2023 - July 6, 2023
-# Purpose: ASGI config
+# CAMS Asset Management System - CTCL 2017-2023
+# File: asgi.py
+# Purpose: ASGI config for Django
+# Created: June 6, 2023
+# Modified: July 25, 2023
 
 import os
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cams.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
 
 application = get_asgi_application()
