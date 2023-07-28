@@ -1,6 +1,7 @@
 {% include "header.html" %}
-        <h2>Documentation - {{ dir }}</h2>
+        <h2>{{ title }}</h2>
+        <hr>
         <div class="content">
-            
+            {{ content|safe }}
         </div>
 {% include "footer.html" %}

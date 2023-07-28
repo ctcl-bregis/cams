@@ -2,13 +2,18 @@
 # File: lib.py
 # Purpose: Commonly used functions
 # Created: May 4, 2023
-# Modified: July 26, 2023
+# Modified: July 27, 2023
 
 from datetime import datetime, timezone
 import json, base64
-from os import listdir
-from os.path import isdir, join, exists
+import os
 from . import __version__
+
+if os.path.exists("config/config.json"):
+    with open("config/config.json") as f:
+        jsondata = json.loads(f.read())["config"]
+else:
+    printe("lib.py ERROR: config/config.json does not exist")
 
 # printe statement that does not raise an exception if the code is running headless
 def printe(text):
@@ -44,7 +49,7 @@ def hsize(fsize):
     return f"{num:.1f}Yi{suffix}"
 
 # Function to prefill context data to make views smaller
-def mkcontext(request, title, scripts="none"):
+def mkcontext(request, title, scripts = "none"):
     context = {"title": title, "styling": theme(request.COOKIES.get("theme")), "misc": getconfig("misc"), "navbar": getconfig("navbar"), "ver": __version__}
     
     # font - Load just fontawesome
@@ -73,7 +78,7 @@ def mkcontext(request, title, scripts="none"):
     
     return context
 
-if exists("themecfg.json"):
+if os.path.exists("themecfg.json"):
     with open("themecfg.json") as f:
         themes = json.loads(f.read())
 else:

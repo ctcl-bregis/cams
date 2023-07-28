@@ -2,12 +2,12 @@
 # File: urls.py
 # Purpose: Integrated Documentation URLs
 # Created: July 24, 2023
-# Modified: July 25, 2023
+# Modified: July 28, 2023
 
-from django.urls import include, path
+from django.urls import include, path, re_path
 from . import views
 
 urlpatterns = [
     path("", views.docs),
-    path("<str:page>/", views.docs)
+    re_path("(?P<path>.*)$", views.docs)
 ]

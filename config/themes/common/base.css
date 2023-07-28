@@ -1,3 +1,24 @@
+/* 
+CAMS Asset Management System - CTCL 2017-2023
+File: base.css
+Purpose: CSS styling shared across themes
+Created: ???, 2023
+Modified: July 28, 2023
+*/
+
+/* base tags */
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    padding: 4pt;
+    margin: 2pt;
+}
+
+p, p a {
+    padding: 4pt;
+    margin: 2pt;
+}
+
 body {
     margin: 0;
 }
@@ -7,25 +28,35 @@ table {
     border-spacing: 0pt;
 }
 
-h1, h2, h3, h4, h5 {
+/* Shared class */
+
+.center {
     text-align: center;
 }
 
-h1, h2, h3, h4, h5, p, p a {
-    padding: 4pt;
-    margin: 2pt;
+/* Integrated Documentation Content */
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    text-align: left;
 }
 
-table.view, table.form {
-    border-spacing: 0pt;
+.content {
+    margin: 4pt;
 }
 
-table.form td, table.form th {
-    border: 0;
-    border-style: solid;
-    margin: 0pt;
-    padding: 2pt;
+
+/* Specific to forms */
+
+input[type="submit"] {
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    margin-top: 4pt;
 }
+
+input {
+    max-width: 100%;
+    box-sizing: border-box;
+} 
 
 form {
     max-width: 100%;
@@ -45,21 +76,18 @@ form table tr td input, form table tr td select, form table tr td textarea {
     width: 100%;
 }
 
-input[type="submit"] {
-    width: 100%;
-    cursor: pointer;
-    display: block;
-    margin-top: 4pt;
+table.view, table.form {
+    border-spacing: 0pt;
 }
 
-input {
-    max-width: 100%;
-    box-sizing: border-box;
-} 
-
-.content {
-    margin: 4pt;
+table.form td, table.form th {
+    border: 0;
+    border-style: solid;
+    margin: 0pt;
+    padding: 2pt;
 }
+
+/* Specific to navigation bar */
 
 .navbar ul {
     list-style-type: none;
@@ -93,7 +121,6 @@ input {
 }
 
 .dropdown-content a {
-    color: black;
     text-decoration: none;
     display: block;
     padding: inherit;
@@ -103,6 +130,14 @@ input {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+/* Specific to the documentation file browser table */
+
+.docs_browse td {
+    border: 1pt solid;
+}
+
+/* Button lists */
 
 .actbutton {
     margin: 0pt;

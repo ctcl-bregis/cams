@@ -1,7 +1,4 @@
 {"config": {
-    "table": {
-        
-    },
     "htmltable": [
         {"type": "info", "col": "name", "width": "20", "link": "", "icon": "", "text": ""},
         {"type": "info", "col": "irln", "width": "20", "link": "", "icon": "", "text": ""},
@@ -44,13 +41,39 @@
             "link": "/settings/",
             "float": "right",
             "type": "link"
+        },
+        {
+            "name": "docs",
+            "onlyloggedin": "False",
+            "text": "Docs",
+            "link": "/docs/",
+            "float": "right",
+            "type": "link"
         }
     ],
     "misc": {
-        "strftime": "%b %-d, %Y, %H:%M %Z",
-        "basecss": "config/common/base.css",
+        "strftime": "%b %d, %Y, %H:%M %Z",
+        "basecss": "config/themes/common/base.css",
         "jquery": "/static/jquery/jquery-3.7.0.min.js",
         "tablesorter": "/static/tablesorter/js/jquery.tablesorter.min.js",
         "tablesorterwidget": "/static/tablesorter/js/jquery.tablesorter.widgets.min.js"
+    },
+    "docs": {
+        "path": "config/docs/",
+        "showhidden": "True",
+        "usesorter": "False",
+        "knowntypes": {
+            ".md": {"name": "Markdown", "type": "markdown"},
+            ".py": {"name": "Python Source", "type": "source"},
+            ".txt": {"name": "Plain Text File", "type": "text"},
+            ".zip": {"name": "File Archive", "type": "binary"},
+            "": {"name": "Plain Text File", "type": "text"}
+        },
+        "table": [
+            {"title": "Name", "align": "left", "width": "45%", "data": "name", "islink": "True"},
+            {"title": "Type", "align": "center", "width": "15%", "data": "dtype", "islink": "False"},
+            {"title": "Size", "align": "center", "width": "15%", "data": "size", "islink": "False"},
+            {"title": "Modified", "align": "center", "width": "25%", "data": "modt", "islink": "False"}
+        ]
     }
 }}

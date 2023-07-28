@@ -1,3 +1,5 @@
+/* base tags */
+
 body {
     background-color: #000000;
     font-family: arial;
@@ -7,6 +9,8 @@ body {
 a {
     color: #FFFFFF;
 }
+
+/* Specific to navigation bar */
 
 .docs_browse table {
     color: #FFFFFF;
@@ -23,18 +27,6 @@ a {
     background-color: #222222;
 }
 
-.navbar ul {
-    background-color: #FFFFFF;
-}
-
-.navbar li a, .dropbtn {
-    color: #000000;
-}
-
-.navbar li a:hover, .dropdown:hover .dropbtn {
-    background-color: #DDDDDD;
-}
-
 .dropdown-content {
     background-color: #FFFFFF;
 }
@@ -42,6 +34,8 @@ a {
 .dropdown-content a:hover {
     background-color: #DDDDDD;
 }
+
+/* Specific to button groups */
 
 .btn-group-rlmenu button {
     background-color: #FFFFFF;
@@ -71,6 +65,22 @@ a {
     cursor: pointer;
 }
 
+/* Specific to navigation bar */
+
+.navbar ul {
+    background-color: #FFFFFF;
+}
+
+.navbar li a, .dropbtn {
+    color: #000000;
+}
+
+.navbar li a:hover, .dropdown:hover .dropbtn {
+    background-color: #DDDDDD;
+}
+
+/* Specific to forms */
+
 input[type="submit"] {
     background-color: #FFFFFF;
     border: 0.5pt solid #000000;
@@ -81,6 +91,14 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #DDDDDD;
 }
+
+/* Specific to the documentation file browser table */
+
+.docs_browse td { 
+    border-color: #666666;
+}
+
+/* tablesorter overrides */
 
 .sort-options i {
     color: #FFFFFF;
