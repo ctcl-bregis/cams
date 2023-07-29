@@ -3,7 +3,7 @@ CAMS Asset Management System - CTCL 2017-2023
 File: base.css
 Purpose: CSS styling shared across themes
 Created: ???, 2023
-Modified: July 28, 2023
+Modified: July 29, 2023
 */
 
 /* base tags */
@@ -43,6 +43,24 @@ table {
     margin: 4pt;
 }
 
+/* Specific to the documentation file browser table */
+
+.docs_browse tbody tr {
+    border: none;
+}
+
+.docs_browse tbody tr td {
+    border-style: solid;
+    border-width: 2pt;
+}
+
+.docs_browse tbody tr:not(:first-child) td {
+    border-top: none;
+}
+
+.docs_browse tbody tr td:not(:first-child) {
+    border-left: none;
+}
 
 /* Specific to forms */
 
@@ -129,12 +147,6 @@ table.form td, table.form th {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-/* Specific to the documentation file browser table */
-
-.docs_browse td {
-    border: 1pt solid;
 }
 
 /* Button lists */

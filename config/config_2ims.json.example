@@ -1,0 +1,151 @@
+{"config": {
+    "htmltable": [
+        {"type": "info", "col": "name", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "irln", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tmod", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "info", "col": "tcrd", "width": "20", "link": "", "icon": "", "text": ""},
+        {"type": "button", "col": "", "width": "5", "link": "/view", "icon": "fa-solid fa-bars", "text": "View"},
+        {"type": "button", "col": "", "width": "5", "link": "/edit", "icon": "fa-solid fa-pen-to-square", "text": "Edit"},
+        {"type": "button", "col": "", "width": "5", "link": "/delete", "icon": "fa-solid fa-xmark", "text": "Delete"},
+        {"type": "button", "col": "", "width": "5", "link": "", "icon": "", "text": ""}
+    ],
+    "navbar": [
+        {
+            "name": "main",
+            "onlyloggedin": "True",
+            "text": "Dashboard",
+            "link": "",
+            "float": "left",
+            "type": "link",
+            "dd": []
+        },
+        {
+            "name": "quotes",
+            "onlyloggedin": "True",
+            "text": "Quotes",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Add Quotes", "link": "/quotes/new/"},
+                {"text": "View Quotes", "link": "/qoutes/"}
+            ]
+        },
+        {
+            "name": "sellers",
+            "onlyloggedin": "True",
+            "text": "Search",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Add Sellers", "link": "/sellers/new/"},
+                {"text": "View Sellers", "link": "/sellers/"}
+            ]
+        },
+        {
+            "name": "sources",
+            "onlyloggedin": "True",
+            "text": "Sources",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Add Source of Supply", "link": "/sources/new/"},
+                {"text": "View Sources of Supply", "link": "/sources/"}
+            ]
+        },
+        {
+            "name": "buyers",
+            "onlyloggedin": "True",
+            "text": "Buyers",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Add Buyer", "link": "/buyers/new/"},
+                {"text": "View Buyers", "link": "/buyers/"}
+            ]
+        },
+        {
+            "name": "orders",
+            "onlyloggedin": "True",
+            "text": "Orders",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "View Buyers", "link": "/orders/"}
+            ]
+        },
+        {
+            "name": "reports",
+            "onlyloggedin": "True",
+            "text": "Reports",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Download Reports", "link": "/downloads/"},
+                {"text": "Download Reports", "link": "/uploads/"}
+            ]
+        },
+        {
+            "name": "search",
+            "onlyloggedin": "True",
+            "text": "Reports",
+            "link": "",
+            "float": "left",
+            "type": "dropdown",
+            "dd": [
+                {"text": "Search Buyers", "link": "/search/buyers/"},
+                {"text": "Search Items", "link": "/search/items/"},
+                {"text": "Search Orders", "link": "/search/orders/"},
+                {"text": "Search Quotes", "link": "/search/quotes/"},
+                {"text": "Search Sellers", "link": "/search/sellers/"}
+            ]
+        },
+        {
+            "name": "user",
+            "onlyloggedin": "False",
+            "text": "",
+            "link": "",
+            "float": "right",
+            "type": "user"
+        },
+        {
+            "name": "login",
+            "onlyloggedin": "",
+            "text": "",
+            "link": "",
+            "float": "right",
+            "type": "login"
+        }
+    ],
+    "misc": {
+        "strftime": "%b %d, %Y, %H:%M %Z",
+        "basecss": "config/themes/common/base.css",
+        "jquery": "/static/jquery/jquery-3.7.0.min.js",
+        "tablesorter": "/static/tablesorter/js/jquery.tablesorter.min.js",
+        "tablesorterwidget": "/static/tablesorter/js/jquery.tablesorter.widgets.min.js"
+    },
+    "docs": {
+        "path": "config/docs/",
+        "showhidden": "True",
+        "usesorter": "False",
+        "knowntypes": {
+            ".json": {"name": "JSON", "type": "source"},
+            ".md": {"name": "Markdown", "type": "markdown"},
+            ".py": {"name": "Python Source", "type": "source"},
+            ".txt": {"name": "Plain Text", "type": "text"},
+            ".zip": {"name": "File Archive", "type": "binary"},
+            "": {"name": "Plain Text", "type": "text"}
+        },
+        "table": [
+            {"title": "Name", "align": "left", "width": "45%", "data": "name", "islink": "True"},
+            {"title": "Type", "align": "center", "width": "15%", "data": "dtype", "islink": "False"},
+            {"title": "Size", "align": "center", "width": "15%", "data": "size", "islink": "False"},
+            {"title": "Modified", "align": "center", "width": "25%", "data": "modt", "islink": "False"}
+        ]
+    }
+}}

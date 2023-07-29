@@ -94,7 +94,7 @@ input[type="submit"]:hover {
 
 /* Specific to the documentation file browser table */
 
-.docs_browse td { 
+.docs_browse td, .docs_browse tr { 
     border-color: #666666;
 }
 

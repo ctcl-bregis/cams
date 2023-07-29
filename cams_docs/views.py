@@ -2,7 +2,7 @@
 # File: views.py
 # Purpose: Integrated Documentation Views
 # Created: July 5, 2023
-# Modified: July 28, 2023
+# Modified: July 29, 2023
 
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import render
@@ -14,7 +14,7 @@ from cams.lib import printe, hsize, getconfig, mkcontext
 import csv, io, os, markdown
 
 basepath = "config/"
-urlprefix = "docs/"
+urlprefix = "/docs/"
 
 docsconfig = getconfig("docs")
 relpath = docsconfig["path"]
@@ -80,11 +80,7 @@ def listfiles(path):
         if file.startswith(".") and docsconfig["showhidden"] == "False":
             continue
 
-        if path.endswith("/"):
-            relfile = f"{path}{file}"
-        else:
-            relfile = f"{path}/{file}"
-        filedata = getfiledata(relfile)
+        filedata = getfiledata(file)
 
         if filedata != None:
             data.append(filedata)

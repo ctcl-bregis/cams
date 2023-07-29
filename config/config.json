@@ -12,27 +12,23 @@
     "navbar": [
         {
             "name": "main",
-            "onlyloggedin": "False",
-            "text": "Main",
+            "onlyloggedin": "True",
+            "text": "Dashboard",
             "link": "/",
             "float": "left",
             "type": "link"
         },
         {
-            "name": "new",
-            "onlyloggedin": "False",
-            "text": "Add Contact",
-            "link": "/new/",
-            "float": "left",
-            "type": "link"
-        },
-        {
             "name": "search",
-            "onlyloggedin": "False",
-            "text": "Search",
-            "link": "/search/",
+            "onlyloggedin": "True",
+            "text": "Reports",
+            "link": "",
             "float": "left",
-            "type": "link"
+            "type": "dropdown",
+            "dd": [
+                {"text": "Search Sources", "link": "/search/sources/"},
+                {"text": "Search Items", "link": "/search/items/"}
+            ]
         },
         {
             "name": "settings",
@@ -63,11 +59,12 @@
         "showhidden": "True",
         "usesorter": "False",
         "knowntypes": {
+            ".json": {"name": "JSON", "type": "source"},
             ".md": {"name": "Markdown", "type": "markdown"},
             ".py": {"name": "Python Source", "type": "source"},
-            ".txt": {"name": "Plain Text File", "type": "text"},
+            ".txt": {"name": "Plain Text", "type": "text"},
             ".zip": {"name": "File Archive", "type": "binary"},
-            "": {"name": "Plain Text File", "type": "text"}
+            "": {"name": "Plain Text", "type": "text"}
         },
         "table": [
             {"title": "Name", "align": "left", "width": "45%", "data": "name", "islink": "True"},
