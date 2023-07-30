@@ -45,21 +45,31 @@ table {
 
 /* Specific to the documentation file browser table */
 
+
+
 .docs_browse tbody tr {
     border: none;
 }
 
-.docs_browse tbody tr td {
+.docs_browse tbody tr td, .docs_browse thead tr th {
     border-style: solid;
     border-width: 2pt;
 }
 
-.docs_browse tbody tr:not(:first-child) td {
+.docs_browse tbody tr td {
     border-top: none;
 }
 
 .docs_browse tbody tr td:not(:first-child) {
     border-left: none;
+}
+
+.docs_browse thead tr th:not(:first-child) {
+    border-left: none;
+}
+
+.docs_browse thead tr th {
+    border-top: none;
 }
 
 /* Specific to forms */

@@ -2,7 +2,7 @@
 # File: views.py
 # Purpose: Integrated Documentation Views
 # Created: July 5, 2023
-# Modified: July 29, 2023
+# Modified: July 30, 2023
 
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import render
@@ -11,81 +11,91 @@ from django.template.defaulttags import register
 from django.db.models import CharField, TextField, Q
 from datetime import datetime, timezone
 from cams.lib import printe, hsize, getconfig, mkcontext
-import csv, io, os, markdown
+import csv, io, os, markdown, pathlib
 
-basepath = "config/"
-urlprefix = "/docs/"
-
-docsconfig = getconfig("docs")
-relpath = docsconfig["path"]
-
+# Get string from the configuration file to format time with
 strfstr = getconfig("misc")["strftime"]
+
+# Assign the config dictionary to a variable so getconfig() does not have to be called every time
+docsconfig = getconfig("docs")
+filepath = docsconfig["path"]
+
+# Hardcoded documentation path
+urlprefix = "/docs/"
 
 # {{ dict|get_item:key }}
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
 
+# Function for getting info on a file, not to be used as a route
 def getfiledata(path):
     # In case there is a Windows-style path
-    file = path.replace('\\', '/')
-    file = os.path.basename(file)
-    
+    path = path.replace('\\', '/')
     filedata = {}
-    filedata["name"] = file
-    mtime = datetime.fromtimestamp(os.path.getmtime(path), timezone.utc)
+    
+    filedata["dname"] = os.path.basename(path)
 
+    # filedata keys:
+    # - dlink: Displayed/Document Link
+    # - dname: Displayed/Document Name
+    # - dtype: Displayed/Document Type (what is shown to the user under "Type")
+    # - rtype: Render Type
+    # - ftmod: File Time of Modification
+    # - fsize: File Size
+    
     if os.path.isdir(path):
-        filedata["link"] = f"/{path}"
-        filedata["size"] = ""
-        # "dtype" is what is shown to the user under "Type", not what is used to determine how to render a file
+        filedata["ftmod"] = datetime.fromtimestamp(os.path.getmtime(path)).strftime(strfstr)
+        filedata["dlink"] = path.replace(filepath, urlprefix) + "/"
         filedata["dtype"] = "Directory"
-        filedata["modt"] = mtime.strftime(strfstr)
-        filedata["type"] = "directory"
-
-        return filedata
+        filedata["rtype"] = "directory"
+        filedata["fsize"] = ""
     elif os.path.isfile(path):
-        extension = os.path.splitext(path)[1]
-        if extension in docsconfig["knowntypes"].keys():
-            filedata["dtype"] = docsconfig["knowntypes"][extension]["name"]
-            print(docsconfig["knowntypes"][extension]["type"])
-            if docsconfig["knowntypes"][extension]["type"] in ["markdown", "source", "text", "source", ""]:
-                filedata["link"] = f"/{path}"
-                filedata["type"] = docsconfig["knowntypes"][extension]["type"]
-            else:
-                filedata["type"] = None
-                filedata["link"] = None
-                
+        filedata["ftmod"] = datetime.fromtimestamp(os.path.getmtime(path)).strftime(strfstr)
+        # File types supported:
+        # - binary: Not readable and does not have a link
+        # - markdown: Readable and is rendered with the markdown module
+        # - text: Displayed as plain text in a <p></p> element
+        # - source: Displayed as plain text in a <code></code> element
+        # Other types that are not listed above would be treated as a binary file and would not be readable
+        
+        ext = pathlib.Path(path).suffix
+
+        if ext in docsconfig["knowntypes"].keys():
+            filedata["rtype"] = docsconfig["knowntypes"][ext]["type"]
         else:
-            # When unknown, have the type as "EXTENSION file", similar to how Windows Explorer handles unknown file types
-            extension = extension.upper()
-            filedata["dtype"] = f"{extension} file"
-            # Assume the file is not plain text
-            filedata["type"] = "binary"
-            filedata["link"] = None
+            filedata["rtype"] = None
 
-        filedata["size"] = hsize(os.path.getsize(path))
-        filedata["modt"] = mtime.strftime(strfstr)
-
-        return filedata
+        if filedata["rtype"] == "binary":
+            filedata["dlink"] = None
+            filedata["fsize"] = os.path.getsize(path)
+        elif filedata["rtype"] in ["markdown", "source", "text"]:
+            filedata["dlink"] = path.replace(filepath, urlprefix)
+            filedata["fsize"] = os.path.getsize(path)
+        else:
+            filedata["dlink"] = None
+            filedata["fsize"] = os.path.getsize(path)
+            
     else:
-        # In case the file is not a file or directory
+        printe(f"cams_docs/views.py function getfiledata ERROR: {path} is not a file, not a directory or does not exist")
         return None
     
+    return filedata
+
+# File listing for use with the HTML table
 def listfiles(path):
-    files = os.listdir(path)
-    data = []
-    for file in files:
-        # Files starting with "." are hidden on UNIX-like platforms
-        if file.startswith(".") and docsconfig["showhidden"] == "False":
-            continue
+    
+    if not os.path.isdir(path):
+        return None
 
-        filedata = getfiledata(file)
+    filelist = []
 
+    for file in os.listdir(path):
+        filedata = getfiledata(path + file)
         if filedata != None:
-            data.append(filedata)
+            filelist.append(filedata)
 
-    return data
+    return filelist
 
 # "root" page
 def docs(request, path = ""):
@@ -93,19 +103,24 @@ def docs(request, path = ""):
     context["dir"] = path
     context["headers"] = docsconfig["table"]
 
-    path = relpath + path
+    path = filepath + path
     if os.path.isdir(path):
         context["data"] = listfiles(path)
 
         return render(request, "docs_dir.html", context = context)
     elif os.path.isfile(path):
+        dlink = getfiledata(path)["dlink"]
         # Make sure the file was given a link
-        if getfiledata(path)["link"] == None:
+        if dlink == None:
             return HttpResponseNotFound()
 
-        context = mkcontext(request, f"Documentation - {path}")
-        filetype = getfiledata(path)["type"]
+        # Remove prefix
+        dlink = dlink.replace("/docs", "")
+        context = mkcontext(request, f"Documentation - {dlink}")
+        filetype = getfiledata(path)["rtype"]
 
+        # IDEA: Pre-render files and store them in memory on server start so the files are not accessed each time
+        # Idea for above idea: Detect file changes during runtime and render the file again
         if filetype == "markdown":
             with open(path) as f:
                 context["content"] = markdown.markdown(f.read())

@@ -67,10 +67,10 @@
             "": {"name": "Plain Text", "type": "text"}
         },
         "table": [
-            {"title": "Name", "align": "left", "width": "45%", "data": "name", "islink": "True"},
+            {"title": "Name", "align": "left", "width": "45%", "data": "dname", "islink": "True"},
             {"title": "Type", "align": "center", "width": "15%", "data": "dtype", "islink": "False"},
-            {"title": "Size", "align": "center", "width": "15%", "data": "size", "islink": "False"},
-            {"title": "Modified", "align": "center", "width": "25%", "data": "modt", "islink": "False"}
+            {"title": "Size", "align": "center", "width": "15%", "data": "fsize", "islink": "False"},
+            {"title": "Modified", "align": "center", "width": "25%", "data": "ftmod", "islink": "False"}
         ]
     }
 }}

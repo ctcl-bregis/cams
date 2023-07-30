@@ -2,12 +2,18 @@
 # File: genmodels.py
 # Purpose: Generate database models, theme data and form data
 # Created: June 9, 2023
-# Modified: July 28, 2023
+# Modified: July 30, 2023
 
-from django.core.management.base import BaseCommand, CommandError
-import os, json, shutil
+import base64
+import json
+import os
+import pathlib
+import shutil
 from datetime import datetime, timezone
+
 from csscompressor import compress
+from django.core.management.base import BaseCommand, CommandError
+
 
 def configchoices(jsonconfig, themes):
     choicedict = jsonconfig["dropdown"]
@@ -184,19 +190,42 @@ class Command(BaseCommand):
             themedir.remove("common")
 
         themeindices = []
-        for i in themedir:
-            if os.path.exists(f"config/themes/{i}/index.json"):
+        for name in themedir:
+            if os.path.exists(f"config/themes/{name}/index.json"):
                 try:
-                    with open(f"config/themes/{i}/index.json") as f:
+                    with open(f"config/themes/{name}/index.json") as f:
                         themedata = dict(json.load(f))["theme"]
+                        themeindices.append(themedata)
                 except (json.JSONDecodeError, json.decoder.JSONDecodeError) as e:
                     print(f"genmodels.py WARNING: Exception \"{e}\" raised by JSON library, the theme would not be available")
+            
             else:
-                print(f"genmodels.py WARNING: Theme \"{i}\" does not have a index.json, the theme would not be available")
-            themeindices.append(themedata)
+                print(f"genmodels.py WARNING: Theme \"{name}\" does not have a index.json, the theme would not be available")
         
+        themecss = ""
+
+        for theme in themeindices:
+            for font in theme["fonts"].keys():
+                ext = pathlib.Path(theme["fonts"][font]).suffix
+                
+                if ext == ".otf":
+                    fontfiletype = "opentype"
+                elif ext == ".ttf":
+                    fontfiletype = "truetype"
+
+                with open(theme["fonts"][font], "rb") as f:
+                    font_b64 = base64.b64encode(f.read()).decode("utf-8")
+
+                themecss += """
+@font-face {{
+    font-family: {fontfamily};
+    src: url(data:font/{filetype};charset=utf-8;base64,{font_b64}) format('{filetype}');
+}}
+
+""".format(fontfamily = font, font_b64 = font_b64, filetype = fontfiletype)
+
         with open(jsonconfig["misc"]["basecss"]) as f:
-            basecss = f.read()
+            themecss += f.read()
         
         themes = {}
         for theme in themeindices:
@@ -205,7 +234,7 @@ class Command(BaseCommand):
             
             if os.path.exists(themeind):
                 with open(theme["css"]) as f:
-                    theme["css"] = compress(basecss + f.read())
+                    theme["css"] = compress(themecss + f.read())
                 
                 themes[theme["int_name"]] = theme
             else:

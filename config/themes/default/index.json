@@ -3,5 +3,8 @@
     "int_name": "default",
     "css": "config/themes/default/style.css",
     "logo": "",
-    "tstheme": {"file": "/static/tablesorter/css/theme.dark.min.css", "name": "dark"}
+    "tstheme": {"file": "/static/tablesorter/css/theme.dark.min.css", "name": "dark"},
+    "fonts": {
+        "urwgothic": "config/themes/default/URWGothic-Book.otf"
+    }
 }}
