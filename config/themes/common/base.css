@@ -3,7 +3,7 @@ CAMS Asset Management System - CTCL 2017-2023
 File: base.css
 Purpose: CSS styling shared across themes
 Created: ???, 2023
-Modified: July 29, 2023
+Modified: July 31, 2023
 */
 
 /* base tags */
@@ -44,8 +44,6 @@ table {
 }
 
 /* Specific to the documentation file browser table */
-
-
 
 .docs_browse tbody tr {
     border: none;

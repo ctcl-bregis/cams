@@ -2,16 +2,21 @@
 # File: views.py
 # Purpose: Integrated Documentation Views
 # Created: July 5, 2023
-# Modified: July 30, 2023
+# Modified: July 31, 2023
 
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
+import csv
+import io
+import os
+import pathlib
+from datetime import datetime, timezone
+import markdown
+from django.db.models import CharField, Q, TextField
+from django.http import (HttpResponse, HttpResponseNotFound, HttpResponseRedirect)
 from django.shortcuts import render
 from django.template import loader
 from django.template.defaulttags import register
-from django.db.models import CharField, TextField, Q
-from datetime import datetime, timezone
-from cams.lib import printe, hsize, getconfig, mkcontext
-import csv, io, os, markdown, pathlib
+
+from cams.lib import getconfig, hsize, mkcontext, printe
 
 # Get string from the configuration file to format time with
 strfstr = getconfig("misc")["strftime"]
@@ -33,7 +38,7 @@ def getfiledata(path):
     # In case there is a Windows-style path
     path = path.replace('\\', '/')
     filedata = {}
-    
+
     filedata["dname"] = os.path.basename(path)
 
     # filedata keys:
@@ -43,7 +48,7 @@ def getfiledata(path):
     # - rtype: Render Type
     # - ftmod: File Time of Modification
     # - fsize: File Size
-    
+
     if os.path.isdir(path):
         filedata["ftmod"] = datetime.fromtimestamp(os.path.getmtime(path)).strftime(strfstr)
         filedata["dlink"] = path.replace(filepath, urlprefix) + "/"
@@ -58,7 +63,7 @@ def getfiledata(path):
         # - text: Displayed as plain text in a <p></p> element
         # - source: Displayed as plain text in a <code></code> element
         # Other types that are not listed above would be treated as a binary file and would not be readable
-        
+
         ext = pathlib.Path(path).suffix
 
         if ext in docsconfig["knowntypes"].keys():
@@ -75,16 +80,16 @@ def getfiledata(path):
         else:
             filedata["dlink"] = None
             filedata["fsize"] = os.path.getsize(path)
-            
+
     else:
         printe(f"cams_docs/views.py function getfiledata ERROR: {path} is not a file, not a directory or does not exist")
         return None
-    
+
     return filedata
 
 # File listing for use with the HTML table
 def listfiles(path):
-    
+
     if not os.path.isdir(path):
         return None
 
@@ -135,5 +140,4 @@ def docs(request, path = ""):
 
         return render(request, "docs_page.html", context = context)
 
-    
     return HttpResponseNotFound()

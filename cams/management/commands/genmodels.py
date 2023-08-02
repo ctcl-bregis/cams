@@ -2,7 +2,7 @@
 # File: genmodels.py
 # Purpose: Generate database models, theme data and form data
 # Created: June 9, 2023
-# Modified: July 30, 2023
+# Modified: July 31, 2023
 
 import base64
 import json
@@ -165,6 +165,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         # Create a backup of the database since migrations may wipe the data
+        # NOTE: This should be removed later on
         if os.path.exists("db.sqlite3"):
             if os.path.exists("db_backup.sqlite3"):
                 os.remove("db_backup.sqlite3")
