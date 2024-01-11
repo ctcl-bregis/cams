@@ -1,12 +1,12 @@
-<div align="center">
-  <img src="cams_logo_jan112024.svg" alt="CAMS Asset Management System"/>
+<div>
+  <img src="cams_logo_jan112024.svg" style="width: 25%" alt="CAMS Asset Management System"/>
 </div>
 
 # CAMS "Rainbow Trout"
 
-CAMS Asset Management System, or just CAMS, is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. The idea for using ID numbers and tags for my own hardware has originated in likely 2017 though I have not had a proper system to keep track of assets since then.
+CAMS Asset Management System , is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. The idea for using ID numbers and tags for my own hardware has originated in likely 2017 though I have not had a proper system to keep track of assets since then.
 
-CAMS is based off the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly. Unlike CAMS, 2nd Life IMS was written using Ruby on Rails. CAMS is also inspired by the inventory software [PartKeepr](https://github.com/partkeepr/PartKeepr).
+CAMS is based off the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly. Unlike CAMS, 2nd Life IMS was written using Ruby on Rails. CAMS is also inspired by [PartKeepr](https://github.com/partkeepr/PartKeepr) and [GLPI](https://github.com/glpi-project/glpi).
 
 Formerly CAMS meant Computer Asset Management System but now CAMS referrs to CAMS Asset Managment System since the software can be used to manage other types of assets if configured so.
 
@@ -40,7 +40,7 @@ When to use --build:
 - After adding, removing or editing themes under config/themes/
 - (Until dynamic models are implemented) After editing anything in config.json
 
-*Rest of Section To-Do*
+*Rest of Section Coming Soon*
 
 ### Printing
 CAMS can make identification tags for parts and devices.
