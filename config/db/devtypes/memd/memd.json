@@ -1,0 +1,9 @@
+{
+    "table": "memd",
+    "cols": {
+        "mbnd": {
+            "type": "dropdown",
+            "ddfile": "config/db/devtypes/memd/mbnd.txt"
+        }
+    }
+}

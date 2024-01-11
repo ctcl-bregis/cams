@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="cams_logo_jan112024" alt="CAMS Asset Management System"/>
+</div>
+
 # CAMS "Rainbow Trout"
 
 CAMS Asset Management System, or just CAMS, is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. The idea for using ID numbers and tags for my own hardware has originated in likely 2017 though I have not had a proper system to keep track of assets since then.

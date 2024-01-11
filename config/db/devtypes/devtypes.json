@@ -1,4 +1,4 @@
 {"tables": {
-    "ltpc": "config/devtypes/ltpc/ltpc.json",
-    "memd": "config/devtypes/memd/memd.json",
+    "ltpc": "config/devtypes/ltpc.json",
+    "memd": "config/devtypes/memd.json"
 }}

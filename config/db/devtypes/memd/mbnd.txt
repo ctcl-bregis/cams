@@ -1,4 +1,3 @@
-name
 .GXore Technologies
 02IC Co Ltd
 3COM
@@ -58,7 +57,7 @@ Agate Logic Inc
 Agate Semiconductor
 Agere Systems
 Agile Memory Technology Co Ltd
-Agilent  Technologies
+Agilent Technologies
 Aica Kogyo Ltd
 Aigo Data Security Technology Co. Ltd
 Aigo Electronic Technology Co Ltd
@@ -73,7 +72,7 @@ AKM Company Ltd
 Albatron Technology Co Ltd
 Alcatel Mietec
 Alchemy Semiconductor
-ALi Corp  (Abilis Systems)
+ALi Corp (Abilis Systems)
 Align Manufacturing
 All Bit Semiconductor
 Allayer Technologies
@@ -102,10 +101,10 @@ Amimon
 Ampere Computing
 Ample Communications
 AMS (Jiangsu Advanced Memory Semi)
-AMS(Austria Micro)
-Anadigm  (Anadyne)
+AMS (Austria Micro)
+Anadigm Anadyne)
 Analog Devices
-Ancore  Technology  Corporation
+Ancore Technology Corporation
 Andes Technology Corporation
 AnHui Conner Storage Co Ltd
 Annapurna Labs
@@ -169,7 +168,7 @@ Avant Technology
 Avantium Corporation
 AVED Memory
 Avexir Technologies Corporation
-AVM g mbH
+AVM gmbH
 Axel Electronics Co Ltd
 Axell Corporation
 Axia Memory Technology
@@ -208,7 +207,7 @@ BF Goodrich Data.
 Biao Ram Technology C o Ltd
 Biostar Microtech International Corp
 BitBlitz Communications
-Bitmain  Technologies Inc.
+Bitmain Technologies Inc.
 BittWare Inc
 Biwin Semiconductor (HK) Co Ltd
 Biwin Storage Technology Co Ltd
@@ -233,7 +232,7 @@ Brooktree
 Buffalo (Formerly Melco)
 Butterfly Network Inc
 C EITEC
-C-Corsa  Technology
+C-Corsa Technology
 c’t Magazine
 Cabletron
 Cactus Technologies Limited
@@ -263,7 +262,7 @@ Cervoz Co Ltd
 Ceva
 Cguys Incorporated
 Chameleon Systems
-Chao Yue Zhuo Computer  Business Dept .
+Chao Yue Zhuo Computer Business Dept .
 Chelsio Communications
 Chengboliwei Electronic Business
 Chengdu Fengcai Electronic Technolog y
@@ -357,11 +356,11 @@ Dell Technologies
 Delta Electronics
 Densbits Technology
 Denso Corporation
-DEPO  Computers
+DEPO Computers
 Design Art Networks
 Di splayLink
 Diablo Technologies Inc
-Dialog  Semiconductor
+Dialog Semiconductor
 Diamond
 Dibcom
 Diehl Aerospace
@@ -375,15 +374,14 @@ Dolphin Integration
 Domosys
 Dongguan Crown Code Electronic Commerce
 Dongguan Guanma ecommerce Co Ltd
-Dongguan Yingbang Commercial Trading  Co
+Dongguan Yingbang Commercial Trading Co
 Dosilicon Co Ltd
 Dot Hill Systems
 Dotcast
 Douqi Technology
 Draper Labs
 DSIN
-DSL Mem ory
-DSP Group
+DSL Memory
 DSP Group
 Dukosi
 Dune Networks
@@ -399,10 +397,10 @@ Echo w Technolo gy Ltd
 Edgewater Computer Systems
 Efinix Inc
 Ehiway Microelectronic Science Tech Co
-EIV(Switzerland)
+EIV
 EKMemory
 Elan Circuit Tech.
-Electronic Commerce  Company  Ltd
+Electronic Commerce Company Ltd
 Elektrobit
 Element
 Element CXI
@@ -419,7 +417,7 @@ Emphany Systems Inc
 empowerTel Networks
 Emulex
 Emuzed
-"Emzior, LLC"
+Emzior, LLC
 Endicott Interconnect Technologies
 Energous
 Energy Micro
@@ -432,7 +430,6 @@ Enverv Inc
 Eon Silicon Devices
 Eoplex Inc
 Eorex Corporation
-Eorex Corporation
 EpicGear
 Epigram
 Equator Technology
@@ -442,7 +439,7 @@ Ericsson Technology
 eRide Inc
 eSilicon
 Esperanto Technologies
-Espressif Systems (Shanghai)  Co Ltd
+Espressif Systems (Shanghai) Co Ltd
 ESS Technology
 Essencore Limited
 Eta Compute
@@ -454,27 +451,25 @@ Euronet Technology Inc
 European Silicon Str.
 Eurotechnique
 eveRAM Technology Inc
-Everspin Te chnologies
+Everspin Technologies
 EVGA
-eWave Syst em
+eWave System
 Exar
 Exascend
 Exbit Technology A/S
 Excalibrus Technologies Ltd
 Excel Semiconductor
 EXCELERAM
-Excess Bandwidt h
+Excess Bandwidth
 EXEGate FZE
 Exel
 Exelis
-Extreme Eng ineering Solutions Inc
+Extreme Engineering Solutions Inc
 Extreme Packet Devices
 Eyenix Co Ltd
 Fabu Technology
 Facebook Inc
 Fairchild
-Fairchild
-Faraday Technology
 Faraday Technology
 FastChip
 FCI USA Inc
@@ -484,19 +479,18 @@ FIDELIX
 Firecron Ltd
 Flash Chi
 Flasys
-Flextronics  (Orbit Semiconductor)
+Flextronics (Orbit Semiconductor)
 Flexxon PTE Ltd
 FNetworks
 Focus Enhancements
-Focus Enhancements
 Fodus Communications
-Foerd  Technology Co Ltd
+Foerd Technology Co Ltd
 FOXCONN
 Foxline
 Foxtronn International Corporation
 Fraunhofer IIS
 Fraunhofer IPMS
-Freescale  (Motorola)
+Freescale (Motorola)
 Fremont Micro Devices Ltd
 FROMCo Ltd
 FSSemi Company Ltd
@@ -504,7 +498,7 @@ Fujitsu
 Fulcrum Microsystems
 Future Waves UK Ltd
 FuturePath Technology (Shenzhen) Co
-G ENUSION  Inc
+G ENUSION Inc
 G Skill Intl
 Gadzoox Networks
 Gaisler Research AB
@@ -519,7 +513,7 @@ GateField
 Gazda
 GCT Semiconductor Inc
 GDRAMARS
-GE Aviation Systems  LLC.
+GE Aviation Systems LLC.
 Gemstone Communications
 Genesis Microchip Inc
 Genesys Logic Inc
@@ -527,12 +521,11 @@ Geniachip (Roche)
 GENNUM
 GEO Semiconductors
 Gerad Technologies
-Ghost  Wolf
+Ghost Wolf
 Giantec Semiconductor Inc
 GIGABYTE Technology Co Ltd
 Gigacom Semiconductor LLC
 GigaDevice Semiconductor
-GigaDevice Semiconductor (Beijin
 Gigaram
 Gigaram Inc
 Gingle Technology Co Ltd
@@ -594,7 +587,7 @@ Haiguang Integrated Circuit Design
 Hal Computers
 HANA Micron
 HanBit Electronics
-Hangzhou  Hikstorage Technology Co
+Hangzhou Hikstorage Technology Co
 Hangzhou Hikstorage Technology Co
 Haotian Jinshibo Science Tech
 Harman
@@ -609,7 +602,7 @@ Helix AG
 Heoriady
 Hermes Tes ting Solutions Inc
 Hewlett Packard Enterprise
-HewlettPackard
+Hewlett Packard
 Hex Five Security Inc
 Hexon Technology Pte Ltd
 HGST
@@ -674,7 +667,7 @@ in2Hinc
 Inc
 Indie Semiconductor
 INDUSYS GmbH
-Infineon  (Siemens)
+Infineon (Siemens)
 Infinera Corporation
 InfiniteMemories
 Infomax
@@ -687,23 +680,23 @@ Innofidei
 Innovaciones Microelectronica s
 Innovasic Semiconductor
 Innovics Wireless
-Innovium  Inc
+Innovium Inc
 Inova Semiconductors GmbH
 Inphi Corporation
 Insignis Technology Corporation
 InSilica
 Inspur Electronic Information Industry
 Insyte
-Int egrated  Silicon Solutions
+Integrated Silicon Solutions Inc. (ISSI)
 Integ. Memories Tech.
 Integrat ed CMOS (Vertex)
-Integrated  Silicon Solution Israel Ltd
+Integrated Silicon Solution Israel Ltd
 Integrated Memory System
 Integrated Silicon Solution (I SSI)
 Integrated Technology Express
 Intel
 Intelimem
-Intelligence  Silicon Technology
+Intelligence Silicon Technology
 Intellitech Corporation
 INTENSO
 InterDigital Communications
@@ -726,7 +719,7 @@ iVivity Inc
 J&A Information Inc
 Jade Star Technolo gies
 Jasmine Networks
-Javad GNSS  Inc
+Javad GNSS Inc
 Jazer
 Jennic
 Jesis
@@ -746,7 +739,7 @@ JUHOR
 Jump Trading
 Juniper Networks
 Just Young Computer
-Kandit Technology  Co Ltd
+Kandit Technology Co Ltd
 Kandou Bus SA
 Kawasaki Steel
 Kembona
@@ -754,7 +747,7 @@ Kendin Communications
 Kentron Technologies
 Key Stream
 KeyEye Communications
-"Keymos Electronics Co., Limited"
+Keymos Electronics Co., Limited
 Keysight Technologies
 Kian Tech LLC
 Kimtigo Semiconductor (HK) Limited
@@ -780,7 +773,7 @@ Kreton Corporation
 Kuso
 Kyokuto Electronic Inc
 Lab
-Lanson Memory  Co Ltd
+Lanson Memory Co Ltd
 Lanstar Semiconductor
 Lantiq Deutschland GmbH
 Lara Technology
@@ -800,7 +793,7 @@ LeWiz Communications
 Lexar Co Limited
 Lexar Media
 LG Semi (Goldstar)
-Libit Signal Processi ng
+Libit Signal Processing
 Lifelong
 Lifetime Memory Products
 LightSand Communications
@@ -822,7 +815,7 @@ Luminous Computing Inc
 LuoSilk
 Lynxi Technologies Ltd Co
 Lyontek Inc
-M ustang
+Mustang
 M.H.S. SAS
 M2Inc
 Mach Xtreme Technology Ltd
@@ -832,7 +825,7 @@ Magis Works
 Magnum Semiconductor Inc
 Makway International
 Malaysia Micro Solutions
-Malleable Technolog ies
+Malleable Technologies
 Marvell Semiconductors
 Massana Design
 Mathstar
@@ -858,7 +851,6 @@ Memory Card Technology
 Memory Corp NV
 Memory Exchange Corp
 Memory Experts Intl
-Memorysolution GmbH
 Memorysolution GmbH
 Memphis Electronic
 MemxPro Inc
@@ -905,7 +897,7 @@ MOVEKING
 Movidia Ltd
 MSC Technologies GmbH
 MSC Vertriebs GmbH
-MtekVision  (Atsana)
+MtekVision (Atsana)
 Multi Dimensional Cons.
 Multigig Inc
 MultiLink Technology
@@ -1004,7 +996,7 @@ On Demand Microelectronics
 Onda Electric Co Ltd
 ONE Semiconductor
 Onex Communications
-Open  HW Group
+Open HW Group
 OpenSilicon
 Oplus Technologies
 Optichron Inc
@@ -1013,7 +1005,7 @@ Optosys Technologies
 Opulan Technologies
 Oracle Corporation
 Orca Systems
-ORICO  Technologies Co. Ltd.
+ORICO Technologies Co. Ltd.
 P.A. Semi Inc
 Paisen Network Technology Co Ltd
 Palma Ceia SemiDesign
@@ -1022,11 +1014,11 @@ Panram International Corporation
 Parade Technologies Inc
 ParkerVision Inc
 Passif Semiconductor
-Patriot  Memory  (PDP Systems)
+Patriot Memory (PDP Systems)
 Patriot Scientific
 PCCOOLER
 PCMCIA
-Pega sus Semiconductor  (Shanghai) Co
+Pegasus Semiconductor (Shanghai) Co
 Pensando Systems Inc.
 Perceive
 Percello Ltd
@@ -1087,7 +1079,6 @@ PulseRain Technology
 Purple Ray
 PUSKILL
 Puya Semiconductor
-Puya Semiconductor (Shenzhen)
 Pycon
 PZG
 Qbit Semiconductor Ltd
@@ -1112,7 +1103,7 @@ Radiospire Networks
 RAM Components
 Ramaxel Technology
 Rambus Inc
-RamCENTER  Technolo gy
+RamCENTER Technolo gy
 Ramonster Technology Co Ltd
 Ramos Technology
 Ramsta
@@ -1155,7 +1146,7 @@ ROG
 Rohm Company Ltd
 Runcom Technologies
 RWA (Hong Kong) Ltd
-S TMicroelectronics
+STMicroelectronics
 S3Plus Technologies SA
 Sabrent
 Saifun Semiconductors
@@ -1190,13 +1181,13 @@ Semiconductor Mfg Intl Corp
 Semicondutores
 Semidrive
 Semidynamics Technology Services SLU
-SemsoTai ( SZ) Technology Co Ltd
+SemsoTai (Shenzhen) Technology Co Ltd
 Semtech Corporation
 Sensio Technologies Inc
 Septentrio NV
-Sh enzhen City Gcai Electronics
-Sh enzhen Larix Technology Co Ltd
-Shang hai Fudi Investment Development
+Shenzhen City Gcai Electronics
+Shenzhen Larix Technology Co Ltd
+Shanghai Fudi Investment Development
 Shanghai Biren Technology Co Ltd
 Shanghai Fudan Microelectronics
 Shanghai Han Rong Microelec tronics Co
@@ -1208,15 +1199,15 @@ Shanghai Zhaoxin Semiconductor Co
 Shangxin Technology Co Ltd
 Shark Gaming
 Sharp
-Shen zen Recadata Storage Technology
-Shen zhen City Futian District Qing Xu
-Shen Zhen Juhor Precision Tech Co Ltd
-Shen Zhen XinShenHua Tech Co Ltd
+Shenzhen Recadata Storage Technology
+Shenzhen City Futian District Qing Xu
+Shenzhen Juhor Precision Tech Co Ltd
+Shenzhen XinShenHua Tech Co Ltd
 Shenshan (Shenzhen) Electronic
-Shenshen Xinxintao Electronics Co Ltd
-Shenzh en Envida  Technology Co Ltd
+Shenzhen Xinxintao Electronics Co Ltd
+Shenzhen Envida Technology Co Ltd
 Shenzhen Actseno Information Technology
-Shenzhen Ba nghong Electronics Co Ltd
+Shenzhen Banghong Electronics Co Ltd
 Shenzhen Baihong Technology Co Ltd
 Shenzhen Bigway Tech Co Ltd
 Shenzhen Boyuan Computer Technology
@@ -1229,8 +1220,8 @@ Shenzhen CHN Technology C o Ltd
 Shenzhen Chuangshifeida Technology
 Shenzhen Chuangshifeida Technology
 Shenzhen City Parker Baking Electronics
-Shenzhen Cloud Security Storage  Co
-Shenzhen Cooyes Technology Co  Ltd
+Shenzhen Cloud Security Storage Co
+Shenzhen Cooyes Technology Co Ltd
 Shenzhen Cwinner Technology Co Ltd
 Shenzhen Daxinlang Electronic Tech Co
 Shenzhen Eaget Innovation Tech Ltd
@@ -1238,7 +1229,7 @@ Shenzhen Elicks Technology
 Shenzhen Fanxiang Information Technology
 Shenzhen Farasia Science Technology
 Shenzhen Feisrike Technology Co Ltd
-Shenzhen Fengwensi Technology  Co Ltd
+Shenzhen Fengwensi Technology Co Ltd
 Shenzhen Futian District Bo Yueda Elec
 Shenzhen Futian SEC Electronic Market
 Shenzhen Giant Hui Kang Tech Co Ltd
@@ -1248,7 +1239,7 @@ Shenzhen Hangshun Chip Technology
 Shenzhen HongDingChen Information
 Shenzhen Hua ng Pu He Xin Technology
 Shenzhen Huafeng Science Technology
-Shenzhen Huatop  Technology Co Ltd
+Shenzhen Huatop Technology Co Ltd
 Shenzhen Hui ShingTong Technology
 Shenzhen Hystou Technology Co Ltd
 Shenzhen Ingacom Semiconductor Ltd
@@ -1262,10 +1253,10 @@ Shenzhen Kefu Technology Co Limited
 Shenzhen King Power Electronics
 Shenzhen KingDisk Century Technology
 Shenzhen LianTeng Ele ctronics Co Ltd
-Shenzhen Lomica  Technology Co  Ltd
+Shenzhen Lomica Technology Co Ltd
 Shenzhen Longsys Electronics Co Ltd
 Shenzhen Longsys Electronics Co Ltd
-Shenzhen M ic Electronics Technol og
+Shenzhen Mic Electronics Technology
 Shenzhen Meixin Electronics Ltd
 ShenZhen MercyPower Tech
 Shenzhen Micro Innovation Industry
@@ -1280,14 +1271,14 @@ Shenzhen Qianhai Weisheng
 Shenzhen Quan xing Technology Co Ltd
 Shenzhen Quanji Technology Co Ltd
 Shenzhen Reeinno Technology Co Ltd
-Shenzhen Ronisys  Electronics  Co Ltd
+Shenzhen Ronisys Electronics Co Ltd
 Shenzhen RuiRen Technology Co Ltd
 Shenzhen Ruiyingtong Technology Co
 Shenzhen Sati Smart Technology Co Ltd
 Shenzhen Shi Bolunshuai Technology
 Shenzhen Sipeed Technology Co Ltd
 Shenzhen SKIHOTAR Semiconductor
-Shenzhen Sooner Industrial  Co Ltd
+Shenzhen Sooner Industrial Co Ltd
 Shenzhen SOVERECA Technology Co
 Shenzhen Speedmobile Technology Co
 Shenzhen Suhuicun Technology Co Ltd
@@ -1300,7 +1291,7 @@ Shenzhen Tianyu Jieyun Intl Logistics
 Shenzhen Toooogo Memory Technology
 Shenzhen Veineda Technology Co Ltd
 Shenzhen Weien Electronics Co. Ltd.
-Shenzhen Winconway  Technology
+Shenzhen Winconway Technology
 Shenzhen WODPOSIT Technology Co
 Shenzhen Xin Hong Rui Tech Ltd
 Shenzhen Xingmem Technology Corp
@@ -1309,7 +1300,7 @@ Shenzhen Xinlianxin Network Technology
 Shenzhen XinRuiYan Electronics
 Shenzhen Xinshida Te chnology Co Ltd
 Shenzhen Xinxinshun Technology Co
-Shenzhen Xinyuze Technology  Co Ltd
+Shenzhen Xinyuze Technology Co Ltd
 Shenzhen YC Storage Technology Co Ltd
 Shenzhen Yikesheng Technology Co Ltd
 Shenzhen Yilong Innovative Co Ltd
@@ -1317,15 +1308,14 @@ Shenzhen Yingjiaxun Industrial Co Ltd
 Shenzhen Yinxiang Technology Co Ltd
 Shenzhen Yong Sheng Technology
 Shenzhen Yze Technology Co Ltd
-Shenzhen Yze Technology Co Ltd
 Shenzhen Zhifeng Weiye Technology
 Shenzhen Zhixin Chuanglian Technology
-Shenzhen Zhong shi Technology  Co Ltd
+Shenzhen Zhong shi Technology Co Ltd
 Shenzhen Zhongguang Yunhe Trading
-Shenzhen Zhongteng Electronic  Corp  Ltd
-Shenzhen Zhongti an Bozhong Technology
+Shenzhen Zhongteng Electronic Corp Ltd
+Shenzhen Zhongtian Bozhong Technology
 Shenzhen ZST Electronics Technology
-ShenzhenYing Chi Technology Developmen t
+Shenzhen Ying Chi Technology Development
 Shikatronics
 ShineDisk
 Shunlie
@@ -1335,10 +1325,10 @@ SiberCore Technologies
 Sibyte Incorporated
 Sicon Semiconductor AB
 SiCon Video
-SiConne ct
+SiConnect
 SiCortex Inc
 Siemens AG
-"SiEngine Technology Co., Ltd."
+SiEngine Technology Co., Ltd.
 Sierra Wireless
 SiFive Inc
 SiGe Semiconductor
@@ -1353,8 +1343,6 @@ Silego Technology Inc
 Silergy
 Silicon Access Networks
 Silicon Integrated Systems
-Silicon Integrated Systems Corporation
-Silicon Intergrated Systems Corporation
 Silicon Laboratories Inc (Cygnal)
 Silicon Mobility
 Silicon Motion Inc
@@ -1380,7 +1368,7 @@ SiPearl
 SiRF Technology
 SiTel Semiconductor BV
 Sitrus Technology
-SK Hynix
+SK hynix
 Skymedi Corporation
 Skyup Technology
 Skyworks Solutions
@@ -1391,7 +1379,7 @@ Smart Energy Instruments
 Smart Modular
 Smart Shine(QingDao) Microelectronics
 Smart Storage Systems
-SMSC  (Standard Microsystems)
+SMSC (Standard Microsystems)
 SNOAMOO (Shenzhen Kai Zhuo Yue)
 Socionext Inc
 Solarflare Communications
@@ -1431,7 +1419,7 @@ Super Talent
 Supreme Top Technology Ltd
 Supreme Wise Limited
 Suwa Electronics
-Suzhou EP Semicon Co  Ltd
+Suzhou EP Semicon Co Ltd
 Suzhou Mainshine Electronic Co Ltd.
 Suzhou Smartek Electronics
 Swissbit
@@ -1443,14 +1431,14 @@ Syndiant Inc.
 Synertek
 Synopsys
 Syzexion
-T ezzaron  Semiconductor
+Tezzaron Semiconductor
 T Square
-T-HEAD Semiconductor Co  Ltd
+T-HEAD Semiconductor Co Ltd
 T-RAM Incorporated
 Tabula Inc
 Tachys Technologies
 Taiwan Semiconductor Mfg
-takeMS Ultron  AG
+takeMS Ultron AG
 Tammuz Co Ltd
 Tanbassh
 Tandem
@@ -1460,8 +1448,7 @@ Tarari Inc
 TCSI
 Team Group Inc
 Techcomp International (Fastable)
-TecHill
-Technology .
+TecHill Technology
 Teclast
 TECMAR
 Tecmiyo
@@ -1489,7 +1476,7 @@ Terago Communications
 TeraLogic
 Teranetics
 Terawave Communications
-Terra Semicon ductor Inc
+Terra Semiconductor Inc
 Tesla Corporation
 Texas Instruments
 The Boeing Company
@@ -1513,9 +1500,9 @@ TOPRAM Technology
 Toshiba Corporation
 Toumaz Group
 Tower Semiconductor
-Trading  Firm
+Trading Firm
 Transcend Information
-Transcend Technology Co Ltd
+Transcend
 Transmeta
 Transwitch
 Trebia Networks
@@ -1554,14 +1541,14 @@ UNIC Memory Technology Co Ltd
 UNICORE Electronic (Suzho u) Co Ltd
 Unifosa Corporation
 Unigen Corporation
-UNIM  Innovation Technology (Wu XI)
+UNIM Innovation Technology (Wu XI)
 Unimemory Technol ogy(s ) Pte Ltd
 Union Memory
 UnionChip Semiconductor Co Ltd
 Uniquify Inc
 Unisoc
 Unistar
-United Microelec tronics  Corp
+United Microelec tronics Corp
 Univ. of NC
 UPMEM
 Uroad Technology Co Ltd
@@ -1579,7 +1566,7 @@ Vativ Technologies
 Vayyar Imaging Ltd
 VColor Technology Inc
 Velogix
-Ventana Mic ro Systems
+Ventana Micro Systems
 Ventura Technology Group
 VeriSilicon Microelectronics
 Viasystems Group
@@ -1595,9 +1582,8 @@ VirtualDigm
 Visenta (Xiamen) Technology Co Ltd
 Visic
 Visiontek Products LLC
-Visipro.
+Visipro
 Vitesse
-Vitesse Enterprise Co
 Vivace Semiconductor
 Vixel
 VLSI
@@ -1609,7 +1595,7 @@ VTechnologies
 W.L. Gore
 Wafer Scale Integration
 Walton Chaintech
-Warrior  Technology
+Warrior Technology
 Wave Computing
 Waymo LLC
 WeForce Co Ltd
@@ -1627,27 +1613,27 @@ Wilocity
 Win Technologies
 Winbond Electronic
 Winconway
-Wink Semiconductor  (Shenzhen) Co Ltd
+Wink Semiconductor (Shenzhen) Co Ltd
 Wintec Industries
 Wintegra Ltd
 WIS Technologies
 Wisair Ltd
 WNetworks
-WorkX AG  (Wichman)
+WorkX AG (Wichman)
 World Wide Packets
 Wuhan Jing Tian Interconnected Tech Co
 Wuhan Naonongmai Technology Co Ltd
 Wuhan P&S Semiconductor Co Ltd
 WuHan SenNaiBo ECommerce Co Ltd
 Wuhan Xun Zhan Electronic Technology
-Wuxi Petabyt e Technologies Co Ltd
+Wuxi Petabyte Technologies Co Ltd
 Wxilicon Technology Co Ltd
 Xambala Inc
 XaQti
 XeL Technology Inc
 Xelerated
 Xerox
-Xi’an Moreb eck Semiconductor Tech Co
+Xi’an Morebeck Semiconductor Tech Co
 Xi’an UniIC Semiconductor s Co Ltd
 Xiamen Kingblaze Technology Co Ltd
 Xiamen Pengpai Microelectronics Co Ltd
@@ -1689,17 +1675,17 @@ Zenverge Inc
 ZeroG Wireless Inc
 Zettacom
 Zhejiang Dahua Memory Technology
-Zhixin Semicoducotor Co  Ltd
+Zhixin Semicoducotor Co Ltd
 Zhiying Software
-Zhongsihang Technology  Co Ltd
+Zhongsihang Technology Co Ltd
 Zhuhai Chuangfeixin Technology Co Ltd
 Zhuhai Douke Commerce Co Ltd
 Zhuhai Sanxia Semiconductor Co Ltd
-Zhuz hou Hongda Electronics Corp Ltd
+Zhuzhou Hongda Electronics Corp Ltd
 Zilog
 ZMOS Technology
 Zord
 Zotac Technology Ltd
 ZSP Corp
-Zucotto Wirele ss
+Zucotto Wireless
 Zyzyx
