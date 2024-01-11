@@ -1,6 +1,6 @@
 # CAMS "Rainbow Trout"
 
-CAMS Asset Management System, or just CAMS, is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. 
+CAMS Asset Management System, or just CAMS, is a fully custom inventory management software made for mainly organizing computer hardware. I have started to learn how to write Python to start working on the project in late 2021. The idea was from created the need of a specialized asset/inventory management system software to organize the vast amount of computers and computer parts that I had. The idea for using ID numbers and tags for my own hardware has originated in likely 2017 though I have not had a proper system to keep track of assets since then.
 
 CAMS is based off the fully custom-made inventory management software, commonly referred to as just "IMS", used by the computer resale company 2nd Life Inc. of Richmond, Virginia, United States where I was employed formerly. Unlike CAMS, 2nd Life IMS was written using Ruby on Rails. CAMS is also inspired by the inventory software [PartKeepr](https://github.com/partkeepr/PartKeepr).
 
@@ -12,19 +12,16 @@ Intended Use: CAMS is fully custom to what I need out of an asset management sys
 
 ## Requirements
 
-### Hardware (server)
-CAMS may run on any platform that Python 3.8 and later supports, including but not limited to x86, x86-64, mips32, mips64, armv7l (32-bit, e.g. Raspberry Pi 2 and earlier, Banana Pi F2P/F2S) and armv8 (64-bit, e.g. Raspberry Pi 3 and 4). A minimum of **512MB of system memory (RAM) is recommended**. Depending on the environment, it may run on systems with less memory.
-
 ### Software (server)
 CAMS is developed entirely on Debian GNU/Linux and Linux Mint. Functionality on Windows platforms is not guaranteed.
 
-As Django 4.2 is currently the only dependency in "requirements.txt", the minimum Python version required is **3.8** as stated in the [Django documentation](https://docs.djangoproject.com/en/4.2/faq/install/).
+Requirements for a specific version of Python 3 may change as dependencies are added or removed
 
 ### Software (client)
-Due to the lack of login system and user settings at the moment, support for cookies is not required. Also, JavaScript is not required to use the features of the web application. HTML5 support is recommended.
+HTML5, maybe CSS3, JavaScript and cookie support are required.
 
 ## Setup
-*Section To-Do*
+*Coming soon*
 
 ## Configuration
 The configuration file in config/database/entry.csv defines the form fields and database models used by the application. The included file is rather basic but can be modified to add more fields.
