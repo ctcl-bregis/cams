@@ -1,16 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg id="svg5" width="27mm" height="9mm" version="1.1" viewBox="0 0 27 9" xmlns="http://www.w3.org/2000/svg">
- <g id="layer1">
-  <rect id="rect31" x="-1.7764e-15" width="27" height="9" fill="#f00" stroke-width="1.5211"/>
-  <rect id="rect153" x="1" y="1" width="7" height="7" fill="#fff" stroke-width=".27814"/>
-  <g id="text1201" transform="matrix(.75591 0 0 .75591 2.0614 7.9085)" fill="#f00" stroke-width=".26458" aria-label="C">
-   <path id="path2823" d="m-0.081273-1.2019v-6.6146h6.6146v1.3229h-5.2916v3.9687h5.2916v1.3229z" fill="#f00"/>
+
+<svg
+   id="svg5"
+   width="28mm"
+   height="9mm"
+   version="1.1"
+   viewBox="0 0 28 9"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <g
+     id="layer1">
+    <rect
+       id="rect31"
+       x="-1.7764e-15"
+       width="28"
+       height="9"
+       fill="#ff0000"
+       stroke-width="1.5211"
+       y="0" />
+    <rect
+       id="rect153"
+       x="1"
+       y="1"
+       width="7"
+       height="7"
+       fill="#ffffff"
+       stroke-width="0.27814" />
+    <g
+       id="text1201"
+       transform="matrix(0.75591,0,0,0.75591,2.0614,7.9085)"
+       fill="#ff0000"
+       stroke-width="0.26458"
+       aria-label="C">
+      <path
+         id="path2823"
+         d="m -0.081273,-1.2019 v -6.6146 h 6.6146 v 1.3229 h -5.2916 v 3.9687 h 5.2916 v 1.3229 z"
+         fill="#ff0000" />
+    </g>
+    <g
+       id="text3414"
+       transform="translate(4.7886,14.859)"
+       fill="#ffffff"
+       stroke-width="0.2"
+       aria-label="AMS">
+      <path
+         id="path5804"
+         d="m 5.2114,-11.859 v -1 h 3 v 1 z m -1,4 v -4 h 1 v 1 h 3 v -1 h 1 v 4 h -1 v -2 h -3 v 2 z" />
+      <path
+         id="path5806"
+         d="m 12.211,-9.8592 v -1 h 1 v 1 z m -2,2 v -5 h 1 v 1 h 1 v 1 h -1 v 3 z m 4,0 v -3 h -1 v -1 h 1 v -1 h 1 v 5 z" />
+      <path
+         id="path5808"
+         d="m 16.211,-7.8592 v -1 h 4 v -1 h -4 v -3 h 5 v 1 h -4 v 1 h 4 v 3 z" />
+    </g>
   </g>
-  <g id="text3414" transform="translate(4.7886 14.859)" fill="#fff" stroke-width=".2" aria-label="AMS">
-   <path id="path5804" d="m5.2114-11.859v-1h3v1zm-1 4v-4h1v1h3v-1h1v4h-1v-2h-3v2z"/>
-   <path id="path5806" d="m12.211-9.8592v-1h1v1zm-2 2v-5h1v1h1v1h-1v3zm4 0v-3h-1v-1h1v-1h1v5z"/>
-   <path id="path5808" d="m16.211-7.8592v-1h4v-1h-4v-3h5v1h-4v1h4v3z"/>
-  </g>
- </g>
 </svg>
