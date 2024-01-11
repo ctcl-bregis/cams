@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="cams_logo_jan112024" alt="CAMS Asset Management System"/>
+  <img src="cams_logo_jan112024.svg" alt="CAMS Asset Management System"/>
 </div>
 
 # CAMS "Rainbow Trout"
