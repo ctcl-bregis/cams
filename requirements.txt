@@ -1,5 +1,0 @@
-django>=3.2
-csscompressor
-markdown
-# django-dynamic-model
-# vcard
